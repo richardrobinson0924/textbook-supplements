@@ -123,7 +123,7 @@ where $n$ is the electron density and $\sigma = q/A$ is the conductivity. Furthe
 
 \section{Capacitance}
 \textbf{Capacitance} is defined as \begin{equation}
-  C = q / \Delta V
+  C = \frac{q}{\Delta V} = \frac{\varepsilon_0 A}{d}
 \end{equation}
 In a PPC, SC, and CC, the potential is derived via \begin{equation}
   \Delta V_{ppc} = \frac{qd}{\epsilon A} \qquad \Delta V_{sc} =kq \left(\frac{1}{a} - \frac{1}{b} \right) \qquad \Delta V_{ss} = \frac{q \ln (b-a)}{2 \pi \epsilon L}
@@ -137,7 +137,18 @@ and in a series combination, \begin{equation}
 As well, the potential energy in a capacitor is \begin{equation}
   dU = \Delta V \, dq \iff U = \int_0^q dU = \frac{q^2}{2C}
 \end{equation}
-with $q = C \Delta V$. Specifically, the energy $U$ is stored in $E$ in the region.
+with $q = C \Delta V$. Specifically, the energy $U$ is stored in $E$ in the region. Furthermore, the \textbf{energy density} $u$ is defined as \begin{equation}
+  u = \frac{U}{Ad} = \textstyle\frac{1}{2} \varepsilon_0 E^2
+\end{equation}
+by Eqns 18 \& 22. Using \textbf{voltage division}, the voltage of any impedance $Z$ including capacitance may be found via $q_0 = \sum q$ by \begin{equation}
+  V = \frac{Z_1}{Z_{eq}} V_0
+\end{equation}
+For a \textbf{dielectric capacitor}, the charge is defined as \begin{equation}
+  q' = q (1 - 1/\kappa) \iff E = E_0/\kappa
+\end{equation}
+
+\section{DC Circuits}
+
 
 
 \end{document}
