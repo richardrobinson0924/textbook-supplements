@@ -3,9 +3,11 @@
 \usepackage[english]{babel}
 \usepackage{minted}
 \usepackage{listings}
+\usepackage{color}
 \usepackage{mips}
+\usepackage{adjustbox}
 
-\usemintedstyle{colorful}
+\usemintedstyle{manni}
 \lstset{language=[mips]Assembler}
 
 \setlength{\parindent}{0pt}
@@ -22,16 +24,88 @@
 \setlength{\parindent}{0pt}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Introduction}
 
-\chapter{The Basics}
+\section{The Basics}
+
+In programming, a compiler is a program that translates high-level language statements into assembly language statements. In turn, an assembler translates assembly language into machine language in binary for MIPS. The MIPS unit is given by
+\marginnote{\textbf{Data Transfer Instruction}: a command that moves data between memory and registers.}
+\begin{equation}
+  \mathrm{MIPS} = \frac{\mathrm{clock rate}}{\mathrm{CPI} \times 10^6}
+\end{equation}
+In MIPS, arithmetic operations may only be single and has three variables. For example,
+\begin{minted}{gas}
+  add $s1, $s2, $s3
+\end{minted}
+\marginnote{\textbf{Address:} a value used to delineate the location of a specific data element within a memory array}
+is equivalent to \verb|$s1 = $s2 + $s3| where \verb|$si| are registers for variables. To access a word in memory, the instruction must supply the memory address. Since memory is an array, the address is an index to such.Since MIPS addresses each byte, word addresses are multiples of 4 as there are 4 bytes per word. That is, \verb|lw $t0,4n| gets \verb|A[n]|.
+
+\bigskip
+Assume \verb|h| is associated with reg \verb|$s2| with base address of \verb|A| is in \verb|s3|. For the C statement
+\begin{minted}{c}
+  A[x] = h + A[y]
+\end{minted}
+the equivalent MIPS code is
+\begin{minted}{gas}
+  lw   $t0,4y($s3) # Temp reg $t0 gets A[8]
+  add  $t0,$s2,$t0 # Temp reg $t0 gets h + A[8]
+  sw   $t0,4x($s3) # Stores h + A[y] into A[x]
+\end{minted}
+
+\section{Binary}
+
+The conversion from a binary number \verb|n...n| where \verb|x| is \verb|0,1| and $x_i$ is the $i$th bit of $x$ is \begin{equation}
+  \sum x_i 2^i
+\end{equation}
+from right to left, with the rightmost bit being the least significant bit. Therefore, there are $2^{32}-1$ binary numbers in 32 bits unsigned.
+
+\bigskip
+The \textbf{two's complement} representation has the binary complements related by \begin{equation}
+  \overline{x} + 1 = -x
+\end{equation}
+
+\section{Hexadecimal}
+In the instruction format, each instruction comprises 32 bits into six segments, with the first and last segments having six bits and the others having five which instructs MIPS. These fields are
+\begin{center}
+  \begin{tabular}{cccccc}
+    \verb|op| & \verb|rs| & \verb|rt| & \verb|rd| & \verb|shamt| & \verb|funct|
+  \end{tabular}
+\end{center}
+These fields perform the following functions:
+\begin{itemize}
+  \item \verb|op|: Basic op of the instruction
+  \item \verb|rs|: The first reg src op
+  \item \verb|rt|: The second reg src op
+  \item \verb|rd|: The reg dest op
+  \item \verb|shamt|: Shift amount
+  \item \verb|funct|: Selects variant of \verb|op|
+\end{itemize}
+
+Hexadecimal is an extension of decimal which extends to 16 digits (1-9,a-f). Thus, any permutation of four bits may be represented by a single hexadecimal digit.
+
+\section{Logical Operators}
+
+The logical operators are given as follows:
+
+\begin{marginfigure}
+\begin{adjustbox}{width=0.45\columnwidth}{%
+  \begin{tabular}{cc}
+    \verb|<<| & \verb|sll| \\
+    \verb|>>>| & \verb|srl| \\
+    \verb|&| & \verb|and| \\
+    \verb+|+ & \verb|or| \\
+    \verb|~| & \verb|nor|
+  \end{tabular}
+\end{adjustbox}
+\end{marginfigure}
+
+\marginnote[1mm]{Java and MIPS equivalent logical operations.}
 
 
-
-
-
+Shifting left
 
 
 \end{document}
