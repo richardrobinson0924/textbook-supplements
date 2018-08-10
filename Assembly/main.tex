@@ -6,26 +6,29 @@
 \usepackage{color}
 \usepackage{mips}
 \usepackage{adjustbox}
+\usepackage{lstautogobble}
+\usepackage{zi4}
 
 \usemintedstyle{manni}
 
-\definecolor{dkgreen}{rgb}{0,0.6,0}
-\definecolor{gray}{rgb}{0.5,0.5,0.5}
-\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{language=[mips]Assembler}
 
 \lstset{%
-  language=[mips]Assembler,
   aboveskip=3mm,
   belowskip=3mm,
+  showstringspaces=false,
   basicstyle={\ttfamily},
   numbers=none,
   numberstyle=\tiny\color{gray},
-  captionpos=none,                   % sets the caption-position to bottom
+  captionpos=none,
   title=\lstname,
-  keywordstyle=\color{magenta},
-  commentstyle=\color{dkgreen},
-  stringstyle=\color{mauve},
-  morekeywords={*,...}
+  keywordstyle=\bfseries\color{magenta},
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
 }
 
 \setlength{\parindent}{0pt}
@@ -37,104 +40,79 @@
 \frontmatter
 \maketitle
 \tableofcontents
-\mainmatter
 
 \setlength{\parindent}{0pt}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN DOCUMENT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Introduction}
 
-\section{The Basics}
-
-In programming, a compiler is a program that translates high-level language statements into assembly language statements. In turn, an assembler translates assembly language into machine language in binary for MIPS. The MIPS unit is given by
-\marginnote{\textbf{Data Transfer Instruction}: a command that moves data between memory and registers.}
+\section{Performance Metrics}
+There are several metrics of performance of programs by processors. These include
+\begin{itemize}
+  \item \textit{Execution time}, the total time required for the computer to complete a task (also called response time).
+  \item \textit{Bandwidth}, the number of tasks completed per unit time (also called throughput).
+  \item \textit{Performance}, the inverse of execution time.
+  \item \textit{Clock cycle}, the time for one (processor) clock period, which runs at a constant rate.
+\end{itemize}
+Consequently, the CPU time is defined as
+\marginnote{\textbf{CPI}: the average number of clock cycles per instruction for a program.}
 \begin{equation}
-  \mathrm{MIPS} = \frac{\mathrm{clock rate}}{\mathrm{CPI} \times 10^6}
+  t_{\mathrm{cpu}} = n_{\mathrm{cycles}}/r_{\mathrm{clock}} \quad\mathrm{for}\quad n_{\mathrm{cycles}} = I \times \mathrm{CPI}
 \end{equation}
-In MIPS, arithmetic operations may only be single and has three variables. For example,
-\begin{minted}{gas}
-  add $s1, $s2, $s3
-\end{minted}
-\marginnote{\textbf{Address:} a value used to delineate the location of a specific data element within a memory array}
-is equivalent to \verb|$s1 = $s2 + $s3| where \verb|$si| are registers for variables. To access a word in memory, the instruction must supply the memory address. Since memory is an array, the address is an index to such.Since MIPS addresses each byte, word addresses are multiples of 4 as there are 4 bytes per word. That is, \verb|lw $t0,4n| gets \verb|A[n]|.
+The MIPS unit is another performance metric, given by \begin{equation}
+  \textrm{MIPS} = I/t_{\mathrm{exec.}} \cdot 10^6 = r_{\mathrm{clock}} / \mathrm{CPI} \cdot 10^6
+\end{equation}
+
+\marginnote{\textbf{MIPS:} A measurement of program execution speed based on the number of millions of instructions.}
+
+\section{RISC-V Syntax}
+\textbf{RISC-V} is an assembly language with a basic syntax of
+\begin{lstlisting}
+  add x1,x2,x3      // x1 = x2 + x3
+\end{lstlisting}
+The operands \verb|x0-x31| are the 32 registers with \verb|x0| always equaling \verb|0|. Data must be in registers for arithmetic. Additionally, there are $2^{61}$ memory words \verb|Memory[8i]| which may be accessed only by data transfer instructions.
+
+\marginnote{\textbf{Word:} Half of a doubleword; a group of 32 bits.}
 
 \bigskip
-Assume \verb|h| is associated with reg \verb|$s2| with base address of \verb|A| is in \verb|s3|. For the C statement
-\begin{minted}{c}
-  A[x] = h + A[y]
-\end{minted}
-the equivalent MIPS code is
+In RISC-V, a doubleword is a group of 64 bits. There are never any variables in RISC-V; all variables are converted into respective registers. For example, if \verb|g| and \verb|h| are \verb|x20,x21| and the base address is \verb|x22| of array \verb|A|, then the C code
+
+\marginnote{\textbf{Address}: The index for a data element in a memory array.}
+
 \begin{lstlisting}
-  lw   $t0,4y($s3) # Temp reg $t0 gets A[8]
-  add  $t0,$s2,$t0 # Temp reg $t0 gets h + A[8]
-  sw   $t0,4x($s3) # Stores h + A[y] into A[x]
+  A[z] = h + A[y]
 \end{lstlisting}
+in RISC-V is translated to
+\begin{lstlisting}
+  ld  x9,8y(x22)     // temp reg x9 gets A[y]
+  add x9,x21,x9      // temp reg x9 gets h + A[y]
+  sd  x9,8z(x22)     // stores x9 into A[z]
+\end{lstlisting}
+The reg added to form the address (\verb|x22|) is the \textit{base reg} and the DTI constant (64) is the \textit{offset}. To get the proper byte address, the offset to be added to the base reg is $8c$ where $c$ is the initial constant.
+
+\marginnote{\textbf{Byte}: A group of 8 bits; there are 8 bytes in a doubleword.}
+
+\bigskip
+This implies that the byte address of an element is a multiple of 8; that is, element $i$ has byte address $8i$ where the first element is $i_0$.
 
 \section{Binary \& Hexadecimal}
-
-The conversion from a binary number \verb|n...n| where \verb|x| is \verb|0,1| and $x_i$ is the $i$th bit of $x$ is \begin{equation}
+Binary to decimal base is calculated via \begin{equation}
   \sum x_i 2^i
 \end{equation}
-from right to left, with the rightmost bit being the least significant bit. Therefore, there are $2^{32}-1$ binary numbers in 32 bits unsigned.
+where $x_i$ is the $i$th digit starting at $i=0$ and increasing leftwards. In RISC-V, the least or most sig. bit is the rightmost or leftmost bit, respectively.
 
 \bigskip
-The \textbf{two's complement} representation has the binary complements related by \begin{equation}
+Two's complement representation for signed binary numbers assigns leading 0s as positive and leading 1s as negative. The complements are related by \begin{equation}
   \overline{x} + 1 = -x
 \end{equation}
+In Hexadecimal, all groups of 4 binary digits may be represented by a single hexadecimal digit, ranging from $0 - 9, a - f$.
 
-In the instruction format, each instruction comprises 32 bits into six segments, with the first and last segments having six bits and the others having five which instructs MIPS. These fields are
-\begin{center}
-  \begin{tabular}{cccccc}
-    \verb|op| & \verb|rs| & \verb|rt| & \verb|rd| & \verb|shamt| & \verb|funct|
-  \end{tabular}
-\end{center}
-These fields perform the following functions:
-\begin{itemize}
-  \item \verb|op|: Basic op of the instruction
-  \item \verb|rs|: The first reg src op
-  \item \verb|rt|: The second reg src op
-  \item \verb|rd|: The reg dest op
-  \item \verb|shamt|: Shift amount
-  \item \verb|funct|: Selects variant of \verb|op|
-\end{itemize}
 
-Hexadecimal is an extension of decimal which extends to 16 digits (1-9,a-f). Thus, any permutation of four bits may be represented by a single hexadecimal digit.
-
-\section{Logical Operators}
-Shifting left by $i$ bits gives the same result as multiplying by $2i$. The \verb|and| and \verb|or| operators operate as their logical counterparts. The \verb|nor| operator is such that \verb| A NOR 0 = NOT (A OR 0) = NOT (A)|.
-
-\begin{marginfigure}
-\begin{adjustbox}{width=0.45\columnwidth}{%
-  \begin{tabular}{cc}
-    \verb|<<| & \verb|sll| \\
-    \verb|>>>| & \verb|srl| \\
-    \verb|&| & \verb|and| \\
-    \verb+|+ & \verb|or| \\
-    \verb|~| & \verb|nor|
-  \end{tabular}}
-\end{adjustbox}
-\end{marginfigure}
-
-\marginnote[1mm]{Java and MIPS equivalent logical operations.}
-
-Specifically,
-\begin{lstlisting}
-  nor $t0,$t1,$t3 # reg $t0 = ~ (reg $t1 | reg $t3)
-\end{lstlisting}
-For constants, the operators \verb|andi| and \verb|ori| are used. For example,
-\begin{minted}{c}
-  if (i == j) f = g + h; else f = g - h
-\end{minted}
-in MIPS is translated to
-\begin{lstlisting}
-  bne $s3,$s4,Else       # go to Else if i != j
-  add $s0,$s1,$s2        # if i == j then f = g + h
-  j Exit                 # jump to Exit
-  Else:sub $s0,$s1,$s2   # f = g - h else
-  Exit:
-\end{lstlisting}
 
 \end{document}
