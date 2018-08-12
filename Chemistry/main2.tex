@@ -84,7 +84,7 @@ Other properties of the periodic table include \begin{itemize}
 \end{marginfigure}
 
 Lewis dot structures are created via the following algorithm: \begin{enumerate}
-  \item Count the total number of valence electrons in the molecule;
+  \item Count the total number of valence electrons in the molecule
   \item Place single bonds between all connected atoms;
   \item Place the remaining valence electrons not accounted for in (2) on individual atoms, specifically as lone pairs whenever possible;
   \item Create multiple bonds as needed for any atoms that do not have a full octet
@@ -105,5 +105,55 @@ respectively. For reactions which take place in the gas phase, \begin{equation}
 where $\Delta n_g = c+d-(a+b)$. Reactions are homogeneous iff all constituents are either exclusively gaseous or aqueous. Incidentally, in a heterogeneous reaction, $K$ only includes the compounds in the reaction which are not solid nor liquid. For a series of reactions, \begin{equation}
   K_n = \prod K_i
 \end{equation}
+
+
+\begin{marginfigure}
+  \begin{center}
+    \setlength{\tabcolsep}{7pt}
+    \renewcommand{\arraystretch}{1.6}
+    \begingroup
+    \begin{tabular}{clll}
+      R & $A$ & $A'$ & $B$ \\[1mm]
+      \hline \\[-5mm]
+      I & $[A_i]$ & $[A'_i]$ & $[B_i]$ \\
+      C & $-ax$ & $-a'x$ &  $+bx$ \\
+      E & $[A]_{eq}$ & $[A']_{eq}$ & $[B]_{eq}$
+    \end{tabular}
+    \endgroup \phantom{m}
+  \end{center}
+  \caption[]{Calculating concentrations for a reaction at equilibrium.}
+\end{marginfigure}
+
+The procedure to calculate final concentrations of specific compounds in a reaction $A \leftrightharpoons B$ is as follows:
+\begin{enumerate}
+  \item For reactants and products, $[A_i]_{eq} = [A_i] \mp ax$, respectively.
+  \item Using these concentrations in $K$, solve for $x$.
+  \item Substitute $x$ into the original equilibrium concentrations.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \end{document}
