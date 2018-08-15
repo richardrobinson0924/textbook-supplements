@@ -71,7 +71,7 @@ options:
   $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2018-08-14T21:15:08.208Z
+    timeStamp: 2018-08-15T18:20:10.764Z
     jobNames: []
     value:
       severity: info
@@ -130,13 +130,13 @@ files:
       $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
     type: ParsedYAML
   main2.tex:
-    timeStamp: 2018-08-15T06:47:26.382Z
+    timeStamp: 2018-08-15T19:33:47.297Z
     jobNames: []
-    hash: 84+znIP/9Gh9n4k2OZntUlroXSsuzzDPwo5Mriq6BPc=
+    hash: xGHfnQEv0ayMZba18LtO0HSppRxDSPNU8NpPb/v+22M=
     type: LaTeX
     subType: tufte-book
   /Users/richardrobinson/Library/Application Support/dicy/config.yaml:
-    timeStamp: 2018-08-14T21:15:08.220Z
+    timeStamp: 2018-08-15T18:20:10.774Z
     jobNames: []
     type: YAML
   x.y-Nil:
@@ -149,11 +149,13 @@ files:
     type: BibTeXLog
     subType: BibTeX
   main2.fls-ParsedFileListing:
-    timeStamp: 2018-08-15T06:41:37.248Z
+    timeStamp: 2018-08-15T19:26:26.017Z
     jobNames: []
     value:
       messages: []
       inputs:
+        - >-
+          /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/bonds.jpg
         - >-
           /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/lewis.jpg
         - >-
@@ -465,7 +467,7 @@ files:
       calls: []
     type: ParsedFileListing
   main2.log-ParsedLaTeXLog:
-    timeStamp: 2018-08-15T06:47:28.792Z
+    timeStamp: 2018-08-15T19:33:49.713Z
     jobNames: []
     value:
       messages:
@@ -3730,18 +3732,54 @@ files:
               end: 1120
         - severity: info
           name: pdfTeX
+          category: Package pdftex.def
+          text: '../images/bonds.jpg used Requested size: 112.31982pt x 64.57765pt.'
+          source:
+            file: main2.t
+            range:
+              start: 70
+              end: 70
+          log:
+            file: main2.log
+            range:
+              start: 1127
+              end: 1128
+        - severity: warning
+          name: pdfTeX
+          category: LaTeX
+          text: Marginpar on page 4 moved.
+          source:
+            file: main2.t
+          log:
+            file: main2.log
+            range:
+              start: 1130
+              end: 1130
+        - severity: warning
+          name: pdfTeX
+          category: LaTeX
+          text: Marginpar on page 4 moved.
+          source:
+            file: main2.t
+          log:
+            file: main2.log
+            range:
+              start: 1133
+              end: 1133
+        - severity: info
+          name: pdfTeX
           category: LaTeX Font
           text: Try loading font information for TS1+pplj
           source:
             file: main2.t
             range:
-              start: 73
-              end: 73
+              start: 80
+              end: 80
           log:
             file: main2.log
             range:
-              start: 1124
-              end: 1124
+              start: 1135
+              end: 1135
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -3749,48 +3787,48 @@ files:
           source:
             file: main2.t
             range:
-              start: 79
-              end: 79
+              start: 86
+              end: 86
           log:
             file: main2.log
             range:
-              start: 1132
-              end: 1133
+              start: 1143
+              end: 1144
         - severity: warning
           name: pdfTeX
           category: LaTeX
           text: Marginpar on page 4 moved.
-          source:
-            file: main2.t
-          log:
-            file: main2.log
-            range:
-              start: 1135
-              end: 1135
-        - severity: warning
-          name: pdfTeX
-          category: LaTeX
-          text: Marginpar on page 4 moved.
-          source:
-            file: main2.t
-          log:
-            file: main2.log
-            range:
-              start: 1138
-              end: 1138
-        - severity: warning
-          name: pdfTeX
-          category: Package amsmath
-          text: >-
-            Foreign command \over; \frac or \genfrac should be used instead on
-            input line 194.
           source:
             file: main2.t
           log:
             file: main2.log
             range:
               start: 1146
-              end: 1148
+              end: 1146
+        - severity: warning
+          name: pdfTeX
+          category: LaTeX
+          text: Marginpar on page 4 moved.
+          source:
+            file: main2.t
+          log:
+            file: main2.log
+            range:
+              start: 1149
+              end: 1149
+        - severity: warning
+          name: pdfTeX
+          category: Package amsmath
+          text: >-
+            Foreign command \over; \frac or \genfrac should be used instead on
+            input line 201.
+          source:
+            file: main2.t
+          log:
+            file: main2.log
+            range:
+              start: 1157
+              end: 1159
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -3798,13 +3836,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 214
-              end: 214
+              start: 221
+              end: 221
           log:
             file: main2.log
             range:
-              start: 1153
-              end: 1154
+              start: 1164
+              end: 1165
         - severity: warning
           name: pdfTeX
           category: LaTeX
@@ -3814,8 +3852,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1156
-              end: 1156
+              start: 1167
+              end: 1167
         - severity: warning
           name: pdfTeX
           category: LaTeX
@@ -3825,8 +3863,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1159
-              end: 1159
+              start: 1170
+              end: 1170
         - severity: warning
           name: pdfTeX
           category: Package bibentry
@@ -3838,8 +3876,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1165
-              end: 1167
+              start: 1176
+              end: 1178
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3847,13 +3885,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 289
-              end: 289
+              start: 298
+              end: 298
           log:
             file: main2.log
             range:
-              start: 1172
-              end: 1172
+              start: 1183
+              end: 1183
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3861,13 +3899,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 289
-              end: 289
+              start: 298
+              end: 298
           log:
             file: main2.log
             range:
-              start: 1173
-              end: 1173
+              start: 1184
+              end: 1184
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3875,13 +3913,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 289
-              end: 289
+              start: 298
+              end: 298
           log:
             file: main2.log
             range:
-              start: 1177
-              end: 1177
+              start: 1188
+              end: 1188
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3889,13 +3927,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 289
-              end: 289
+              start: 298
+              end: 298
           log:
             file: main2.log
             range:
-              start: 1178
-              end: 1178
+              start: 1189
+              end: 1189
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
@@ -3907,8 +3945,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1179
-              end: 1180
+              start: 1190
+              end: 1191
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3916,13 +3954,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 289
-              end: 289
+              start: 298
+              end: 298
           log:
             file: main2.log
             range:
-              start: 1181
-              end: 1181
+              start: 1192
+              end: 1192
       inputs: []
       outputs:
         - main2.pdf
@@ -4000,7 +4038,7 @@ files:
     timeStamp: 2018-08-01T20:46:22.317Z
     jobNames: []
   /dev/null:
-    timeStamp: 2018-08-15T06:47:21.515Z
+    timeStamp: 2018-08-15T19:33:41.359Z
     jobNames: []
   /usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc:
     timeStamp: 2016-11-25T18:31:06.000Z
@@ -4761,31 +4799,31 @@ files:
     jobNames: []
     hash: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
   main2.aux:
-    timeStamp: 2018-08-15T06:47:28.641Z
+    timeStamp: 2018-08-15T19:33:49.565Z
     jobNames: []
     hash: kKMc5j86STS5Z/nn+wohFdLEo4RVA7mPC8rnzFR+RWI=
     type: LaTeXAuxilary
   main2.fls:
-    timeStamp: 2018-08-15T06:47:28.682Z
+    timeStamp: 2018-08-15T19:33:49.601Z
     jobNames: []
-    hash: QKg9CZmRd/JpvsVeofgzZsM585YfFqE+rU5wtG3vlaI=
+    hash: GhlRFuoSk3a4Agkfj9vkXQO9LQQWrjz4U5F5cwIQ8yY=
     type: FileListing
   main2.log:
-    timeStamp: 2018-08-15T06:47:28.705Z
+    timeStamp: 2018-08-15T19:33:49.621Z
     jobNames: []
-    hash: vQGaOzCrUJw3HzKjCVApputtAfN3WfdPCx9raYizWLI=
+    hash: 1iMUsrfdzv4lVM8idsqta61zi71+ekA6ZKlzx2it7ak=
     type: LaTeXLog
     subType: pdfTeX
   main2.pdf:
-    timeStamp: 2018-08-15T06:47:28.705Z
+    timeStamp: 2018-08-15T19:33:49.621Z
     jobNames: []
-    hash: f91lrEPI/+1xvbfCDrp2Pig4CWmCw4ehsWN/JLjNZdU=
+    hash: S/doGg3FLk4sOkrOxdDvnE3yF8G/+tydg9q9n9F9dOo=
     type: PortableDocumentFormat
   /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/ntype.png:
     timeStamp: 2018-07-29T02:43:48.963Z
     jobNames: []
   main2.out:
-    timeStamp: 2018-08-15T06:47:28.647Z
+    timeStamp: 2018-08-15T19:33:49.571Z
     jobNames: []
     hash: eVumVN2l9xzZ0YqA6PTDuVaFjsILPbUP+/lyDEBEEAU=
     type: OUT
@@ -4794,6 +4832,9 @@ files:
     jobNames: []
   /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/lewis.jpg:
     timeStamp: 2018-08-15T03:36:41.428Z
+    jobNames: []
+  /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/bonds.jpg:
+    timeStamp: 2018-08-15T19:24:38.512Z
     jobNames: []
 rules:
   - name: ApplyOptions
@@ -5409,6 +5450,9 @@ rules:
         type: default
       - file: >-
           /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/lewis.jpg
+        type: default
+      - file: >-
+          /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/bonds.jpg
         type: default
     outputs:
       - file: main2.aux
