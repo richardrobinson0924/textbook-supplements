@@ -71,7 +71,7 @@ options:
   $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2018-08-14T19:24:47.731Z
+    timeStamp: 2018-08-14T21:15:08.208Z
     jobNames: []
     value:
       severity: info
@@ -130,13 +130,13 @@ files:
       $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
     type: ParsedYAML
   main2.tex:
-    timeStamp: 2018-08-14T20:41:40.794Z
+    timeStamp: 2018-08-15T06:47:26.382Z
     jobNames: []
-    hash: ngs2P9lmwHo4QPb7zXgnLgpEBmmm3cKafuxqwNql9KA=
+    hash: 84+znIP/9Gh9n4k2OZntUlroXSsuzzDPwo5Mriq6BPc=
     type: LaTeX
     subType: tufte-book
   /Users/richardrobinson/Library/Application Support/dicy/config.yaml:
-    timeStamp: 2018-08-14T19:24:47.740Z
+    timeStamp: 2018-08-14T21:15:08.220Z
     jobNames: []
     type: YAML
   x.y-Nil:
@@ -149,13 +149,17 @@ files:
     type: BibTeXLog
     subType: BibTeX
   main2.fls-ParsedFileListing:
-    timeStamp: 2018-08-14T20:38:03.337Z
+    timeStamp: 2018-08-15T06:41:37.248Z
     jobNames: []
     value:
       messages: []
       inputs:
         - >-
+          /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/lewis.jpg
+        - >-
           /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/ntype.png
+        - >-
+          /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/orbitals.png
         - >-
           /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/table.png
         - /dev/null
@@ -461,7 +465,7 @@ files:
       calls: []
     type: ParsedFileListing
   main2.log-ParsedLaTeXLog:
-    timeStamp: 2018-08-14T20:41:42.841Z
+    timeStamp: 2018-08-15T06:47:28.792Z
     jobNames: []
     value:
       messages:
@@ -3697,12 +3701,14 @@ files:
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
-          text: '../images/table.png used Requested size: 312.0pt x 98.67752pt.'
+          text: >-
+            ../images/orbitals.png used Requested size: 129.59912pt x
+            183.82841pt.
           source:
             file: main2.t
             range:
-              start: 57
-              end: 57
+              start: 53
+              end: 53
           log:
             file: main2.log
             range:
@@ -3710,31 +3716,81 @@ files:
               end: 1115
         - severity: info
           name: pdfTeX
+          category: Package pdftex.def
+          text: '../images/table.png used Requested size: 312.0pt x 98.67752pt.'
+          source:
+            file: main2.t
+            range:
+              start: 63
+              end: 63
+          log:
+            file: main2.log
+            range:
+              start: 1119
+              end: 1120
+        - severity: info
+          name: pdfTeX
           category: LaTeX Font
           text: Try loading font information for TS1+pplj
           source:
             file: main2.t
             range:
-              start: 69
-              end: 69
+              start: 73
+              end: 73
           log:
             file: main2.log
             range:
-              start: 1119
-              end: 1119
+              start: 1124
+              end: 1124
+        - severity: info
+          name: pdfTeX
+          category: Package pdftex.def
+          text: '../images/lewis.jpg used Requested size: 100.79956pt x 47.7463pt.'
+          source:
+            file: main2.t
+            range:
+              start: 79
+              end: 79
+          log:
+            file: main2.log
+            range:
+              start: 1132
+              end: 1133
         - severity: warning
           name: pdfTeX
-          category: Package amsmath
-          text: >-
-            Foreign command \over; \frac or \genfrac should be used instead on
-            input line 183.
+          category: LaTeX
+          text: Marginpar on page 4 moved.
           source:
             file: main2.t
           log:
             file: main2.log
             range:
-              start: 1129
-              end: 1131
+              start: 1135
+              end: 1135
+        - severity: warning
+          name: pdfTeX
+          category: LaTeX
+          text: Marginpar on page 4 moved.
+          source:
+            file: main2.t
+          log:
+            file: main2.log
+            range:
+              start: 1138
+              end: 1138
+        - severity: warning
+          name: pdfTeX
+          category: Package amsmath
+          text: >-
+            Foreign command \over; \frac or \genfrac should be used instead on
+            input line 194.
+          source:
+            file: main2.t
+          log:
+            file: main2.log
+            range:
+              start: 1146
+              end: 1148
         - severity: info
           name: pdfTeX
           category: Package pdftex.def
@@ -3742,13 +3798,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 203
-              end: 203
+              start: 214
+              end: 214
           log:
             file: main2.log
             range:
-              start: 1136
-              end: 1137
+              start: 1153
+              end: 1154
         - severity: warning
           name: pdfTeX
           category: LaTeX
@@ -3758,8 +3814,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1139
-              end: 1139
+              start: 1156
+              end: 1156
         - severity: warning
           name: pdfTeX
           category: LaTeX
@@ -3769,8 +3825,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1142
-              end: 1142
+              start: 1159
+              end: 1159
         - severity: warning
           name: pdfTeX
           category: Package bibentry
@@ -3782,8 +3838,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1148
-              end: 1150
+              start: 1165
+              end: 1167
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3791,13 +3847,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 278
-              end: 278
+              start: 289
+              end: 289
           log:
             file: main2.log
             range:
-              start: 1155
-              end: 1155
+              start: 1172
+              end: 1172
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3805,13 +3861,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 278
-              end: 278
+              start: 289
+              end: 289
           log:
             file: main2.log
             range:
-              start: 1156
-              end: 1156
+              start: 1173
+              end: 1173
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3819,13 +3875,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 278
-              end: 278
+              start: 289
+              end: 289
           log:
             file: main2.log
             range:
-              start: 1160
-              end: 1160
+              start: 1177
+              end: 1177
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3833,13 +3889,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 278
-              end: 278
+              start: 289
+              end: 289
           log:
             file: main2.log
             range:
-              start: 1161
-              end: 1161
+              start: 1178
+              end: 1178
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
@@ -3851,8 +3907,8 @@ files:
           log:
             file: main2.log
             range:
-              start: 1162
-              end: 1163
+              start: 1179
+              end: 1180
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3860,13 +3916,13 @@ files:
           source:
             file: main2.t
             range:
-              start: 278
-              end: 278
+              start: 289
+              end: 289
           log:
             file: main2.log
             range:
-              start: 1164
-              end: 1164
+              start: 1181
+              end: 1181
       inputs: []
       outputs:
         - main2.pdf
@@ -3944,7 +4000,7 @@ files:
     timeStamp: 2018-08-01T20:46:22.317Z
     jobNames: []
   /dev/null:
-    timeStamp: 2018-08-14T20:41:06.973Z
+    timeStamp: 2018-08-15T06:47:21.515Z
     jobNames: []
   /usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc:
     timeStamp: 2016-11-25T18:31:06.000Z
@@ -4705,34 +4761,40 @@ files:
     jobNames: []
     hash: 47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
   main2.aux:
-    timeStamp: 2018-08-14T20:41:42.727Z
+    timeStamp: 2018-08-15T06:47:28.641Z
     jobNames: []
     hash: kKMc5j86STS5Z/nn+wohFdLEo4RVA7mPC8rnzFR+RWI=
     type: LaTeXAuxilary
   main2.fls:
-    timeStamp: 2018-08-14T20:41:42.762Z
+    timeStamp: 2018-08-15T06:47:28.682Z
     jobNames: []
-    hash: zQRFJ9gwMl9z+TaSD39Br82ddM/y7UvShJ5ac1Htjps=
+    hash: QKg9CZmRd/JpvsVeofgzZsM585YfFqE+rU5wtG3vlaI=
     type: FileListing
   main2.log:
-    timeStamp: 2018-08-14T20:41:42.783Z
+    timeStamp: 2018-08-15T06:47:28.705Z
     jobNames: []
-    hash: AhNl6xYUKKHpWpcqmXhqZwGAZ8zAPc6jSwnuO62JUmA=
+    hash: vQGaOzCrUJw3HzKjCVApputtAfN3WfdPCx9raYizWLI=
     type: LaTeXLog
     subType: pdfTeX
   main2.pdf:
-    timeStamp: 2018-08-14T20:41:42.783Z
+    timeStamp: 2018-08-15T06:47:28.705Z
     jobNames: []
-    hash: LV3qMl1lQTla9yItCx6lrzcbdXyd5DjWHHqK/klQXPg=
+    hash: f91lrEPI/+1xvbfCDrp2Pig4CWmCw4ehsWN/JLjNZdU=
     type: PortableDocumentFormat
   /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/ntype.png:
     timeStamp: 2018-07-29T02:43:48.963Z
     jobNames: []
   main2.out:
-    timeStamp: 2018-08-14T20:41:42.728Z
+    timeStamp: 2018-08-15T06:47:28.647Z
     jobNames: []
     hash: eVumVN2l9xzZ0YqA6PTDuVaFjsILPbUP+/lyDEBEEAU=
     type: OUT
+  /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/orbitals.png:
+    timeStamp: 2018-08-15T02:36:58.916Z
+    jobNames: []
+  /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/lewis.jpg:
+    timeStamp: 2018-08-15T03:36:41.428Z
+    jobNames: []
 rules:
   - name: ApplyOptions
     command: load
@@ -5341,6 +5403,12 @@ rules:
           /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/ntype.png
         type: default
       - file: main2.out
+        type: default
+      - file: >-
+          /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/orbitals.png
+        type: default
+      - file: >-
+          /Users/richardrobinson/Documents/GitHub/textbook-supplements/images/lewis.jpg
         type: default
     outputs:
       - file: main2.aux
