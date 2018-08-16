@@ -71,7 +71,7 @@ options:
   $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2018-08-16T04:32:00.261Z
+    timeStamp: 2018-08-16T04:37:06.426Z
     jobNames: []
     value:
       severity: info
@@ -88,12 +88,12 @@ files:
     value: {}
     type: ParsedLaTeXMagic
   /Users/richardrobinson/Library/Application Support/dicy/config.yaml-ParsedYAML:
-    timeStamp: 2018-08-16T04:32:00.311Z
+    timeStamp: 2018-08-16T04:37:06.827Z
     jobNames: []
     value:
       synctex: false
       engine: pdflatex
-      severity: warning
+      severity: error
       copyTargetsToRoot: true
       outputDirectory: ''
       outputFormat: pdf
@@ -130,13 +130,13 @@ files:
       $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
     type: ParsedYAML
   main.tex:
-    timeStamp: 2018-08-16T04:32:28.613Z
+    timeStamp: 2018-08-16T04:37:05.740Z
     jobNames: []
     hash: ora9AM8g12JMh33cFmbeOCaTc6+FX11Kqftxn7lX988=
     type: LaTeX
     subType: tufte-book
   /Users/richardrobinson/Library/Application Support/dicy/config.yaml:
-    timeStamp: 2018-08-16T04:32:00.272Z
+    timeStamp: 2018-08-16T04:37:06.435Z
     jobNames: []
     type: YAML
   x.y-Nil:
@@ -3545,23 +3545,23 @@ files:
       calls: []
     type: ParsedLaTeXLog
   main.aux:
-    timeStamp: 2018-08-16T04:32:31.151Z
+    timeStamp: 2018-08-16T04:37:08.107Z
     jobNames: []
     hash: NN+2s5RKLHfcPNbEIQNpYCQT2E0xrb1yyEPKNOECUQ4=
     type: LaTeXAuxilary
   main.fls:
-    timeStamp: 2018-08-16T04:32:31.158Z
+    timeStamp: 2018-08-16T04:37:08.114Z
     jobNames: []
     hash: OOYtM0bVNWH6tpdMwieilGFdOiiS/n2khi+bMmihdlM=
     type: FileListing
   main.log:
-    timeStamp: 2018-08-16T04:32:31.179Z
+    timeStamp: 2018-08-16T04:37:08.138Z
     jobNames: []
     hash: 2gXU3yeO94GHYVxA1/+wXW4VWO35wVJtXz4Tu8JqilU=
     type: LaTeXLog
     subType: pdfTeX
   main.pdf:
-    timeStamp: 2018-08-16T04:32:31.179Z
+    timeStamp: 2018-08-16T04:37:08.138Z
     jobNames: []
     hash: JMIhRSHnYBsd3I5W7kyv+8Eh25pFnQddNGg0zeYD/PU=
     type: PortableDocumentFormat
@@ -3595,7 +3595,7 @@ files:
         - ttl@finishall
     type: ParsedLaTeXAuxilary
   /dev/null:
-    timeStamp: 2018-08-16T04:32:18.710Z
+    timeStamp: 2018-08-16T04:37:04.327Z
     jobNames: []
   /usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc:
     timeStamp: 2016-11-25T18:31:06.000Z
@@ -4232,7 +4232,7 @@ files:
     timeStamp: 2018-04-17T03:08:03.000Z
     jobNames: []
   main.out:
-    timeStamp: 2018-08-16T04:32:31.153Z
+    timeStamp: 2018-08-16T04:37:08.108Z
     jobNames: []
     hash: NfqvELByoayYWB59EfXb0cORbLa7Stp1IVGpgCJpKuM=
     type: OUT
