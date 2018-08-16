@@ -9,8 +9,8 @@ Unofficial textbook supplement notes for basic Engineering courses. Click on a c
  - [ ] [Assembly & Verilog](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Assembly/main.pdf)  (*In Progress*)
  - [ ] [Economics](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Economics/main.pdf) (*In Progress*)
 
- Updates for current and new courses coming continuously. :)
+Updates for current and new courses coming continuously. :)
  
- ### Copyright
+### Copyright
 
 All media copyright Pearson Inc. & Nelson Inc. All source code and prose copyright Richard Robinson, made open-source under the AGPL 3.0 Lisence.
