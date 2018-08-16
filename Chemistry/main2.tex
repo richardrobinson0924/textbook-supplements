@@ -7,6 +7,7 @@
 \graphicspath{{../images/}}
 
 \setlength{\parindent}{0pt}
+\renewcommand{\emph}[1]{\textbf{#1}}
 
 \title{\\ Chemistry \& \\ Materials \\ Science}
 \author{Richard Robinson}
@@ -14,12 +15,8 @@
 \begin{document}
 \frontmatter
 \maketitle
-%\tableofcontents
-
 \setlength{\parindent}{0pt}
-
 \mainmatter
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN DOCUMENT
@@ -29,14 +26,14 @@
 
 \section{Stoichiometry}
 
-All stoichiometric equations for quantities may be derived from \begin{equation}
+\textsc{All stoichiometric} equations for quantities may be derived from \begin{equation}
   n_1/v_1 = n_2/v_2
 \end{equation}
-The percentage yield is defined as \begin{equation}
+The \emph{percentage yield} is defined as \begin{equation}
   \text{\% yield} = \frac{\text{actual yield}}{\text{theo. yield}} \times 100 \%
 \end{equation}
 
-A crucial aspect in confirming stoichiometric results is using dimensional analysis; that is, using the dimensions of each unit in the equation(s) and confirming the final unit has the proper dimensions.
+A crucial aspect in confirming stoichiometric results is using \emph{dimensional analysis}; that is, using the dimensions of each unit in the equation(s) and confirming the final unit has the proper dimensions.
 \begin{center}
   \begin{tabular}{ll}
     moles & $n = m/M = CV$ \\
@@ -54,7 +51,7 @@ A crucial aspect in confirming stoichiometric results is using dimensional analy
 \end{center}
 \end{marginfigure}
 %
-The total number of orbitals is equal to $n^2$, where $n$ is the principle quantum number, wherein each orbital has a maximum of two electrons. The orbitals are filled in the order of \begin{equation}
+The total number of \emph{orbitals} is equal to $n^2$, where $n$ is the principle quantum number, wherein each orbital has a maximum of two electrons. The orbitals are filled in the order of \begin{equation}
   1s^2 \, 2s^2 \, 2p^6 \, 3s^2 \, 3p^6 \, 4s^2 \, 3d^{10} \, 4p^6 \, 5s^2 \dots
 \end{equation}
 This maximum occurs only if all subshells contain one electron originally, known as Hund's rule.
@@ -63,7 +60,7 @@ This maximum occurs only if all subshells contain one electron originally, known
   \includegraphics[width=\textwidth]{table}
 \end{center}
 
-The formal charge is given by $q_f = n_v - n_l - \frac{1}{2} n_s$ in which $\sum q_f = 0$, where $n_v$ is the total number of valence electrons; $n_l$ is the number of lone pairs; and $n_s$ is the number of electrons shared in bonds.
+The \emph{formal charge} is given by $q_f = n_v - n_l - \frac{1}{2} n_s$ in which $\sum q_f = 0$, where $n_v$ is the total number of valence electrons; $n_l$ is the number of lone pairs; and $n_s$ is the number of electrons shared in bonds.
 %
 \begin{marginfigure}
 \begin{center}
@@ -73,7 +70,7 @@ The formal charge is given by $q_f = n_v - n_l - \frac{1}{2} n_s$ in which $\sum
 \marginnote[2mm]{Sigma and pi bonds overlapping for hybridization.}
 %
 \bigskip
-Hybrid orbitals are dependent on molecular geometry, and filled by $sp^3d^2$. The number of orbitals is equal to the number of electron pairs. The number of sigma and pi bonds is equal to \begin{equation}
+\emph{Hybrid orbitals} are dependent on molecular geometry, and filled by $sp^3d^2$. The number of orbitals is equal to the number of electron pairs. The number of \emph{sigma and pi bonds} is equal to \begin{equation}
   n_\sigma = \sum n_\text{all} \quad\text{and}\quad n_\pi = \sum n_\text{dbl} + 2 \sum n_\text{tri}
 \end{equation}
 Other properties of the periodic table include \begin{itemize}
@@ -87,7 +84,7 @@ Other properties of the periodic table include \begin{itemize}
 \end{center}
 \end{marginfigure}
 \marginnote[1mm]{Constructing a lewis dot structure.}
-Lewis dot structures are created via the following algorithm: \begin{enumerate}
+\emph{Lewis dot structures} are created via the following algorithm: \begin{enumerate}
   \item Count the total number of valence electrons in the molecule
   \item Place single bonds between all connected atoms;
   \item Place the remaining valence electrons not accounted for in (2) on individual atoms, specifically as lone pairs whenever possible;
@@ -98,7 +95,7 @@ Lewis dot structures are created via the following algorithm: \begin{enumerate}
 
 \section{Equilibrium Constants}
 
-A system is said to be at dynamic equilibrium if the rates of both reactions are equal but do not approach zero. For a general chemical reaction, the reaction quotient and equilibrium constant are
+A system is said to be at \emph{dynamic equilibrium} if the rates of both reactions are equal but do not approach zero. For a general chemical reaction, the reaction quotient and equilibrium constant are
 %
 \begin{marginfigure}[5mm]
 \begin{center}
@@ -113,10 +110,10 @@ A system is said to be at dynamic equilibrium if the rates of both reactions are
 respectively. For reactions which take place in the gas phase, \begin{equation}
   K_p = K_c RT^{\Delta n_g} \iff [X] \equiv P_X = [X]RT
 \end{equation}
-where $\Delta n_g = c+d-(a+b)$. Reactions are homogeneous iff all constituents are either exclusively gaseous or aqueous. Incidentally, in a heterogeneous reaction, $K$ only includes the compounds in the reaction which are not solid nor liquid. For a series of reactions, \begin{equation}
+where $\Delta n_g = c+d-(a+b)$. Reactions are \emph{homogeneous} iff all constituents are either exclusively gaseous or aqueous. Incidentally, in a heterogeneous reaction, $K$ only includes the compounds in the reaction which are not solid nor liquid. For a series of reactions, \begin{equation}
   K_n = \prod K_i
 \end{equation}
-The procedure to calculate final concentrations of specific compounds in a reaction $A \leftrightharpoons B$ is as follows:
+The procedure to calculate \emph{final concentrations} of specific compounds in a reaction $A \leftrightharpoons B$ is as follows:
 \begin{enumerate}
   \item For reactants and products, $[A_i]_{eq} = [A_i] \mp ax$, respectively.
   \item Using these concentrations in $K$, solve for $x$.
@@ -134,7 +131,7 @@ The procedure to calculate final concentrations of specific compounds in a react
 
 \section{LeChatelier's Principle}
 
-LeChatelier's principle states that when a system at equilibrium is stressed, it reestablishes itself to avoid such stress; that is,
+\emph{LeChatelier's principle} states that when a system at equilibrium is stressed, it reestablishes itself to avoid such stress; that is,
 \begin{itemize}
   \item If the concentration of products is increased or reactants decreased, $Q>K$ and more reactants are formed;
   \item If vice versa, $Q<K$ and more products are formed.
@@ -147,10 +144,10 @@ LeChatelier's principle states that when a system at equilibrium is stressed, it
 \end{marginfigure}
 \marginnote[2mm]{Predicting the direction of reaction. The direction of reaction depends on the relative values of $Q$ and $K_c$.}
 %
-Pressure is inversely proportional to the amount of moles the side to which equilibrium moves to has. Note that catalysts have no effect upon the properties of --thermic reactions.
+Pressure is inversely proportional to the amount of moles the side to which equilibrium moves to has. Note that catalysts have no effect upon the properties of equilibrium systems, unlike temperature.
 
 \bigskip
-Exothermic reactions produce heat and endothermic reactions absorb heat. If a reaction is exothermic and temperature increases or vice versa, more reactants are formed. Otherwise, more products are formed.
+\emph{Exothermic reactions} produce heat and endothermic reactions absorb heat. If a reaction is exothermic and temperature increases or vice versa, more reactants are formed. Otherwise, more products are formed.
 
 \section{Solubility Equilibria}
 For a reaction $A(s) \leftrightharpoons cC(aq) + dD(aq)$, the solubility constant is defined as \begin{equation}
@@ -167,21 +164,21 @@ and the molar solubility is \begin{equation}
 \end{marginfigure}
 \marginnote[2mm]{Conjugate acid-base pairs for the reaction between HS$^-$ and HF.}
 %
-A Brønsted-Lowry acid is a proton $H^+$ donor, and a base a proton acceptor. The equation for the dissociation of a weak acid $HA$ is \begin{equation}
+A Brønsted-Lowry acid is a proton $H^+$ donor, and a base a proton acceptor. The equation for the \emph{dissociation} of a weak acid $HA$ is \begin{equation}
   HA(aq) + H_2O (\ell) \leftrightharpoons H_3O^+ (aq) + A^- (aq)
 \end{equation}
 snd for a weak base $B$,
 \begin{equation}
   B(aq) + H_2O (\ell) \leftrightharpoons BH^+ (aq) + OH^-(aq)
 \end{equation}
-The acid and base ionization constants are $K_a,K_b = K_s$ respectively such that $[X]_{eq} = [X]_i$ for $X = HA, B$. The Gibbs free energy is related to $K$ by \begin{equation}
+The acid and base ionization constants are $K_a,K_b = K_s$ respectively such that $[X]_{eq} = [X]_i$ for $X = HA, B$. The \emph{Gibbs free energy} is related to $K$ by \begin{equation}
 \Delta G^\ominus = -RT \ln K = H-TS
 \end{equation}
 
 \chapter{Thermodynamics}
 
 \section{The Second Law}
-\textsc{A spontaneous reaction} occurs without the need for continuous intervention. When heating a system, its entropy $S$ increases. The second law states that for a spontaneous reaction,
+\textsc{A spontaneous reaction} occurs without the need for continuous intervention. When heating a system, its \emph{entropy} $S$ increases. The second law states that for a spontaneous reaction,
 %
 \begin{marginfigure}[5mm]
 \begin{center}
@@ -206,7 +203,7 @@ Entropy is proportional to $T, r, V, n$ and inversely proportional to $P$.
 
 \section{Enthalpy}
 
-Heat is expressed as $\Delta E - w$. The specific \& molar heat capacities are defined as \begin{equation}
+Heat is expressed as $\Delta E - w$. The specific \& molar \emph{heat capacities} are defined as \begin{equation}
   q_s = mc \Delta T \quad\text{and}\quad q_m = nC_p \Delta T
 \end{equation}
 %
@@ -217,17 +214,17 @@ Heat is expressed as $\Delta E - w$. The specific \& molar heat capacities are d
 \end{marginfigure}
 \marginnote[2mm]{Diagram of Hess' Law.}
 %
-For calorimetry, heat is given by \begin{equation}
+For \emph{calorimetry}, heat is given by \begin{equation}
   q_c = -(q / \Delta T_i) \Delta T_f
 \end{equation}
-Enthalpy is defined as \begin{equation}
+\emph{Enthalpy} is defined as \begin{equation}
   \Delta H = \Delta E + \Delta (PV) = q_p - n \Delta H_{\Delta \text{phase}}
 \end{equation}
-A reaction is exothermic for $\Delta H<0$ and vice versa. A formation reaction is one in which one mole of a compound is formed from its elements such that
+A reaction is exothermic for $\Delta H<0$ and vice versa. A \emph{formation reaction} is one in which one mole of a compound is formed from its elements such that
 \begin{equation}
   aA + bB = 1AB \qquad \Delta H^\ominus = \Delta H_f^\ominus [AB]
 \end{equation}
-Hess's Law states the enthalpy change of a process is independent of path; that is, $\Delta H = \sum \Delta H_i$ meaning that sub-reactions and their enthalpies may be summed together to yield the desired reaction and its enthalpy. The change in standard enthalpy is \begin{equation}
+\emph{Hess's Law} states the enthalpy change of a process is independent of path; that is, $\Delta H = \sum \Delta H_i$ meaning that sub-reactions and their enthalpies may be summed together to yield the desired reaction and its enthalpy. The change in standard enthalpy is \begin{equation}
   \Delta H^\ominus = \Delta \sum v \Delta H_f^\ominus
 \end{equation}
 In thermodynamical equations, always convert to moles from mass or molarity using \begin{equation}
@@ -241,7 +238,7 @@ In thermodynamical equations, always convert to moles from mass or molarity usin
 \end{marginfigure}
 \marginnote[2mm]{Using the Born-Haber cycle to calculate the enthalpy of formation.}
 %
-The Born-Haber cycle is used to find the $H_f$ of an ionic compound $MX$, given by \begin{equation}
+The \emph{Born-Haber cycle} is used to find the $H_f$ of an ionic compound $MX$, given by \begin{equation}
   \Delta H_f = H_{\text{sub}} + \textstyle{\frac{1}{2}} B_X + IE_M - EA_X + LE
 \end{equation}
 where $B$ is the bond energy of $X_2$ from $M + \frac{1}{2} X_2 \to MX$, and LE is defined as exothermic.
@@ -271,13 +268,13 @@ where $B$ is the bond energy of $X_2$ from $M + \frac{1}{2} X_2 \to MX$, and LE 
 The density of a cell is given by \begin{equation}
   \rho = \frac{m}{a^3} \quad\text{for}\quad m = \frac{nM}{N_a}
 \end{equation}
-The packing efficiency of a lattice is defined as $n V_{\text{sph}} / a^3$.
+The \emph{packing efficiency} of a lattice is defined as $n V_{\text{sph}} / a^3$.
 
 \section{Types of Bonding}
-The concept of band theory describes metallic bonding in semiconductors. In metals / conductors, semiconductors, and insulators, the gap between the lower valence and upper conduction bands is negligible, moderate, and large, respectively.
+The concept of \emph{band theory} describes metallic bonding in \emph{semiconductors}. In metals / conductors, semiconductors, and insulators, the gap between the lower valence and upper conduction bands is negligible, moderate, and large, respectively.
 
 \bigskip
-In an n-type semiconductor, donor electrons are promoted easily into the conduction band, and the dopant has more valence electrons than the semiconductor. Likewise, in a p-type, vice versa.
+In an \emph{n-type s}emiconductor, donor electrons are promoted easily into the conduction band, and the dopant has more valence electrons than the semiconductor. Likewise, in a p-type, vice versa. In semiconductors, temperature is proportional to conductivity, and opposite for conductors.
 
 \begin{marginfigure}
 \begin{center}
@@ -287,7 +284,7 @@ In an n-type semiconductor, donor electrons are promoted easily into the conduct
 \marginnote[1mm]{The band theory for semiconductors.}
 
 \bigskip
-Hydrogen bonding is the strongest intermolecular force, and occurs between a hydrogen atom and a highly electronegative atom. Dipole forces occur for non-symmetrical compounds, and dispersion forces occur in the absence of the former three.
+\emph{Hydrogen bonding} is the strongest intermolecular force, and occurs between a hydrogen atom and a highly electronegative atom. \emph{Dipole force} occur for non-symmetrical compounds, and \emph{dispersion forces} occur in the absence of the former three.
 
 \section{Condensed Phases}
 In the liquid state, the force is proportional to boiling point, viscosity, number of OH$^-$ ions, $H$, and inversely proportional to vapor pressure and $T$.
@@ -300,13 +297,13 @@ In the liquid state, the force is proportional to boiling point, viscosity, numb
 \marginnote[2mm]{Hydrogen bonding with ammonia.}
 
 \bigskip
-An addition polymerization begins with a molecule breaking down into two free radicals. A radical then attaches to a monomer molecule breaking the double bond, forming a new radical. This recursive procedure when the remaining original radical combines with the new polymer.
+An \emph{addition polymerization} begins with a molecule breaking down into two free radicals. A radical then attaches to a monomer molecule breaking the double bond, forming a new radical. This recursive procedure when the remaining original radical combines with the new polymer.
 
 \bigskip
-A condensation reaction is one in which two monomers with functional groups combine to former a monomer and $H_2O$.
+A \emph{condensation reaction} is one in which two monomers with functional groups combine to former a monomer and $H_2O$.
 
-\bigskip
-A block copolymer has repeated segments of each monomer, and a graft copolymer has segments of one monomer branching off the main chain. Additionally, thermoplastic polymers melt and deform upon heating, conversely of thermosetting ones.
+\section{Polymers}
+A \emph{block copolymer} has repeated segments of each monomer, and a \emph{graft} copolymer has segments of one monomer branching off the main chain. Additionally, \emph{thermoplastic} polymers melt and deform upon heating, conversely of thermosetting ones.
 %
 \begin{marginfigure}[0mm]
 \begin{center}
@@ -316,10 +313,11 @@ A block copolymer has repeated segments of each monomer, and a graft copolymer h
 \marginnote[2mm]{The phase diagram of water.}
 
 \bigskip
-The degree of polymerization is $\overline M / M_{mon}$ and the average molecular weight of such chains is
+The \emph{degree of polymerization} is $\overline M / M_{mon}$ and the average molecular weight of such chains is
 \begin{equation}
   \overline M_n = \frac{\sum MN}{\sum N} \quad\text{and}\quad \frac{\sum M^2 N}{\sum MN} \quad\text{for}\quad n_{\mathrm{chains}} = \frac{m N_a}{\overline M}
 \end{equation}
+The primary polymer structures are \emph{linear, branched, and crosslinked}. The former two are connected by non-bonded interactions and can be easily recycled, and the latter by covalent bonds. Linear polymers form crystal more easily and thus become liquid when heated.
 
 \chapter{Miscellaneous}
 
@@ -352,14 +350,14 @@ LDPE and HDPE are linear and branched versions of polyethylene.
 \marginnote[2mm]{Breaking a double bond when adding a molecule. Similar to an addition reaction.}
 
 \section{Energetics}
-The ionization energy is the energy required for the reaction $A \to A^+ + e^-$. Conversely, electron affinity is the energy required for $B + e^- \to B^-$.
+The \emph{ionization energy} is the energy required for the reaction $A \to A^+ + e^-$. Conversely, \emph{electron affinity} is the energy required for $B + e^- \to B^-$.
 
 \bigskip
-The lattice energy is defined as $U_{lat} = |\Delta H^\ominus_{lat}|$, and is proportional to $q$ and inversely proportional to $r$. This energy occurs in formation reactions $A^+ + B^- \to AB$ when $\Delta H_\ell < 0$.
+The \emph{lattice energy} is defined as $U_{lat} = |\Delta H^\ominus_{lat}|$, and is proportional to $q$ and inversely proportional to $r$. This energy occurs in formation reactions $A^+ + B^- \to AB$ when $\Delta H_\ell < 0$.
 
 \section{Gases}
 
-The partial pressure of one gas is
+The \emph{partial pressure} of one gas is
 \begin{equation}
   P_i = X_i P \quad\text{for}\quad X_i = n_i/\sum n \quad\text{and}\quad P = \sum P_i
 \end{equation}
