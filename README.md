@@ -1,6 +1,6 @@
 # Engineering Textbook Supplements [![stability][0]][1]
-[![build status][2]][3]
-[![downloads][6]][7] [![js-standard-style][8]][9]
+[![npm version][2]][3] [![build status][4]][5]
+[![downloads][8]][9] [![js-standard-style][10]][11]
 
 
 
