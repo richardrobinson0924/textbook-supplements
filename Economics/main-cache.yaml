@@ -71,7 +71,7 @@ options:
   $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
 files:
   dicy-instance.yaml-ParsedYAML:
-    timeStamp: 2018-08-16T04:37:06.426Z
+    timeStamp: 2018-08-16T05:46:28.306Z
     jobNames: []
     value:
       severity: info
@@ -130,20 +130,20 @@ files:
       $PATH: '/usr/texbin:/Library/TeX/texbin:$PATH'
     type: ParsedYAML
   main.tex:
-    timeStamp: 2018-08-16T04:37:05.740Z
+    timeStamp: 2018-08-16T06:40:48.441Z
     jobNames: []
-    hash: ora9AM8g12JMh33cFmbeOCaTc6+FX11Kqftxn7lX988=
+    hash: JU3uE3HD7A4/cP09f7G/EpJwWDnN5lV+YXyPi9LOdTI=
     type: LaTeX
     subType: tufte-book
   /Users/richardrobinson/Library/Application Support/dicy/config.yaml:
-    timeStamp: 2018-08-16T04:37:06.435Z
+    timeStamp: 2018-08-16T05:46:28.317Z
     jobNames: []
     type: YAML
   x.y-Nil:
     jobNames: []
     type: Nil
   main.fls-ParsedFileListing:
-    timeStamp: 2018-08-16T04:32:01.594Z
+    timeStamp: 2018-08-16T06:30:41.246Z
     jobNames: []
     value:
       messages: []
@@ -153,7 +153,13 @@ files:
         - /usr/local/texlive/2018/texmf-dist/fonts/map/fontname/texfonts.map
         - /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/helvetic/phvr8r.tfm
         - /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/helvetic/phvr8t.tfm
+        - /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
         - /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplr9d.tfm
+        - /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrc8r.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrc9d.tfm
         - >-
           /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplri8r.tfm
         - >-
@@ -162,12 +168,44 @@ files:
           /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrij8r.tfm
         - /usr/local/texlive/2018/texmf-dist/fonts/tfm/jknappen/ec/ecrm1000.tfm
         - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+        - /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+        - /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+        - /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+        - /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+        - /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
+        - >-
           /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/fplmri.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+        - >-
+          /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+        - /usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb
         - /usr/local/texlive/2018/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb
+        - /usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb
         - >-
           /usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb
         - /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/helvetic/phvr8t.vf
+        - /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplr9d.vf
+        - /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf
+        - /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplrc9d.vf
         - /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplri9d.vf
+        - /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
+        - /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
+        - /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf
+        - /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
         - /usr/local/texlive/2018/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
         - >-
           /usr/local/texlive/2018/texmf-dist/tex/generic/babel-english/english.ldf
@@ -363,6 +401,11 @@ files:
         - /usr/local/texlive/2018/texmf-dist/tex/latex/placeins/placeins.sty
         - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/helvet.sty
         - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/mathpazo.sty
+        - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlzplm.fd
+        - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omszplm.fd
+        - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omxzplm.fd
+        - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+        - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1zplm.fd
         - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1phv.fd
         - /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/t1pplj.fd
         - /usr/local/texlive/2018/texmf-dist/tex/latex/sauerj/optparams.sty
@@ -398,7 +441,7 @@ files:
       calls: []
     type: ParsedFileListing
   main.log-ParsedLaTeXLog:
-    timeStamp: 2018-08-16T04:32:30.144Z
+    timeStamp: 2018-08-16T06:39:22.553Z
     jobNames: []
     value:
       messages:
@@ -3443,6 +3486,227 @@ files:
             range:
               start: 1054
               end: 1055
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Try loading font information for OT1+pplx
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1064
+              end: 1064
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Try loading font information for OML+zplm
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1069
+              end: 1069
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Try loading font information for OMS+zplm
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1074
+              end: 1074
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Try loading font information for OMX+zplm
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1079
+              end: 1079
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Try loading font information for OT1+zplm
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1084
+              end: 1084
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msa/m/n' will be scaled to size 10.42007pt.
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1089
+              end: 1090
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msa/m/n' will be scaled to size 7.91925pt.
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1091
+              end: 1092
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msa/m/n' will be scaled to size 6.25204pt.
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1093
+              end: 1094
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msb/m/n' will be scaled to size 10.42007pt.
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1095
+              end: 1096
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msb/m/n' will be scaled to size 7.91925pt.
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1097
+              end: 1098
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msb/m/n' will be scaled to size 6.25204pt.
+          source:
+            file: main.te
+            range:
+              start: 32
+              end: 32
+          log:
+            file: main.log
+            range:
+              start: 1099
+              end: 1100
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msa/m/n' will be scaled to size 8.33606pt.
+          source:
+            file: main.te
+            range:
+              start: 38
+              end: 38
+          log:
+            file: main.log
+            range:
+              start: 1101
+              end: 1102
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msa/m/n' will be scaled to size 5.21004pt.
+          source:
+            file: main.te
+            range:
+              start: 38
+              end: 38
+          log:
+            file: main.log
+            range:
+              start: 1103
+              end: 1104
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msb/m/n' will be scaled to size 8.33606pt.
+          source:
+            file: main.te
+            range:
+              start: 38
+              end: 38
+          log:
+            file: main.log
+            range:
+              start: 1105
+              end: 1106
+        - severity: info
+          name: pdfTeX
+          category: LaTeX Font
+          text: Font shape `U/msb/m/n' will be scaled to size 5.21004pt.
+          source:
+            file: main.te
+            range:
+              start: 38
+              end: 38
+          log:
+            file: main.log
+            range:
+              start: 1107
+              end: 1108
+        - severity: warning
+          name: pdfTeX
+          category: LaTeX
+          text: Marginpar on page 3 moved.
+          source:
+            file: main.te
+          log:
+            file: main.log
+            range:
+              start: 1110
+              end: 1110
         - severity: warning
           name: pdfTeX
           category: Package bibentry
@@ -3454,8 +3718,8 @@ files:
           log:
             file: main.log
             range:
-              start: 1065
-              end: 1067
+              start: 1113
+              end: 1115
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3463,13 +3727,13 @@ files:
           source:
             file: main.te
             range:
-              start: 31
-              end: 31
+              start: 75
+              end: 75
           log:
             file: main.log
             range:
-              start: 1072
-              end: 1072
+              start: 1120
+              end: 1120
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3477,13 +3741,13 @@ files:
           source:
             file: main.te
             range:
-              start: 31
-              end: 31
+              start: 75
+              end: 75
           log:
             file: main.log
             range:
-              start: 1073
-              end: 1073
+              start: 1121
+              end: 1121
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3491,13 +3755,13 @@ files:
           source:
             file: main.te
             range:
-              start: 31
-              end: 31
+              start: 75
+              end: 75
           log:
             file: main.log
             range:
-              start: 1077
-              end: 1077
+              start: 1125
+              end: 1125
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3505,26 +3769,26 @@ files:
           source:
             file: main.te
             range:
-              start: 31
-              end: 31
+              start: 75
+              end: 75
           log:
             file: main.log
             range:
-              start: 1078
-              end: 1078
+              start: 1126
+              end: 1126
         - severity: info
           name: pdfTeX
           category: Package rerunfilecheck
           text: >-
             File `main.out' has not changed. Checksum:
-            89AA336ABD998F6B593B7DFA9B8F9796;104.
+            877BEFD2E34CC8135FF817680539B0CB;384.
           source:
             file: main.te
           log:
             file: main.log
             range:
-              start: 1079
-              end: 1080
+              start: 1127
+              end: 1128
         - severity: info
           name: pdfTeX
           category: Package atveryend
@@ -3532,41 +3796,41 @@ files:
           source:
             file: main.te
             range:
-              start: 31
-              end: 31
+              start: 75
+              end: 75
           log:
             file: main.log
             range:
-              start: 1081
-              end: 1081
+              start: 1129
+              end: 1129
       inputs: []
       outputs:
         - main.pdf
       calls: []
     type: ParsedLaTeXLog
   main.aux:
-    timeStamp: 2018-08-16T04:37:08.107Z
+    timeStamp: 2018-08-16T06:40:49.992Z
     jobNames: []
-    hash: NN+2s5RKLHfcPNbEIQNpYCQT2E0xrb1yyEPKNOECUQ4=
+    hash: O03kJXNvk0P9h75ZCZKC1xpjyk5Rg7ZkJbs5hqHmzsw=
     type: LaTeXAuxilary
   main.fls:
-    timeStamp: 2018-08-16T04:37:08.114Z
+    timeStamp: 2018-08-16T06:40:50.017Z
     jobNames: []
-    hash: OOYtM0bVNWH6tpdMwieilGFdOiiS/n2khi+bMmihdlM=
+    hash: vf4/J41eqbQrB75tusAlG6mtRFWFY9g+LBaB1NFoTTM=
     type: FileListing
   main.log:
-    timeStamp: 2018-08-16T04:37:08.138Z
+    timeStamp: 2018-08-16T06:40:50.037Z
     jobNames: []
-    hash: 2gXU3yeO94GHYVxA1/+wXW4VWO35wVJtXz4Tu8JqilU=
+    hash: myg7bjt06nXt5YOzP35nmWSBUOyM7jzzvWpCNS/ue4E=
     type: LaTeXLog
     subType: pdfTeX
   main.pdf:
-    timeStamp: 2018-08-16T04:37:08.138Z
+    timeStamp: 2018-08-16T06:40:50.037Z
     jobNames: []
-    hash: JMIhRSHnYBsd3I5W7kyv+8Eh25pFnQddNGg0zeYD/PU=
+    hash: eV9dtHmeamLs1fbOjoxyrfAxcn55bNU9YxCSGGDDi6A=
     type: PortableDocumentFormat
   main.aux-ParsedLaTeXAuxilary:
-    timeStamp: 2018-08-16T04:32:01.578Z
+    timeStamp: 2018-08-16T06:39:22.516Z
     jobNames: []
     value:
       commands:
@@ -3592,10 +3856,13 @@ files:
         - '@writefile'
         - '@writefile'
         - '@writefile'
+        - '@writefile'
+        - '@writefile'
+        - '@writefile'
         - ttl@finishall
     type: ParsedLaTeXAuxilary
   /dev/null:
-    timeStamp: 2018-08-16T04:37:04.327Z
+    timeStamp: 2018-08-16T06:40:44.585Z
     jobNames: []
   /usr/local/texlive/2018/texmf-dist/fonts/enc/dvips/base/8r.enc:
     timeStamp: 2016-11-25T18:31:06.000Z
@@ -4232,10 +4499,122 @@ files:
     timeStamp: 2018-04-17T03:08:03.000Z
     jobNames: []
   main.out:
-    timeStamp: 2018-08-16T04:37:08.108Z
+    timeStamp: 2018-08-16T06:40:49.993Z
     jobNames: []
-    hash: NfqvELByoayYWB59EfXb0cORbLa7Stp1IVGpgCJpKuM=
+    hash: ybg9b3+PPydU/S3kcofW0Z4FF5+YQ2z3T3lN2Q23rW4=
     type: OUT
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm:
+    timeStamp: 2016-11-25T18:31:28.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm:
+    timeStamp: 2016-11-25T18:31:28.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrc8r.tfm:
+    timeStamp: 2016-11-25T18:31:28.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm:
+    timeStamp: 2016-11-25T18:31:38.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm:
+    timeStamp: 2016-11-25T18:31:38.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm:
+    timeStamp: 2016-11-25T18:31:41.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm:
+    timeStamp: 2016-11-25T18:31:53.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm:
+    timeStamp: 2016-11-25T18:31:53.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm:
+    timeStamp: 2016-11-25T18:31:53.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm:
+    timeStamp: 2016-11-25T18:31:53.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm:
+    timeStamp: 2016-11-25T18:31:53.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb:
+    timeStamp: 2016-11-25T18:32:20.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb:
+    timeStamp: 2016-11-25T18:32:22.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb:
+    timeStamp: 2016-11-25T18:32:26.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplr9d.vf:
+    timeStamp: 2016-11-25T18:32:37.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf:
+    timeStamp: 2016-11-25T18:32:37.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf:
+    timeStamp: 2016-11-25T18:32:48.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf:
+    timeStamp: 2016-11-25T18:32:48.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf:
+    timeStamp: 2016-11-25T18:32:48.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf:
+    timeStamp: 2016-11-25T18:32:48.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlzplm.fd:
+    timeStamp: 2016-11-25T18:33:57.000Z
+    jobNames: []
+    type: FontDescription
+  /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omszplm.fd:
+    timeStamp: 2016-11-25T18:33:57.000Z
+    jobNames: []
+    type: FontDescription
+  /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omxzplm.fd:
+    timeStamp: 2016-11-25T18:33:57.000Z
+    jobNames: []
+    type: FontDescription
+  /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd:
+    timeStamp: 2016-11-25T18:33:57.000Z
+    jobNames: []
+    type: FontDescription
+  /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1zplm.fd:
+    timeStamp: 2016-11-25T18:33:57.000Z
+    jobNames: []
+    type: FontDescription
+  /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrc9d.tfm:
+    timeStamp: 2016-11-25T18:31:28.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplrc9d.vf:
+    timeStamp: 2016-11-25T18:32:37.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb:
+    timeStamp: 2016-11-25T18:32:13.000Z
+    jobNames: []
+  /usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex:
+    timeStamp: 2016-11-25T18:33:36.000Z
+    jobNames: []
+    type: TeX
+  /usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex:
+    timeStamp: 2016-11-25T18:33:36.000Z
+    jobNames: []
+    type: TeX
 rules:
   - name: ApplyOptions
     command: load
@@ -4743,6 +5122,90 @@ rules:
       - file: /usr/local/texlive/2018/texmf.cnf
         type: default
       - file: main.out
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplr8r.tfm
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplr9t.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrc8r.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmmi10.tfm
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmr10.tfm
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/fplmr.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7m.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7t.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7v.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/public/mathpazo/zplmr7y.tfm
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/type1/public/fpl/fplrc8a.pfb
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplr9d.vf
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplr9t.vf
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7m.vf
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7t.vf
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7v.vf
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/vf/public/mathpazo/zplmr7y.vf
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omlzplm.fd
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omszplm.fd
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/omxzplm.fd
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1pplx.fd
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/tex/latex/psnfss/ot1zplm.fd
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/tfm/adobe/palatino/pplrc9d.tfm
+        type: default
+      - file: /usr/local/texlive/2018/texmf-dist/fonts/vf/adobe/palatino/pplrc9d.vf
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrows.code.tex
+        type: default
+      - file: >-
+          /usr/local/texlive/2018/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
         type: default
     outputs:
       - file: main.aux
