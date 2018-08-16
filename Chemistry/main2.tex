@@ -70,7 +70,7 @@ The formal charge is given by $q_f = n_v - n_l - \frac{1}{2} n_s$ in which $\sum
   \includegraphics[width=0.78\textwidth]{bonds} \phantom{mmmm}
 \end{center}
 \end{marginfigure}
-\marginnote[2mm]{The band theory for semiconductors.}
+\marginnote[2mm]{Sigma and pi bonds overlapping for hybridization.}
 %
 \bigskip
 Hybrid orbitals are dependent on molecular geometry, and filled by $sp^3d^2$. The number of orbitals is equal to the number of electron pairs. The number of sigma and pi bonds is equal to \begin{equation}
@@ -99,6 +99,14 @@ Lewis dot structures are created via the following algorithm: \begin{enumerate}
 \section{Equilibrium Constants}
 
 A system is said to be at dynamic equilibrium if the rates of both reactions are equal but do not approach zero. For a general chemical reaction, the reaction quotient and equilibrium constant are
+%
+\begin{marginfigure}[5mm]
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{equilibrium} \phantom{m}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{Dynamic equilibrium.}
+%
 \begin{equation}
   Q = \frac{[C]^c [D]^d}{[A]^a [B]^b} \quad\text{and}\quad K_c = \frac{[C]^c_{eq} [D]^d_{eq}}{[A]^a_{eq} [B]^b_{eq}}
 \end{equation}
@@ -131,6 +139,14 @@ LeChatelier's principle states that when a system at equilibrium is stressed, it
   \item If the concentration of products is increased or reactants decreased, $Q>K$ and more reactants are formed;
   \item If vice versa, $Q<K$ and more products are formed.
 \end{itemize}
+%
+\begin{marginfigure}[5mm]
+\begin{center}
+  \includegraphics[width=\textwidth]{qk}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{Predicting the direction of reaction. The direction of reaction depends on the relative values of $Q$ and $K_c$.}
+%
 Pressure is inversely proportional to the amount of moles the side to which equilibrium moves to has. Note that catalysts have no effect upon the properties of --thermic reactions.
 
 \bigskip
@@ -143,6 +159,14 @@ For a reaction $A(s) \leftrightharpoons cC(aq) + dD(aq)$, the solubility constan
 and the molar solubility is \begin{equation}
   x = (K_{sp}/c^cd^d)^{1/(c+d)}
 \end{equation}
+%
+\begin{marginfigure}[5mm]
+\begin{center}
+  \includegraphics[width=\textwidth]{acidbase}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{Conjugate acid-base pairs for the reaction between HS$^-$ and HF.}
+%
 A Brønsted-Lowry acid is a proton $H^+$ donor, and a base a proton acceptor. The equation for the dissociation of a weak acid $HA$ is \begin{equation}
   HA(aq) + H_2O (\ell) \leftrightharpoons H_3O^+ (aq) + A^- (aq)
 \end{equation}
@@ -157,7 +181,16 @@ The acid and base ionization constants are $K_a,K_b = K_s$ respectively such tha
 \chapter{Thermodynamics}
 
 \section{The Second Law}
-\textsc{A spontaneous reaction} occurs without the need for continuous intervention. When heating a system, its entropy $S$ increases. The second law states that for a spontaneous reaction, \begin{equation}
+\textsc{A spontaneous reaction} occurs without the need for continuous intervention. When heating a system, its entropy $S$ increases. The second law states that for a spontaneous reaction,
+%
+\begin{marginfigure}[5mm]
+\begin{center}
+  \includegraphics[width=\textwidth]{enthalpy}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{The enthalpy $\Delta H^\ominus$ for the  reaction $A\to B$ is the difference between the standard heats of formation of products and reactants.}
+%
+\begin{equation}
   \Delta S_u = \Delta S + \Delta S_{sur} > 0
 \end{equation}
 where $\Delta S_{sur} = - \Delta H/T$. If $\Delta \sum v > 0$, then $\Delta S > 0$. The change in standard entropy is \begin{equation}
@@ -166,22 +199,32 @@ where $\Delta S_{sur} = - \Delta H/T$. If $\Delta \sum v > 0$, then $\Delta S > 
 The change in Gibbs free energy is thus also equal to \begin{equation}
   \Delta G = \Delta H - T \Delta S = -T \Delta S_u
 \end{equation}
-If $\Delta G > 0$, a reaction is spontaneous and vice versa. The change in standard free energy is \begin{equation}
+If $\Delta G < 0$, a reaction is spontaneous and vice versa. The change in standard free energy is \begin{equation}
   \Delta G^\ominus = \Delta \sum v_i G^\ominus_i
 \end{equation}
 Entropy is proportional to $T, r, V, n$ and inversely proportional to $P$.
 
 \section{Enthalpy}
+
 Heat is expressed as $\Delta E - w$. The specific \& molar heat capacities are defined as \begin{equation}
   q_s = mc \Delta T \quad\text{and}\quad q_m = nC_p \Delta T
 \end{equation}
+%
+\begin{marginfigure}[-10mm]
+\begin{center}
+  \includegraphics[width=0.9\textwidth]{hess}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{Diagram of Hess' Law.}
+%
 For calorimetry, heat is given by \begin{equation}
   q_c = -(q / \Delta T_i) \Delta T_f
 \end{equation}
 Enthalpy is defined as \begin{equation}
   \Delta H = \Delta E + \Delta (PV) = q_p - n \Delta H_{\Delta \text{phase}}
 \end{equation}
-A reaction is exothermic for $\Delta H<0$ and vice versa. A formation reaction is one in which one mole of a compound is formed from its elements such that \begin{equation}
+A reaction is exothermic for $\Delta H<0$ and vice versa. A formation reaction is one in which one mole of a compound is formed from its elements such that
+\begin{equation}
   aA + bB = 1AB \qquad \Delta H^\ominus = \Delta H_f^\ominus [AB]
 \end{equation}
 Hess's Law states the enthalpy change of a process is independent of path; that is, $\Delta H = \sum \Delta H_i$ meaning that sub-reactions and their enthalpies may be summed together to yield the desired reaction and its enthalpy. The change in standard enthalpy is \begin{equation}
@@ -190,10 +233,19 @@ Hess's Law states the enthalpy change of a process is independent of path; that 
 In thermodynamical equations, always convert to moles from mass or molarity using \begin{equation}
   q = \pm n \Delta H / N_a
 \end{equation}
+%
+\begin{marginfigure}[-50mm]
+\begin{center}
+  \includegraphics[width=\textwidth]{bornhaber}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{Using the Born-Haber cycle to calculate the enthalpy of formation.}
+%
 The Born-Haber cycle is used to find the $H_f$ of an ionic compound $MX$, given by \begin{equation}
   \Delta H_f = H_{\text{sub}} + \textstyle{\frac{1}{2}} B_X + IE_M - EA_X + LE
 \end{equation}
 where $B$ is the bond energy of $X_2$ from $M + \frac{1}{2} X_2 \to MX$, and LE is defined as exothermic.
+
 
 \chapter{Materials Science}
 
@@ -206,8 +258,16 @@ where $B$ is the bond energy of $X_2$ from $M + \frac{1}{2} X_2 \to MX$, and LE 
     sc & 1 & 6 & $2r$ \\
     bcc & 2 & 8 & $4r / \sqrt 3$ \\
     fcc & 4 & 12 & $2 \sqrt 2r$
-  \end{tabular} \phantom{mm}
+  \end{tabular}
 \end{center}
+%
+\begin{marginfigure}[-10mm]
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{matsci}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{(a) hexagonal close packing and (b) cubic close packing.}
+%
 The density of a cell is given by \begin{equation}
   \rho = \frac{m}{a^3} \quad\text{for}\quad m = \frac{nM}{N_a}
 \end{equation}
@@ -216,27 +276,44 @@ The packing efficiency of a lattice is defined as $n V_{\text{sph}} / a^3$.
 \section{Types of Bonding}
 The concept of band theory describes metallic bonding in semiconductors. In metals / conductors, semiconductors, and insulators, the gap between the lower valence and upper conduction bands is negligible, moderate, and large, respectively.
 
-\begin{marginfigure}
-\begin{center}
-  \includegraphics[width=\textwidth]{ntype} \phantom{mmm}
-\end{center}
-\end{marginfigure}
-\marginnote[-3mm]{The band theory for semiconductors.}
-
 \bigskip
 In an n-type semiconductor, donor electrons are promoted easily into the conduction band, and the dopant has more valence electrons than the semiconductor. Likewise, in a p-type, vice versa.
+
+\begin{marginfigure}
+\begin{center}
+  \includegraphics[width=\textwidth]{semi}
+\end{center}
+\end{marginfigure}
+\marginnote[1mm]{The band theory for semiconductors.}
 
 \bigskip
 Hydrogen bonding is the strongest intermolecular force, and occurs between a hydrogen atom and a highly electronegative atom. Dipole forces occur for non-symmetrical compounds, and dispersion forces occur in the absence of the former three.
 
 \section{Condensed Phases}
 In the liquid state, the force is proportional to boiling point, viscosity, number of OH$^-$ ions, $H$, and inversely proportional to vapor pressure and $T$.
+%
+\begin{marginfigure}[0mm]
+\begin{center}
+  \includegraphics[width=\textwidth]{hydrogen}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{Hydrogen bonding with ammonia.}
 
 \bigskip
-An addition polymerization begins with a molecule breaking down into two free radicals. A radical then attaches to a monomer molecule breaking the double bond, forming a new radical. This recursive procedure when the remaining original radical combines with the new polymer. A condensation reaction is one in which two monomers with functional groups combine to former a monomer and $H_2O$.
+An addition polymerization begins with a molecule breaking down into two free radicals. A radical then attaches to a monomer molecule breaking the double bond, forming a new radical. This recursive procedure when the remaining original radical combines with the new polymer.
+
+\bigskip
+A condensation reaction is one in which two monomers with functional groups combine to former a monomer and $H_2O$.
 
 \bigskip
 A block copolymer has repeated segments of each monomer, and a graft copolymer has segments of one monomer branching off the main chain. Additionally, thermoplastic polymers melt and deform upon heating, conversely of thermosetting ones.
+%
+\begin{marginfigure}[0mm]
+\begin{center}
+  \includegraphics[width=\textwidth]{phases}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{The phase diagram of water.}
 
 \bigskip
 The degree of polymerization is $\overline M / M_{mon}$ and the average molecular weight of such chains is
@@ -252,20 +329,27 @@ The degree of polymerization is $\overline M / M_{mon}$ and the average molecula
 %
 \begin{center}
   \begin{tabular}{ll}
-    Alcohol & R--OH \\
-    Ethers & R--O--R \\
-    Amines & N \\
-    Carboxylic & R--[C=O]--OH
+    Alcohol & --OH \\
+    Ethers & --O-- \\
+    Amines & --N-- \\
+    Carboxylic & --C(=O)OH
   \end{tabular} \qquad\qquad
   \begin{tabular}{ll}
-    Amides & R--[C=O]--N \\
-    Aldehydes & R--[C=O]--H \\
-    Ketones & R--[C=O]--R \\
-    \phantom{K}
+    Amides & --C(=O)N-- \\
+    Aldehydes & --C(=O)H \\
+    Ketones & --C(=O)-- \\
+    Esters & --C(=O)O--
   \end{tabular}
 \end{center}
 %
 LDPE and HDPE are linear and branched versions of polyethylene.
+%
+\begin{marginfigure}[0mm]
+\begin{center}
+  \includegraphics[width=\textwidth]{organic}
+\end{center}
+\end{marginfigure}
+\marginnote[2mm]{Breaking a double bond when adding a molecule. Similar to an addition reaction.}
 
 \section{Energetics}
 The ionization energy is the energy required for the reaction $A \to A^+ + e^-$. Conversely, electron affinity is the energy required for $B + e^- \to B^-$.
