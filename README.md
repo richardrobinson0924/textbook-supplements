@@ -3,10 +3,10 @@
 
 
 Unofficial textbook supplement notes for basic Engineering courses, including
- - Chemistry [IN PROGRESS]
- - Circuits & Signals [COMING SOON]
- - Electromagnetism [IN PROGRESS]
- - Assembly & Verilog  [IN PROGRESS]
- - Economics [COMING SOON]
+ - Chemistry
+ - Circuits & Signals (*Coming Soon*)
+ - Electromagnetism (*In Progress*)
+ - Assembly & Verilog  (*In Progress*)
+ - Economics (*Coming Soon*)
 
  Updates for current and new courses coming continuously. :)
