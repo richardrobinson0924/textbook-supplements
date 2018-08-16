@@ -2,7 +2,7 @@
 
 
 
-Unofficial textbook supplement notes for basic Engineering courses, including
+Unofficial textbook supplement notes for basic Engineering courses. Click on a course title to download the latest updated version.
  - [x] [Chemistry](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Chemistry/main2.pdf)
  - [ ] Circuits & Signals (*Coming Soon*)
  - [ ] [Electromagnetism](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Electromagnetism/main.pdf) (*In Progress*)
