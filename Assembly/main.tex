@@ -39,7 +39,6 @@
 \begin{document}
 \frontmatter
 \maketitle
-\tableofcontents
 
 \setlength{\parindent}{0pt}
 
@@ -111,8 +110,53 @@ where $x_i$ is the $i$th digit starting at $i=0$ and increasing leftwards. In RI
 Two's complement representation for signed binary numbers assigns leading 0s as positive and leading 1s as negative. The complements are related by \begin{equation}
   \overline{x} + 1 = -x
 \end{equation}
-In Hexadecimal, all groups of 4 binary digits may be represented by a single hexadecimal digit, ranging from $0 - 9, a - f$.
+Binary is used in the instruction format, which represents an instruction in 6 fields, typically the \textit{R}-type:
+\begin{enumerate}
+  \item \verb|opcode|: basic op of the instruction (7b).
+  \item \verb|rd|: reg dest operand; gets result of op (5b).
+  \item \verb|funct3/7|: additional opcodes (3/7b).
+  \item \verb|rs2/1|: second / first reg source operand (5b).
+\end{enumerate}
 
+In Hexadecimal, all groups of 4 binary digits may be represented by a single hexadecimal digit, ranging from $0 - 9, a - f$ such that \begin{center}
+  \verb|9 = 1001| \qquad \verb|a = 1010| \qquad \verb|f = 1111|
+\end{center}
+
+\section{Logical \& Conditional Ops}
+The typical logical operators occur in RISC-V, as do:
+\begin{enumerate}
+  \item Shift left / right (\verb|sll| / \verb|srl|): moves all bits in a doubleword left / right, filling emptied bits with 0s. Shifting left $i$ bits is equal to multiplying by $2^i$.
+  \item Bitwise XOR (\verb|xor|): an operation which returns 1 only if the values differe in the two operands.
+  \item Bitwise NOT (\verb|xori|): inverts the bits in a doubleword; equivalent to XOR with one operand being \verb|11...1|.
+\end{enumerate}
+For conditional statements, the commands \verb|bne| and \verb|beq| are used. For example,
+\begin{verbatim}
+  if (i == j) f = g + h; else f = g - h
+\end{verbatim}
+in C where \verb|f-g| are \verb|x19-x23|, the equivalent RISC-V code is \begin{lstlisting}
+        bne x22, x23, Else    // goto Else if i~=j
+        add x19, x20, x21     // f=g+h if i == j
+        beq x0,   x0, Exit    // goto Exit
+  Else: sub x19, x20, x21     // f=g-h if i~=j
+  Exit:
+\end{lstlisting}
+Likewise, for loops, the same commands are used in addition to the label \verb|Loop:|. For example,
+\begin{verbatim}
+  while (save[i] == k) i++
+\end{verbatim}
+in C where \verb|i,k,save| are \verb|x22,x24,x25|, the code is \begin{lstlisting}
+  Loop: sll x10, x22, 3     // treg x10=8i
+        add x10, x10, x25   // x10 = save[i]
+        ld x9, 0(x10)       // treg x9 = save[i]
+        bne x9. x24, Exit   // goto Exit if
+                            // save[i]~=k
+        add x22, x22, 1     // i++
+        beq x0, x0, Loop    // goto Loop
+  Exit:
+\end{lstlisting}
+This can be extended to the comparison $0 <= x < y$, which is valid for the index out-of-bounds check. For example, the check \verb$x20 >= x11 || x20 < 0$ is given by \verb$bgey x20, x11, OutOfBounds$.
+
+\chapter{RISC-V Operation}
 
 
 \end{document}
