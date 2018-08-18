@@ -154,7 +154,7 @@ in C where \verb|i,k,save| are \verb|x22,x24,x25|, the code is \begin{lstlisting
         beq x0, x0, Loop    // goto Loop
   Exit:
 \end{lstlisting}
-This can be extended to the comparison $0 <= x < y$, which is valid for the index out-of-bounds check. For example, the check \verb$x20 >= x11 || x20 < 0$ is given by \verb$bgey x20, x11, OutOfBounds$.
+This can be extended to the comparison \verb|0 <= x < y|, which is valid for the index out-of-bounds check. For example, the check \verb$x20 >=$ \verb$x11 || x20 < 0$ is given by \verb$bgey x20, x11, OutOfBounds$.
 
 \chapter{RISC-V Operation}
 

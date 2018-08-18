@@ -1,0 +1,51 @@
+\documentclass{tufte-book}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{eso-pic}
+\usepackage{xcolor}
+\usepackage{scalerel}
+\usepackage{graphicx}
+\graphicspath{{../images/}}
+
+
+\def\light{\scalerel*{\includegraphics{1F4A1.pdf}}{X\rule[-.3ex]{10pt}{20pt}}}
+\def\hat{\scalerel*{\includegraphics{1F3A9.pdf}}{X\rule[-.3ex]{10pt}{20pt}}}
+\def\book{\scalerel*{\includegraphics{1F4D5.pdf}}{X\rule[-.3ex]{10pt}{20pt}}}
+\def\battery{\scalerel*{\includegraphics{1F50B.pdf}}{X\rule[-.3ex]{10pt}{20pt}}}
+\def\bolt{\scalerel*{\includegraphics{26A1.pdf}}{X\rule[-.3ex]{10pt}{20pt}}}
+
+\newcommand\BackgroundPic{%
+\put(-225,-355){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[height=1.45\paperheight,%
+keepaspectratio]{circuitscover}%
+\vfill
+}}}
+
+
+\setlength{\parindent}{0pt}
+\colorlet{darkgray}{white!15!black}
+\title[Electronic Circuits]{%
+  \setlength{\parindent}{0pt}%
+Electronic \par Circuits}
+\author{Richard Robinson}
+\begin{document}
+\AddToShipoutPicture*{\BackgroundPic}
+\frontmatter
+\maketitle
+\setlength{\parindent}{0pt}
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MAIN DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Introduction \;\protect\book{}}
+
+
+
+\end{document}
