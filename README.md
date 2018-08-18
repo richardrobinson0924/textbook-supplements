@@ -2,7 +2,7 @@
 
 
 
-**Important Note:** These textbook supplements are optimized for the course syllabi of the Lassonde School of Engineering at York University. Therefore they may contain additional or lack of information depending on your school. Nevertheless they are still a helpful resource.
+**Important Note:** These textbook supplements are optimized for the course syllabi of the Lassonde School of Engineering at York University. Therefore they may contain additional or lack of information depending on your school. Nevertheless they are still a helpful resource. Feel free to create issues to request additional content, or create a pull request to directly contribute.
 
 ---
 
