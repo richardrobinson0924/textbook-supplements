@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{multicol}
+\usepackage{mathpazo}
 
 \title{CHEM 1100 Practice Exam}
 \author{Richard Robinson}
@@ -11,7 +12,7 @@
 \maketitle
 
 \section{Multiple Choice}
-
+\begin{multicols}{2}
 \begin{questions}
 
 \question Which of the following is an example of a homogenous equilibrium?
@@ -64,9 +65,15 @@
 \end{choices}
 
 \end{questions}
+\end{multicols}
 
+%---------------------------------------------------------------
+% SHORT ANSWERS
+%---------------------------------------------------------------
+
+\vspace{1mm}
 \section{Short Answer}
-
+\begin{multicols}{2}
 \begin{questions}
 
 \question Calculate $\Delta S$ for the reaction $\mathrm{2NO_2 \to 2N_2 + O_2}$. Note $\Delta S = \{ 240, 191.5, 205 \}$, respectively.
@@ -99,11 +106,21 @@
 \question The volume of a gas is 650 mL at STP. What volume will it occupy at freezing point and 950 torr?
 \answerline[520]
 
+\question For the reaction $\mathrm{H_2O(g) + CH_4(g) \leftrightharpoons CO(g)}$ $+ 3H_2(g)$, if $K_c = 3.8 \cdot 10^{-3}$ at 1000 K, what is $K_p$?
+\answerline[26]
+
+\question For the reaction $\mathrm{PCl_5(g) \leftrightharpoons PCl_3(g) + Cl_2(g)}$, the constant $K = 7.7 \cdot 10^{-3}$ at STP. Calculate $\Delta G^\ominus$.
+\answerline[12,000 J/mol]
+
 \end{questions}
+\end{multicols}
 
-\newpage
+%---------------------------------------------------------------
+% LONG ANSWERS
+%---------------------------------------------------------------
+
+\bigskip
 \section{Long Answer}
-
 \begin{questions}
 
 \question Use the Born Haber cycle to determine the lattice energy of KF (s) from the following data:
@@ -151,10 +168,8 @@
   \end{equation*}
 \end{solutionbox}
 
-\newpage
-
+\bigskip
 \question A mixture of 1.57 mol $N_2$, 1.92 mol $H_2$, and 8.13 mol $NH_3$ is mixed in a 20L vessel at 500K. At this temperature, $K_c = 1.7 \cdot 10^2$ for $N_2 + 3H_2 \leftrightharpoons 2NH_3$. Is such mixture at equilibrium? If not, what is the direction of the net reaction?
-
 \begin{solutionbox}{1.95in}
   The initial concentrations are given by \begin{equation*}
     [N_2] = 0.0785 \qquad [H_2] = 0.0960 \qquad [NH_3] = 0.406
@@ -163,6 +178,48 @@
     Q = \frac{[NH_3]^2}{[N_2][H_2]^3} = \frac{(0.406)^3}{(0.0785)(0.0960)^3} = 2.37 \cdot 10^3
   \end{equation*}
   Therefore, $Q > K$ so the mixture is not at equilibrium and the net reaction will proceed leftwards, decreasing the $NH_3$ concentration.
+\end{solutionbox}
+
+\bigskip
+\question Define a formation reaction, and explain why the each equation is not correct:
+\begin{parts}
+  \part The formation of $\mathrm{4Al(s) + 3O_2(g) \to 2 Al_2 O_3 (s)}$
+  \part The formation of $\mathrm{N_2(g) + 3/2 H_2(g) \to NH_3(g)}$
+  \part The formation of $\mathrm{2Na(s) + O(g) \to Na_2O(s)}$
+\end{parts}
+%
+\begin{solutionbox}{1.1in}
+  A formation reaction is that of a compound from its standard state elements.
+  \begin{enumerate}
+    \item Two moles of the compound is formed, not one.
+    \item It is not correctly balanced.
+    \item Oxygen is not in its standard state.
+  \end{enumerate}
+\end{solutionbox}
+
+\newpage
+\question A piece of $Ti$ with mass $m = 20.8$ g is heated in boiling water to $T_1 = 99.5^\circ$, then dropped into a calorimeter containing $V = 75$ mL of water at $T_2 = 21.7^\circ$. When equilibrium is reached, the temperature is $T_3 = 24.3^\circ$. Calculate the specific heat of titanium.
+\begin{solutionbox}{1in}
+  The heats are related via \begin{equation}
+    - m C_{Ti} \Delta T_{31} = V C \Delta T_{32} \implies C_{Ti} = 0.52
+  \end{equation}
+  Therefore, the specific heat of titanium is 0.52 J/g $^\circ$C.
+\end{solutionbox}
+
+\bigskip
+\question Using Hess' Law, calculate the heat of reaction for $A + B \to C$ given: \begin{equation}
+  2D \to B \quad \Delta H = 50 ,\qquad 2A + D \to C \quad \Delta H = -100 ,\qquad D \to A \quad \Delta H = 75
+\end{equation}
+%
+\begin{solutionbox}{2in}
+  The net sum of the sub-reactions must be equal to the overall reaction. To achieve this, the first reaction is reversed such that $B \to 2D$ and $\Delta H = -50$. Adding this to the remaining two sub-reactions yields:
+    \begin{align*}
+      & 1. & B &\to 2D & \Delta H_1 &= -50 \\
+      & 2. & 2A + D &\to C & \Delta H_2 &= -100 \\
+      & 3. & D &\to A & \Delta H_3 &= 75 \\
+      & \Sigma & A + B &\to C & \Delta H_t &= \Sigma \Delta H
+    \end{align*}
+    Therefore, the total enthalpy $\Delta H_{rxn} = \sum \Delta H = -75$ kJ / mol.
 \end{solutionbox}
 
 \end{questions}
