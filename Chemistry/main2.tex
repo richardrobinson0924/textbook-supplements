@@ -2,17 +2,31 @@
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
 \usepackage{amsmath,amsthm,amssymb}
+\usepackage{eso-pic}
 \usepackage{tikz}
 \usepackage{graphicx}
 \graphicspath{{../images/}}
 
+% cover photo
+\newcommand\BackgroundPic{%
+\put(0,-220){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[height=1.3\paperheight,%
+keepaspectratio]{chemcover2}%
+\vfill
+}}}
+
 \setlength{\parindent}{0pt}
 \renewcommand{\emph}[1]{\textbf{#1}}
 
-\title{\\ Chemistry \& \\ Materials \\ Science}
+\title[Electronic Circuits]{%
+  \setlength{\parindent}{0pt}%
+Chemistry \& \par Materials \par Science}
 \author{Richard Robinson}
-
 \begin{document}
+\AddToShipoutPicture*{\BackgroundPic}
 \frontmatter
 \maketitle
 \setlength{\parindent}{0pt}
