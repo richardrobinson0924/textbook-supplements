@@ -17,4 +17,4 @@ Updates for current and new courses coming continuously. :)
  
 ### Copyright
 
-All media copyright Pearson Inc. & Nelson Inc. All source code and prose copyright Richard Robinson, made open-source under the AGPL 3.0 Lisence.
+All media copyright Pearson Inc. & Nelson Inc. All source code and prose copyright Richard Robinson, made open-source under the AGPL 3.0 Lisence. *Thanks to Daniela, Prithviraj, Jaz, Donya, & Saraf for all their support.*
