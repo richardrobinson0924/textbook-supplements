@@ -1,0 +1,125 @@
+\documentclass{article}
+\usepackage[letterpaper, margin=55pt]{geometry}
+\usepackage{multicol}
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{mathpazo}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{CHEM 1100 Exam Cheatsheet}
+\rhead{Richard Robinson}
+\setlength\columnsep{25pt}
+\setlength{\parindent}{0pt}
+
+\begin{document}
+\begin{multicols*}{2}
+
+For stoichiometric problems, use
+\begin{equation}
+  n_1/v_1 = n_2/v_2
+\end{equation}
+where $n = m/M = CV$. Lewis dot structures are created by:
+\begin{enumerate}
+  \item Find the sum of valence electrons
+  \item Connect the atoms with single bonds
+  \item Create multiple bonds and lone pairs for an octet
+\end{enumerate}
+For an equilibrium reaction, the constant is
+\begin{equation}
+  K_c = \textstyle\prod [B]_{eq}^b / \textstyle\prod [A]_{eq}^a = \textstyle\prod K_i
+\end{equation}
+and only includes gaseous or aqueous compounds. For gaseous reactions, then the constant is
+\begin{equation}
+  K_p = K_c RT ^{\Delta v_g} \iff P_x \equiv [X]
+\end{equation}
+Reactions are homogeneous iff all constituents are the same phase.
+
+\bigskip
+To calculate the equilibrium concentrations, construct an ICE table such that
+\begin{equation}
+  [X_i]_{eq} = [A_i] \mp ax
+\end{equation}
+As well, more reactants are formed if
+\begin{equation}
+  [A] \uparrow \iff [B] \downarrow \iff Q > K
+\end{equation}
+and $P^{-1} \propto n$ where $n$ is the moles the side to which equilibrium moves to has.
+
+\bigskip
+Exothermic reactions produce heat such that if temperature increases as well, more reactants are formed.
+
+\bigskip
+For a reaction $A(s) \leftrightharpoons bB(aq)$, the constant
+\begin{equation}
+  K_sp = [B]^b \iff x = (K_{sp}/\Pi b^b)^{1/\Sigma b}
+\end{equation}
+Gibbs free energy is defined as
+\begin{equation}
+  \Delta G^\ominus = -RT \ln K = H - TS = -T \Delta S_u
+\end{equation}
+When heating a system $S$ increases such that \begin{equation}
+  \Delta S_u = \Delta S + \Delta S_s >0
+\end{equation}
+where $\Delta S_s = - \Delta H/T$ for a spontaneous reaction. If $\Delta \sum v > 0 \iff \Delta S > 0$.
+
+\bigskip
+The change in $\{S,G,\Delta H_f\}$ is
+\begin{equation}
+  \Delta X^\ominus = \Delta \sum v X^\ominus
+\end{equation}
+If $G < 0$ the reaction is spontaneous. Entropy is proportional to $T,r,V,n,P^{-1}$.
+
+\bigskip
+The Born Haber cycle is used to find $H_f$ of an ionic compound $MX$,
+\begin{equation}
+  \Delta H_f = \sum H \qquad H_B = \textstyle\frac{1}{2} B
+\end{equation}
+where
+\begin{align}
+  \Delta H_s: \qquad & M(s) \to M(g) \\
+  IE: \qquad & M(g) \to M^+ + e^- \\
+  \textstyle\frac{1}{2} B: \qquad & \textstyle\frac{1}{2} X_2 \to X \\
+  -EA: \qquad & X + e^- \to X^- \\
+  - \Delta H_l: \qquad & M^+ + X^- \to MX
+\end{align}
+The density of a unit cell is given by
+\begin{equation}
+  \rho = \frac{nM}{a^3 N_a} \qquad a = \left\{ 2r, \; 4r/\sqrt 3, \; 2 \sqrt 2 r  \right\}
+\end{equation}
+for sc, bcc, and fcc respectively. The packing efficiency is given by $n V_{\text{sph}} / a^3$.
+
+\bigskip
+In semiconductors, temperature is proportional to conductivity, and oppoiste for conductors.
+
+\bigskip
+The force in liquids is proportional to BP, viscosity, number of OH$^-$ ions, H, and inversely proportional to $P$ and $T$.
+
+\bigskip
+Thermoplastic polymers melt and deform upon heating. The DP is $\overline M / M_{m}$ and the average molecular weight is
+\begin{equation}
+  \overline M_n = \frac{\Sigma MN}{\Sigma N} \qquad \overline M_w = \frac{\Sigma M^2 N}{\Sigma MN}
+\end{equation}
+where $n_\text{chains} = m N_a / \overline M$. Polymers are linear, branched, and crosslinked.
+
+\bigskip
+The former two are connected by non-bonded interactions and can be easily recycled, and the latter by covalent bonds.
+
+\bigskip
+Linear polymers form crystal more easily and thus become liquid when heated.
+
+\bigskip
+The partial pressure of a gas is
+\begin{equation}
+  P_i = X_i P \qquad X_i = n_i / \Sigma n \qquad P = \sum P_i
+\end{equation}
+For a reactant $A$ dissociated $\delta \%$, then \begin{equation}
+  P_A = (1-\delta)x \qquad P_B = (v_b \delta / v)a x
+\end{equation}
+where the mole fraction is
+\begin{equation}
+  x_i = m_i M / m M_i = n_i / n
+\end{equation}
+
+\end{multicols*}{2}
+\end{document}
