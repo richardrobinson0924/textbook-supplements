@@ -1,4 +1,4 @@
-\documentclass[11pt]{extarticle}
+\documentclass[10pt]{extarticle}
 \usepackage[letterpaper, margin=55pt]{geometry}
 \usepackage{multicol}
 \usepackage{amsmath,amsthm,amssymb}
@@ -9,61 +9,25 @@
 
 \begin{document}
 \begin{multicols*}{2}
-{\Large\textit{Exam Cheatsheet}}
+
+%--------------------------------------------------------------------
+% Thermodynamics
+%--------------------------------------------------------------------
+
+{\large\textit{Thermodynamics}}
 \bigskip
 
-A ketone is --C(=O)--; amides, carboxylics, aldehydes, and esters are KN--, KOH, KH, and KO--.
-
-\bigskip
-For stoichiometric problems, use
-\begin{equation}
-  n_1/v_1 = n_2/v_2
+When heating a system, $S$ increases where \begin{equation}
+  \Delta S_u = \Delta S + \Delta S_s > 0
 \end{equation}
-where $n = m/M = CV$. For an equilibrium reaction, the constant is
-\begin{equation}
-  K_c = \textstyle\prod [B]_{eq}^b / \textstyle\prod [A]_{eq}^a = \textstyle\prod K_i
-\end{equation}
-and only includes gaseous or aqueous compounds. For gaseous reactions, then the constant is
-\begin{equation}
-  K_p = K_c RT ^{\Delta v_g} \iff P_x \equiv [X]
-\end{equation}
-Reactions are homogeneous iff all constituents are the same phase. To calculate the equilibrium concentrations, construct an ICE table such that
-\begin{equation}
-  [X_i]_{eq} = [A_i] \mp ax
-\end{equation}
-As well, more reactants are formed if
-\begin{equation}
-  [A] \uparrow \iff [B] \downarrow \iff Q > K
-\end{equation}
-and $P^{-1} \propto n$ where $n$ is the moles the side to which equilibrium moves to has.
-
-\bigskip
-Exothermic reactions produce heat such that if temperature increases as well, more reactants are formed.
-
-\bigskip
-For a reaction $A(s) \leftrightharpoons bB(aq)$, the constant
-\begin{equation}
-  K_sp = [B]^b \iff x = (K_{sp}/\Pi b^b)^{1/\Sigma b}
-\end{equation}
-Gibbs free energy is defined as
-\begin{equation}
-  \Delta G^\ominus = -RT \ln K = H - TS = -T \Delta S_u
-\end{equation}
-When heating a system $S$ increases such that \begin{equation}
-  \Delta S_u = \Delta S + \Delta S_s >0
-\end{equation}
-where $\Delta S_s = - \Delta H/T$ for a spontaneous reaction. If $\Delta \sum v > 0 \iff \Delta S > 0$. The change in $\{S,G,\Delta H_f\}$ is
-\begin{equation}
-  \Delta X^\ominus = \Delta \textstyle\sum v X^\ominus
-\end{equation}
-If $G < 0$ the reaction is spontaneous. Entropy is proportional to $T,r,V,n,P^{-1}$.
+and $\Delta \sum v > 0 \iff \Delta S > 0$. As well, $S \propto T \propto r \propto V \propto n \propto P^{-1}$ where $n$ is the moles the side to which equilibrium moves to has.
 
 \bigskip
 The Born Haber cycle is used to find $H_f$ of an ionic compound $MX$,
 \begin{equation}
   \Delta H_f = \textstyle\sum H \qquad H_B = \textstyle\frac{1}{2} B
 \end{equation}
-where
+where the sub-reactions are given by
 \begin{align}
   \Delta H_s: \qquad & M(s) \to M(g) \nonumber\\
   IE: \qquad & M(g) \to M^+ + e^- \nonumber\\
@@ -71,6 +35,49 @@ where
   -EA: \qquad & X + e^- \to X^- \nonumber\\
   - \Delta H_l: \qquad & M^+ + X^- \to MX \nonumber
 \end{align}
+The change in $X : \{ S, G, \Delta H_f \}$ is
+\begin{equation}
+  \Delta X^\ominus = \Delta \textstyle\sum v X^\ominus
+\end{equation}
+If $G < 0$ the reaction is spontaneous.
+
+%--------------------------------------------------------------------
+% Equilibrium
+%--------------------------------------------------------------------
+
+\vspace{7mm}
+{\large\textit{Equilibrium}}
+\bigskip
+
+The equilibrium constant is given by \begin{equation}
+  K_c \sim K_p = K_c RT^{\Delta v_h}
+\end{equation}
+where $K_p$ is for gaseous reactions. Reactions are homogeneous iff it is the same phase.
+
+\bigskip
+To calculate the eq. concentrations, construct an ICE table where \begin{equation}
+  [A_i]_{eq} = [A_i] \mp ax
+\end{equation}
+More reactants are formed in a reaction where
+\begin{equation}
+  [A] \uparrow \iff [B] \downarrow \iff Q > K
+\end{equation}
+Exothermic reactions produce heat such that if temperature increases as well, more reactants are formed.
+
+\bigskip
+For a reaction $A(s) \leftrightharpoons bB(aq)$, the constant
+\begin{equation}
+  K_sp = [B]^b \iff x = (K_{sp}/\Pi b^b)^{1/\Sigma b}
+\end{equation}
+
+%--------------------------------------------------------------------
+% Materials Science
+%--------------------------------------------------------------------
+
+\bigskip
+{\large\textit{Materials Science}}
+\bigskip
+
 The density of a unit cell is given by
 \begin{equation}
   \rho = \frac{nM}{a^3 N_a} \qquad a = \left\{ 2r, \; 4r/\sqrt 3, \; 2 \sqrt 2 r  \right\}
@@ -79,9 +86,6 @@ for sc, bcc, and fcc respectively. The packing efficiency is given by $n V_{\tex
 
 \bigskip
 In semiconductors, temperature and impurities are proportional to conductivity, and opposite for conductors.
-
-\bigskip
-The force in liquids is proportional to BP, viscosity, number of OH$^-$ ions, H, and inversely proportional to $P$ and $T$.
 
 \bigskip
 Thermoplastic polymers melt and deform upon heating. The DP is $\overline M / M_{m}$ and the average molecular weight is
@@ -96,6 +100,23 @@ The former two are connected by non-bonded interactions and can be easily recycl
 \bigskip
 Linear polymers form crystals more easily and thus become liquid when heated.
 
+%--------------------------------------------------------------------
+% Miscellaneous
+%--------------------------------------------------------------------
+
+\vspace{7mm}
+{\large\textit{Miscellaneous}}
+\bigskip
+
+A ketone is --C(=O)--; amides, carboxylics, aldehydes, and esters are KN--, KOH, KH, and KO--.
+
+\bigskip
+For stoichiometric problems, use
+\begin{equation}
+  n_1/v_1 = n_2/v_2
+\end{equation}
+where $n = m/M = CV$. For an equilibrium reaction, the constant is $K_c$ and only includes gaseous or aqueous compounds.
+
 \bigskip
 The partial pressure of a gas is
 \begin{equation}
@@ -108,6 +129,8 @@ where the mole fraction is
 \begin{equation}
   x_i = m_i M / m M_i = n_i / n
 \end{equation}
+
+The force in liquids is proportional to BP, viscosity, number of OH$^-$ ions, H, and inversely proportional to $P$ and $T$.
 
 \end{multicols*}{2}
 \end{document}
