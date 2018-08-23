@@ -1,5 +1,4 @@
 \documentclass{tufte-book}
-
 \usepackage{tikz}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{esint}
@@ -7,27 +6,44 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \usepackage{calc}
+\usepackage{scalerel}
+\usepackage{eso-pic}
 \graphicspath{ {../images/} }
 
+% custom script-r
 \renewcommand{\b}{\mathbf}
 \newcommand{\h}[1]{\mathbf{\hat{#1}}}
 \def\r{{\mbox{$\resizebox{.09in}{.08in}{\includegraphics[trim= 1em 0 14em 0,clip]{ScriptR}}$}}}
 \def\br{{\mbox{$\resizebox{.09in}{.08in}{\includegraphics[trim= 1em 0 14em 0,clip]{BoldR}}$}}}
 
+% cover photo
+\newcommand\BackgroundPic{%
+  \put(-150,0){%
+  \parbox[b][\paperheight]{\paperwidth}{%
+  \vfill
+  \centering
+  \includegraphics[height=1\paperheight,%
+  keepaspectratio]{EMGcover}%
+  \vfill
+}}}
+
+% title
 \setlength{\parindent}{0pt}
-
-\title{Electromagnetism}
+\colorlet{darkgray}{white!85!black}
+\title[Electromagnetism]{%
+  \setlength{\parindent}{0pt}%
+Electromagnetism}
 \author{Richard Robinson}
-
 \begin{document}
+\AddToShipoutPicture*{\BackgroundPic}
 \frontmatter
 \maketitle
-\tableofcontents
+\setlength{\parindent}{0pt}
 \mainmatter
 
-\setlength{\parindent}{0pt}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%--------------------------------------------------------------------
+% ELECTROSTATICS
+%--------------------------------------------------------------------
 
 \chapter{Electrostatics}
 
@@ -102,6 +118,10 @@ The electric potential at a point is thus defined as \begin{equation}
   V = k \iiint^b_a \frac{dq}{\r} = k \sum \frac{q_i}{\r} \sim k \frac{p \cos \theta}{\r^2}
 \end{equation}
 where the latter equivalence holds for dipoles. A surface on which the potential has the same value everywhere is \textbf{equipotential} such that $\Delta V = W = 0$. The field lines must everywhere be perpendicular to the equipotential surfaces, which implies all conductors are equipotential.
+
+%--------------------------------------------------------------------
+% ELECTROSTATICS
+%--------------------------------------------------------------------
 
 \chapter{Electrodynamics}
 
