@@ -17,4 +17,12 @@ Updates for current and new courses coming continuously. :)
  
 ### Copyright
 
-Copyright (c) 2018 Richard Robinson. Made open-source under the AGPL 3.0 License. Cover photos given copyright-free. Graphical figures copyright Nelson Inc. and/or Pearson Inc. *Thanks to the York Squad club for all their support.*
+Copyright (c) 2018 Richard Robinson. Made open-source under the AGPL 3.0 License. Cover photos given copyright-free. Graphical figures copyright Nelson Inc. and/or Pearson Inc.
+
+Special thanks for supporting this endavour to:
+- Daniela K.
+- Donya J.
+- Jaz M.
+- Prithviraj K.
+- Saraf W. S.
+- Simran K. 
