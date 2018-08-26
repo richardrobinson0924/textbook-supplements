@@ -1,10 +1,29 @@
 \documentclass{tufte-book}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{listings}
+\usepackage{eso-pic}
+\usepackage{empheq}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{graphicx}
+\graphicspath{{../images/}}
+
+% cover photo
+\newcommand\BackgroundPic{%
+\put(0,0){%
+\parbox[b][\paperheight]{\paperwidth}{%
+\vfill
+\centering
+\includegraphics[height=\paperheight,%
+keepaspectratio]{keyboard}%
+\vfill
+}}}
 
 \setlength{\parindent}{0pt}
-\title{C \& Unix}
+\colorlet{darkgray}{white!85!black}
+\title{C, Unix, \& Java}
 \author{Richard Robinson}
 
 \lstset{language=c}
@@ -26,6 +45,7 @@
 }
 
 \begin{document}
+\AddToShipoutPicture*{\BackgroundPic}
 \frontmatter
 \maketitle
 \setlength{\parindent}{0pt}
@@ -69,7 +89,7 @@ To cast a variable is to change it from one type to another, via
 \end{lstlisting}
 where \lstinline{var2} need not be an int. Additionally, use \lstinline{x.f} to convert the int $x$ to type float.
 
-\section{Conditionals}
+\section{Conditionals \& Loops}
 The ternary condition \lstinline{x = exp1 ? a : b} is equivalent to
 \marginnote{The code \lstinline{c = (a > b) ? a : b} is equivalent to \lstinline{c = max(a,b)}.}
 \begin{lstlisting}
@@ -96,5 +116,71 @@ The \lstinline{continue} command is used in a nested if statement to skip a cert
     }
 \end{lstlisting}
 
+\section{Functions}
+
+A function must be declared before it is called. The general format is:
+\begin{lstlisting}
+    int name(int, int);
+    /* code that calls function */
+    int name(int x, int y) {
+        /* code goes here */
+        return z;
+    }
+\end{lstlisting}
+The argument type must match the function type. A function who's type is \lstinline{void} has no return value.
+\marginnote{Note an argument of type \lstinline{char[]} may be used in an \lstinline{int} function.}
+
+\bigskip
+The \lstinline{assert(condition)} function terminates a program if the condition is false. It is exclusively used for debugging.
+
+\chapter{Software Design}
+
+\section{Scope}
+
+Variables prefixed with \lstinline{static} have their scope restricted to the file they are in. Header files imported via
+\begin{lstlisting}
+    #include "filename.h"
+\end{lstlisting}
+are used to store declarations and code shared over multiple source files, and effectively act as a macro. A pointer is declared using \lstinline{*} where \lstinline{&} is the address operator. The syntax is used as
+\begin{lstlisting}
+    int i;
+    int *j = &i;
+\end{lstlisting}
+Pointers are mainly used within functions; any changed made to the local variables within the function will not affect nor change the variables of the calling function, used as:
+\begin{lstlisting}
+    func(&a, &b);
+    void func(int* x, int* y) {
+        /* code */
+    }
+\end{lstlisting}
+Additionally, \lstinline{*var} is effectively \lstinline{var[]}. In this case, \lstinline{var} is \lstinline{&var[0]} when used in an expression, and \lstinline{s[i]} is \lstinline{*(s+i)}.
+
+\bigskip
+An array can contain pointers with syntax \lstinline{int *arr[N]}.
+
+\section{Arrays}
+\marginnote{The line \lstinline{char str[] = "string"} is equivalent to \lstinline{char str[] = \{'s','t',...\}}.}
+An array whom's size is larger than the number of elements has its remaining elements as 0. Size need not be specified. The number of elements for such array is
+\begin{lstlisting}
+    num_elements = sizeof(arr) / sizeof(arr[0]);
+\end{lstlisting}
+A function may return a pointer, which would have the form
+\begin{lstlisting}
+    int* func(void) {
+        return &var;
+    }
+\end{lstlisting}
+Like any array, a string may be indexed at any element. An important standard function is
+\begin{lstlisting}
+    char *strstr(const char *s, const char *t)
+\end{lstlisting}
+which searches for \verb|t| in \verb|s|. When indexing an array of strings, use \lstinline|char *str[] = {"string"}|. A for loop must be used to then iterate through each char in each string. Alternatively,
+\begin{lstlisting}
+    do {
+        c = getchar();
+        /* code */
+    } while (c != '\0' && c != '\n');
+\end{lstlisting}
+may be used.
 
 \end{document}
