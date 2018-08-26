@@ -133,7 +133,7 @@ The argument type must match the function type. A function who's type is \lstinl
 \bigskip
 The \lstinline{assert(condition)} function terminates a program if the condition is false. It is exclusively used for debugging.
 
-\chapter{Software Design}
+\chapter{Software Design in C}
 
 \section{Scope}
 
@@ -182,5 +182,31 @@ which searches for \verb|t| in \verb|s|. When indexing an array of strings, use 
     } while (c != '\0' && c != '\n');
 \end{lstlisting}
 may be used.
+
+%---------------------------------------
+% UNIX
+%---------------------------------------
+\lstset{language=bash}
+
+\chapter{Intro to Unix}
+
+\section{Basic Syntax}
+The vertical bar character is used for sending the output of a command as the input to another command, with syntax
+\begin{lstlisting}
+    fromcommand | tocommand
+\end{lstlisting}
+In Unix, the main directories are as follows:
+\begin{itemize}
+    \item \verb|/bin|: Contains executable binaries users may run.
+    \item \verb|/dev|: \verb|/etc|: Special and administrative files.
+    \item \verb|/lib|: Central library storage for files commonly used elsewhere.
+    \item \verb|/lostfound|, \verb|/tmp|: Extra files.
+\end{itemize}
+The syntax of a Unix command is
+\begin{lstlisting}
+    $ Name [-op1] [-op2] [Arg]
+\end{lstlisting}
+where \verb|op| are options.
+
 
 \end{document}
