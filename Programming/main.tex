@@ -1,0 +1,100 @@
+\documentclass{tufte-book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{listings}
+
+\setlength{\parindent}{0pt}
+\title{C \& Unix}
+\author{Richard Robinson}
+
+\lstset{language=c}
+\lstset{%
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  captionpos=none,
+  title=\lstname,
+  keywordstyle=\bfseries\color{magenta},
+  commentstyle=\color{green!50!black},
+  stringstyle=\color{red},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+\begin{document}
+\frontmatter
+\maketitle
+\setlength{\parindent}{0pt}
+\mainmatter
+
+\chapter{Intro to C}
+
+\section{The Basics}
+
+C is a command line language. The basic syntax of any C program code is
+\begin{lstlisting}
+    #include <stdio.h>
+    int main(void) {
+        /* Program */
+    }
+\end{lstlisting}
+If the program takes command line arguments, then the function instead becomes
+\begin{lstlisting}
+    int main(int argc, char *argv[])
+\end{lstlisting}
+A string is treated as an array of characters where the last element is \lstinline{\0} and is declared by \lstinline{char *}. For a constant variable, use \lstinline{const} as a prefix in the declaration. Alternatively,
+\begin{lstlisting}
+    #define NAME value
+\end{lstlisting}
+may be used. Numbers in base 8 and 16 are prefixed by \lstinline{0} and \lstinline{0x}, respectively. An enumeration is an array of constants, with syntax
+\begin{lstlisting}
+    enum type { c1 = value, c2, c3 = value ...};
+    int x = c2
+\end{lstlisting}
+where the values are optional.
+
+\section{Formatting Output}
+The \lstinline{printf()} function outputs text.
+\marginnote{For example, \lstinline{printf("\%6.1f string", 42.42)} outputs \lstinline{    42.4 string}.}
+In the output string, \lstinline{\%x.yf} formats the respective float such that there are $x$ and $y$ characters to the left and right of the decimal point, respectively.
+
+\bigskip
+To cast a variable is to change it from one type to another, via
+\begin{lstlisting}
+    int var = (int)(var2);
+\end{lstlisting}
+where \lstinline{var2} need not be an int. Additionally, use \lstinline{x.f} to convert the int $x$ to type float.
+
+\section{Conditionals}
+The ternary condition \lstinline{x = exp1 ? a : b} is equivalent to
+\marginnote{The code \lstinline{c = (a > b) ? a : b} is equivalent to \lstinline{c = max(a,b)}.}
+\begin{lstlisting}
+    if (exp1) x = a;
+    else x = b;
+\end{lstlisting}
+The switch statement is a condensed if-else-if-else... statement, with the general form
+\begin{lstlisting}
+    switch (exp) {
+        case 1: statements; break;
+        case 2: statements; break
+        ...
+        default: statements
+    }
+\end{lstlisting}
+Note \lstinline{break} is optional. If not included, the next case may be executed. Otherwise, it branches out of a statement or loop (except for if-else).
+
+\bigskip
+The \lstinline{continue} command is used in a nested if statement to skip a certain iteration(s) of the outer loop. It is often used to skip certain elements, as follows:
+\begin{lstlisting}
+    while (exp) {
+        if (condition) continue; /* skip statements */
+        statements;              /* if !condition... */
+    }
+\end{lstlisting}
+
+
+\end{document}

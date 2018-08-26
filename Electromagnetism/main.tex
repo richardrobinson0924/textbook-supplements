@@ -18,12 +18,12 @@
 
 % cover photo
 \newcommand\BackgroundPic{%
-  \put(-150,0){%
+  \put(0,0){%
   \parbox[b][\paperheight]{\paperwidth}{%
   \vfill
   \centering
   \includegraphics[height=1\paperheight,%
-  keepaspectratio]{EMGcover}%
+  keepaspectratio]{bulb2}%
   \vfill
 }}}
 
@@ -48,11 +48,11 @@ Electromagnetism}
 \chapter{Electrostatics}
 
 \section{Electric Forces}
-\textsc{In Electrodynamics}, there is typically a \textbf{source point} $\b r '$ where a charge is located and a \textbf{field point} $\b r$ where a field is calculated at. The \textbf{seperation vector} is defined as
+\textsc{In Electrodynamics}, there is typically a \emph{source point} $\b r '$ where a charge is located and a \emph{field point} $\b r$ where a field is calculated at. The \emph{seperation vector} is defined as
 \begin{equation}
   \br \equiv \b r - \b r ' \qquad \hat\br = \br/\r
 \end{equation}
-The force acting on a charge is given by \textbf{Coulomb's Law}, \begin{equation}
+The force acting on a charge is given by \emph{Coulomb's Law}, \begin{equation}
   \b F = k \sum \frac{q_1q_2}{\r^2} \hat\br = \iiint d \b F
 \end{equation}
 %
@@ -61,16 +61,17 @@ The force acting on a charge is given by \textbf{Coulomb's Law}, \begin{equation
   \caption{A Gaussian surface as a cylinder.}
 \end{marginfigure}
 %
-The \textbf{electric field} exerted on a positive test charge $+q_0$ at a point is defined as \begin{equation}
+The \emph{electric field} exerted on a positive test charge $+q_0$ at a point is defined as \begin{equation}
   \b E = \frac{\b F}{q_0} = k \sum \frac{q}{\r^2} \hat\br
 \end{equation}
-\textbf{Field lines} point outwards from $+q$ and towards $-q$, and are parallel or tangential of an electric field. For a continuous charge distribution, \begin{equation}
+\emph{Field lines} point outwards from $+q$ and towards $-q$, and are parallel or tangential of an electric field. For a continuous charge distribution, \begin{equation}
   \b E = k \iiint \frac{dq}{\r^2} \hat\br = - \nabla V
 \end{equation}
 where \begin{equation}
   dq \sim \lambda \, d \ell \sim \sigma \, d A \sim \rho \, dV \sim \lambda R \, d \phi \sim \sigma 2 \pi w \, d w
 \end{equation}
-The \textbf{electric dipole} is a configuration of two equal and opposite charges $q$ separated by a distance $d$, in which the electric dipole moment $p = qd$ in the direction towards $+q$. If a dipole is in an external field, the torque is \begin{equation}
+The \emph{electric dipole} is a configuration of two equal and opposite charges $q$ separated by a distance $d$, in which the electric dipole moment $p = qd$ in the direction towards $+q$. If a dipole is in an external field, the torque is
+\begin{equation}
   \b \tau = \b p \times \b E
 \end{equation}
 %
@@ -79,15 +80,18 @@ The \textbf{electric dipole} is a configuration of two equal and opposite charge
   \caption{The field at any is the vector sum of the charges.}
 \end{marginfigure}
 %
-such that the work done by the field is \begin{equation}
+such that the work done by the field is
+\begin{equation}
   W = - \int_{\theta_0}^\theta \tau \; d \theta = pE(\Delta \cos \theta)
 \end{equation}
-Consequently, the potential energy is defined as \begin{equation}
+Consequently, the potential energy is defined as
+\begin{equation}
   U = -pE \cos \theta = - \b p \cdot \b E
 \end{equation}
 
 \section{Potentials}
-\textbf{Gauss' Law} states the electric \textbf{flux} through a field is \begin{equation}
+\emph{Gauss' Law} states the electric \emph{flux} through a field is
+\begin{equation}
   \Phi_E = \oiint \b E \cdot d \b A = \frac{q}{\varepsilon_0}
 \end{equation}
 %
@@ -99,25 +103,29 @@ Consequently, the potential energy is defined as \begin{equation}
 such that $\| \Phi \| = EA \cos \theta$ where $\theta$ is the angle between the field and field lines. The electric field outside a conductor is given by  \begin{equation}
   E = \frac{\sigma}{\varepsilon_0} \iff q = \iint \sigma \; dA
 \end{equation}
-The change in electric potential is defined as \begin{equation}
+The change in electric potential is defined as
+\begin{equation}
   \Delta U = kq_1q_2 (\Delta r^{-1})
 \end{equation}
-For a system of charge, the \textbf{potential energy} is \begin{equation}
+For a system of charge, the \emph{potential energy} is
+\begin{equation}
   U = k \sum_i \sum_{j\neq i} \frac{q_iq_j}{\r}
 \end{equation}
-Consequently, the change in \textbf{electric potential} is \begin{equation}
+Consequently, the change in \emph{electric potential} is
+\begin{equation}
   \Delta V = \frac{\Delta U}{q_0} = - \frac{W}{q_0} = - \int \b E \cdot d \b s
 \end{equation}
-
+%
 \begin{marginfigure}
   \includegraphics[width=1\textwidth]{dipole2}
   \caption{The geometry for calculating $V$ at $P$ for a dipole.}
 \end{marginfigure}
-
-The electric potential at a point is thus defined as \begin{equation}
+%
+The electric potential at a point is thus defined as
+\begin{equation}
   V = k \iiint^b_a \frac{dq}{\r} = k \sum \frac{q_i}{\r} \sim k \frac{p \cos \theta}{\r^2}
 \end{equation}
-where the latter equivalence holds for dipoles. A surface on which the potential has the same value everywhere is \textbf{equipotential} such that $\Delta V = W = 0$. The field lines must everywhere be perpendicular to the equipotential surfaces, which implies all conductors are equipotential.
+where the latter equivalence holds for dipoles. A surface on which the potential has the same value everywhere is \emph{equipotential} such that $\Delta V = W = 0$. The field lines must everywhere be perpendicular to the equipotential surfaces, which implies all conductors are equipotential.
 
 %--------------------------------------------------------------------
 % ELECTROSTATICS
@@ -127,12 +135,15 @@ where the latter equivalence holds for dipoles. A surface on which the potential
 
 \section{Current}
 
-\textsc{The electric} current is defined as \begin{equation}
+\textsc{The electric} current is defined as
+\begin{equation}
   i = \frac{dq}{dt} = \int \b j \cdot d \b A
-\end{equation} where $j$ is the current density and is opposite the motion of electrons. The net charge passing through is therefore \begin{equation}
+\end{equation} where $j$ is the current density and is opposite the motion of electrons. The net charge passing through is therefore
+\begin{equation}
   q = \int i \, dt
 \end{equation}
-The current density is defined as \begin{equation}
+The current density is defined as
+\begin{equation}
   \b j = q/At = - en \b v = \sigma \b E
 \end{equation}
 \begin{marginfigure}
@@ -142,33 +153,77 @@ The current density is defined as \begin{equation}
 where $n$ is the electron density and $\sigma = q/A$ is the conductivity. Furthermore, the net charge passing through the surface $q = enAL$. The resistance of the material is thus $R = L/\sigma A = \Delta V / i$.
 
 \section{Capacitance}
-\textbf{Capacitance} is defined as \begin{equation}
+\emph{Capacitance} is defined as
+\begin{equation}
   C = \frac{q}{\Delta V} = \frac{\varepsilon_0 A}{d}
 \end{equation}
-In a PPC, SC, and CC, the potential is derived via \begin{equation}
+In a PPC, SC, and CC, the potential is derived via
+\begin{equation}
   \Delta V_{ppc} = \frac{qd}{\epsilon A} \qquad \Delta V_{sc} =kq \left(\frac{1}{a} - \frac{1}{b} \right) \qquad \Delta V_{ss} = \frac{q \ln (b-a)}{2 \pi \epsilon L}
 \end{equation}
-In a parallel combination of capacitors, \begin{equation}
+In a parallel combination of capacitors,
+\begin{equation}
   q = \sum q  = C_{eq} \Delta V \iff  C_{eq} = \sum C
 \end{equation}
-and in a series combination, \begin{equation}
+and in a series combination,
+\begin{equation}
   \Delta V = \sum \Delta V = q/C_{eq} \iff C_{eq}^{-1} = \sum C^{-1}
 \end{equation}
-As well, the potential energy in a capacitor is \begin{equation}
+As well, the potential energy in a capacitor is
+\begin{equation}
   dU = \Delta V \, dq \iff U = \int_0^q dU = \frac{q^2}{2C}
 \end{equation}
-with $q = C \Delta V$. Specifically, the energy $U$ is stored in $E$ in the region. Furthermore, the \textbf{energy density} $u$ is defined as \begin{equation}
+with $q = C \Delta V$. Specifically, the energy $U$ is stored in $E$ in the region. Furthermore, the \emph{energy density} $u$ is defined as \begin{equation}
   u = \frac{U}{Ad} = \textstyle\frac{1}{2} \varepsilon_0 E^2
 \end{equation}
-by Eqns 18 \& 22. Using \textbf{voltage division}, the voltage of any impedance $Z$ including capacitance may be found via $q_0 = \sum q$ by \begin{equation}
+by Eqns 18 \& 22. Using \emph{voltage division}, the voltage of any impedance $Z$ including capacitance may be found via $q_0 = \sum q$ by \begin{equation}
   V = \frac{Z_1}{Z_{eq}} V_0
 \end{equation}
-For a \textbf{dielectric capacitor}, the charge is defined as \begin{equation}
+For a \emph{dielectric capacitor}, the charge is defined as
+\begin{equation}
   q' = q (1 - 1/\kappa) \iff E = E_0/\kappa
 \end{equation}
 
 \section{DC Circuits}
+%
+\begin{marginfigure}
+  \includegraphics[width=1\textwidth]{dc}
+  \caption{A simple circuit and its potential difference change.}
+\end{marginfigure}
+%
+The \emph{emf} of a voltage source is defined as \begin{equation}
+    \mathcal E = dW/dq = iR
+\end{equation}
+The electric potential $v$ decreases across a voltage source in a circuit.
 
+\bigskip
+\begin{center}
+    \fbox{\textit{For more information, view the Electric Circuits textbook supplement.}}
+\end{center}
+\bigskip
 
+The emf is related to the electric field by \begin{equation}
+    \mathcal E = \oint \b E \cdot d \b s
+\end{equation}
+where $\b E = \b F/q = \rho j$.
+
+%--------------------------------------------------------------------
+% MAGNETOSTATICS
+%--------------------------------------------------------------------
+
+\chapter{Magnetic Forces}
+
+\section{Magnetic Field}
+The magnetic force is defined as \begin{equation}
+    \b F = q \b v \times \b B \qquad \| \b F \| = |q| v B \sin \phi
+\end{equation}
+where $B$ is the field and $v$ the velocity. The combined electric and magnetic fields yield the Lorentz force,
+\begin{equation}
+    \b F = q \b E + q \b v \times \b B
+\end{equation}
+For a velocity selector, then $v = E/B$, and for a particle in a circular path, then: \begin{equation}
+    |q|v B = mv^2/r \qquad \omega = v/r = |q|B/m
+\end{equation}
+where $\omega = 2 \pi f = r'$ is the angular velocity, and the kinetic energy is $K = 0.5 mv^2$.
 
 \end{document}
