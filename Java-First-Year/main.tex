@@ -1,0 +1,113 @@
+\documentclass[letterpaper, openany, justified]{tufte-book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{empheq}
+\usepackage[dvipsnames]{xcolor}
+
+\setlength{\parindent}{0pt}
+\title{\\Java I Exam \\Preparation}
+\author{Richard Robinson}
+
+\newcommand{\cd}[1]{\lstinline{#1}}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+
+\lstset{language=java}
+\lstset{%
+  aboveskip=3mm,
+  belowskip=3mm,
+  basicstyle={\small\ttfamily},
+  captionpos=none,
+  keywordstyle=\bfseries\color{magenta},
+  commentstyle=\color{pgreen},
+  stringstyle=\color{red},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4
+}
+
+\begin{document}
+\maketitle
+\setlength{\parindent}{0pt}
+\begin{fullwidth}
+
+\chapter{GUIs}
+
+\section{Widgets}
+There are several classes in the \lstinline{java.swing.*} toolkit, with the syntax \begin{lstlisting}
+    JComponent component = new Widget(String); // adds Widget
+\end{lstlisting}
+where \lstinline{Widget} is the name of the widget. Interacting with such cases an event object to be created, handled by creating a listener for specific events. Such listener must be registered per widget, each causing different events. Event listeners must implement the corresponding interface and methods.
+
+\bigskip
+The \lstinline{JButton, JCheckBox, JComboBox, JRadioButton} classes fire \lstinline{ActionEvent} event objects, implement the \lstinline{ActionListener} interface, and registered with the \lstinline{addActionListener} method. For all other classes, the \lstinline{MouseEvent} events are fired, the \lstinline{MouseListener} interface is implemented, and uses the \lstinline{addMouseListener} method. Typically, the \lstinline{app} calls the \cd{frame} which in turn calls the \cd{panel}.
+
+\section{Containers}
+The main \lstinline{JFrame} class represents a GUI window with title bar, resizable border, and border buttons. Apps extend this class to customize  it using \begin{lstlisting}
+    public class ClassName extends JFrame implements ActionListener
+\end{lstlisting}
+The \cd{JPanel} class is used to arrange widgets, and can also contain other panels and can be used to draw custom shapes. The \cd{paintComponent} method is called to redraw elements and can be overridden to create custom appearances; it is called by \cd{repaint()}.
+
+\section{Layout Managers}
+There are several types of layout managers, including:
+\begin{itemize}
+    \item \cd{FlowLayout} is arranged linearly and flows to next line if needed. It is based on the preferred size.
+    \item \cd{BorderLayout} adds components using cardinal directions and ignores preferred size.
+    \item \cd{GridLayout} arranged components in a grid and ignores preferred size.
+    \item \cd{BoxLayout} is similar to \cd{FlowLayout} with advanced options, and is preferred size.
+\end{itemize}
+
+\chapter{Definitions}
+
+\section{Aggregation}
+Aggregation represents a \textit{has a} relationship between two classes. A class is an aggregate if it has an attribute of a non-primitive type. This works as given by:
+\begin{lstlisting}
+    public class ClassName {
+        private CustomType var; // attributes
+        public ClassName(Type var) { this.var = var; } // constructor
+    }
+
+    // using the class in Main
+    CustomType var = new CustomType(values);
+    ClassName name = new Classname(vars);
+\end{lstlisting}
+With this code, you can call the attributes of the class via \cd{name.var}.
+
+\section{Classes \& Objects}
+Classes are used to define templates, and objects to instantiate classes. Objects are created and methods on objects are called. A template has common attributes (nouns) and behaviors (verbs). Each instance of a class has specific attribute values. An example is
+\begin{lstlisting}
+    public class Point {
+        float x, y; // attributes from another class
+        Point(float x, float y) { this.x = x; this.y = y } // constructor
+        Type getFunc() { return z } // action returning value
+        void actionName(Type var) { this.x = z; } // action modifying values
+    }
+\end{lstlisting}
+
+Then, in the main class, the object can be called via:
+\begin{lstlisting}
+    Point p1 = new Point(1, 2); // creating new instance of object
+    p1.getFunc(); // calling object without pars
+    p1.actionName(var1); // calling object with pars
+\end{lstlisting}
+
+\section{References}
+The \cd{this} reference replaces the generic variable in a class with a version specific to the variable that is called. It is used when the attributes share names with the constructor parameters so as to disambiguate; \cd{this.par} references the attribute version of \cd{par}, not the parameter version. That is,
+\begin{lstlisting}
+    float x;
+    ClassName(float a) { x = a; }
+\end{lstlisting}
+is equivalent to
+\begin{lstlisting}
+    float x;
+    ClassName(float x) { this.x = x; }
+\end{lstlisting}
+Consequently, a mutator method changes values of the attributes to the object it is referencing via the notation \cd{var.changeAtt(par)}. As well, accessor methods use the result of a computation on its attributes, \cd{Type Att = var.getAtt()}.
+
+\end{fullwidth}
+\end{document}

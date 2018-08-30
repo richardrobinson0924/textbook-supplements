@@ -127,6 +127,20 @@ The electric potential at a point is thus defined as
 \end{equation}
 where the latter equivalence holds for dipoles. A surface on which the potential has the same value everywhere is \emph{equipotential} such that $\Delta V = W = 0$. The field lines must everywhere be perpendicular to the equipotential surfaces, which implies all conductors are equipotential.
 
+\section{Examples}
+\begin{fullwidth}
+\begin{enumerate}
+    \item Given $i = 2.5 \times 10^4$ C/s and $t = 20$ $\mu$s, calculate the charge $q$.
+    \item There is a semicircular ring of charge with radius $r$ and charge $Q$. Find $E$ at the center of the circle $P$.
+    \item Let there be a square of length $a$ with 4 charges on the corners. The charges clockwise are $+q, -q,$ $-2q, +2q$. Find $F$ on the $+2q$ charge.
+    \item For a square with charges $Q, q, Q, q$ on the corners, if $F_Q = 0$, relate $Q$ and $q$.
+    \item Two charges $Q$ are $d$ apart. A charge $-q$ and mass $m$ are midway between them that is slightly displaced and released. Prove $-q$ has a period $(\epsilon_0 m \pi^3 d^3 / qQ)^{1/2}$.
+    \item Prove $\tau = \b p \times \b E$ and $\Delta U = - \b p \cdot \b E$.
+    \item (a) Consider a line charge of length $L$ with $\lambda$. The rod is aligned along $z$ and the centre of the rod is the origin. Find $E$ at a point $P$ a distance $y$ from the rod along its perpendicular bisector (the positive y axis). Use the substitution $z = y \sinh t$ and $1+\sinh2t=\cosh2t$. (b) Assume that the line charge extends from $[-\infty, \infty]$ along the $z$-axis. Calculate $E$.
+\end{enumerate}
+\end{fullwidth}
+
+
 %--------------------------------------------------------------------
 % ELECTROSTATICS
 %--------------------------------------------------------------------
@@ -218,6 +232,12 @@ The magnetic force is defined as \begin{equation}
     \b F = q \b v \times \b B \qquad \| \b F \| = |q| v B \sin \phi
 \end{equation}
 where $B$ is the field and $v$ the velocity. The combined electric and magnetic fields yield the Lorentz force,
+%
+\begin{marginfigure}
+  \includegraphics[width=0.8\textwidth]{wire}
+  \caption{$\b F$ acting on a wire $\b L$ making an angle $\phi$ with $\b B$.}
+\end{marginfigure}
+%
 \begin{equation}
     \b F = q \b E + q \b v \times \b B
 \end{equation}
@@ -225,5 +245,34 @@ For a velocity selector, then $v = E/B$, and for a particle in a circular path, 
     |q|v B = mv^2/r \qquad \omega = v/r = |q|B/m
 \end{equation}
 where $\omega = 2 \pi f = r'$ is the angular velocity, and the kinetic energy is $K = 0.5 mv^2$.
+
+\bigskip
+The Hall effect states for a strip of conductor, the electric field is \begin{equation}
+    \b E_H = - \b v_d \times \b B
+\end{equation}
+which gives $n = iB/et \Delta V_H$. For a straight wire, then \begin{equation}
+    \b F = i \b L \times \b B \sim iLB \sin \phi
+\end{equation}
+For a uniform non-straight wire, $dF = iB \, ds$. The total torque on such wire being rotated is given by
+%
+\begin{marginfigure}
+  \includegraphics[width=0.6\textwidth]{rhr}
+  \caption{The right hand rule for magnetic field lines.}
+\end{marginfigure}
+%
+\begin{equation}
+    \tau = NIA \b n \times \b B
+\end{equation}
+
+\section{Alternate Definition}
+The magnetic field may also be expressed as \begin{equation}
+    \b B = K \frac{|q| v \sin \phi}{r^2} = K \int_C \frac{i \, d \b s \times \mathbf{\hat{r}}}{r^2}
+\end{equation}
+where $i \, d \b s = dq \, v$, known as the Biot-Savart law. For two parallel wires in a magnetic field, the force of wire 1 on 2 is \begin{equation}
+    F_{21} = i_2 LB_1 = \frac{KL i_1i_2}{d}
+\end{equation}
+Note antiparallel currents repel. Ampere's law generalizes the magnetic field to state \begin{equation}
+    \oiint \b B \cdot d \b s = \mu_0 i
+\end{equation}
 
 \end{document}
