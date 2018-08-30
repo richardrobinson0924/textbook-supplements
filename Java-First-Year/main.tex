@@ -30,7 +30,8 @@
   breaklines=true,
   breakatwhitespace=true,
   tabsize=4,
-  moredelim=[il][\textcolor{pgrey}]{$$},
+  morekeywords={String}
+  %moredelim=[il][\textcolor{pgrey}]{$$},
 }
 
 \begin{document}
@@ -89,7 +90,6 @@ Classes are used to define templates, and objects to instantiate classes. Object
         void actionName(Type var) { this.x = z; } // action modifying values
     }
 \end{lstlisting}
-
 Then, in the main class, the object can be called via:
 \begin{lstlisting}
     Point p1 = new Point(1, 2); // creating new instance of object
@@ -110,7 +110,6 @@ is equivalent to
 \end{lstlisting}
 Consequently, a mutator method changes values of the attributes to the object it is referencing via the notation \cd{var.changeAtt(par)}. As well, accessor methods use the result of a computation on its attributes, \cd{Type Att = var.getAtt()}.
 
-
 \chapter{Inheritance}
 
 \section{Terminology}
@@ -125,7 +124,7 @@ There are numerous types of access:
     \item \cd{protected}: same as \cd{private} in addition to its derived children.
 \end{itemize}
 
-\section{Methods}
+\section{Child Methods}
 The child sometimes requires a method to modify or add new feature using \cd{@Override}, in which the child keeps the parent's signature and return type. The child can access the parent's constructor features via
 \begin{lstlisting}
     super(pars) // first line in child constructor
@@ -140,10 +139,35 @@ Specifically, \cd{super()} extends the behavior of the method. An example is giv
 
     public class ClassB extends ClassA {
         private Object varB;
-        $$@Override
+        @Override
         public void save() { super.save(); save(varB); }
     }
 \end{lstlisting}
+
+\section{Obligatory Methods}
+The \cd{Object} class defines methods applicsable to and required by all Java classes. To ensure all classes have these obligatory methods, all classes implicity extend this class. Some obligatory methods include:
+\begin{itemize}
+    \item \cd{String .toString()}: The Object implementation outputs memory address
+    \item \cd{boolean .equals()}: Compares memory addresses.
+    \item \cd{int .hashCode()}: Determines location in hash Collections.
+\end{itemize}
+A program intended to handle \cd{parent} objects will also be able to handle \cd{child} objects with no modification. Both of the following are valid:
+\begin{lstlisting}
+    Parent varOne = new Parent();
+    Parent varTwo = new Child();
+    varTwo instanceof Child; // true
+\end{lstlisting}
+
+\section{Casting \& Objects}
+It is neccessary to cast or bind methods to convert them to the proper Object which does have such method so as to not fail; for example,
+\begin{lstlisting}
+    Parent var = new Child ()
+    if (var instanceof ObjectName) {
+        name = ((ObjectName) var).methodName
+    }
+\end{lstlisting}
+Early binding occurs at compile time and verifies the method in the class, and late binding occurs at run time only when explict inheretence is used and determines \cd{var} points to the object and calls the method in the class instead.
+
 
 \end{fullwidth}
 \end{document}
