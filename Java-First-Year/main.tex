@@ -168,6 +168,28 @@ It is neccessary to cast or bind methods to convert them to the proper Object wh
 \end{lstlisting}
 Early binding occurs at compile time and verifies the method in the class, and late binding occurs at run time only when explict inheretence is used and determines \cd{var} points to the object and calls the method in the class instead.
 
+\bigskip
+Polymorphism is the ability of a method to take on various forms, such as arguments of different types. It occurs when early binding targets a method in parent and late binding targets the method with the same signature in child.
+
+\chapter{Interfaces}
+\section{Terminology}
+Interfaces define only method signatures, of which methods have no implemented body so as to allow the implementer to define class requirements to others. That is, an interface is a group of related methods iwth empty bodies, appearing as:
+\begin{lstlisting}
+    interface interfaceName {
+        void methodOne(Type args);
+        void methodTwo(Type args);
+    }
+\end{lstlisting}
+Then, the interface is implemented via
+\begin{lstlisting}
+    public class SpecificName implements interfaceName {
+        Type args;
+        void methodOne(Type args) { this.args = args; }
+        void methodTwo(Type args) { this.args = args; }
+    }
+\end{lstlisting}
+The implementation must include all the methods of the interface, else the program will fail.
+
 
 \end{fullwidth}
 \end{document}
