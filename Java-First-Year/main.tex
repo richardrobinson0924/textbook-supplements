@@ -24,7 +24,7 @@
   belowskip=3mm,
   basicstyle={\small\ttfamily},
   captionpos=none,
-  keywordstyle=\bfseries\color{magenta},
+  keywordstyle=\bfseries\color{ppurple},
   commentstyle=\color{pgreen},
   stringstyle=\color{pred},
   breaklines=true,
@@ -99,8 +99,17 @@ Aggregation represents a \textit{has a} relationship between two classes. A clas
     CustomType var = new CustomType(values);
     ClassName name = new Classname(vars);
 \end{lstlisting}
-With this code, you can call the attributes of the class via \cd{name.var}.
-\section{Classes \& Objects}
+With this code, you can call the attributes of the class via \cd{name.var}. The \cd{this} reference replaces the generic variable in a class with a version specific to the variable that is called. It is used when the attributes share names with the constructor parameters so as to disambiguate; \cd{this.par} references the attribute version of \cd{par}, not the parameter version. That is,
+\begin{lstlisting}
+    ClassName(Type a) { x = a; }
+\end{lstlisting}
+is equivalent to
+\begin{lstlisting}
+    ClassName(Type x) { this.x = x; }
+\end{lstlisting}
+
+\section{Classes}
+
 Classes are used to define templates, and objects to instantiate classes. Objects are created and methods on objects are called. A template has common attributes (nouns) and behaviors (verbs). Each instance of a class has specific attribute values. An example is
 \begin{lstlisting}
     public class Point {
@@ -113,22 +122,27 @@ Classes are used to define templates, and objects to instantiate classes. Object
 Then, in the main class, the object can be called via:
 \begin{lstlisting}
     Point p1 = new Point(1, 2); // creating new instance of object
-    p1.getFunc(); // calling object without pars
-    p1.actionName(var1); // calling object with pars
+    p1.getFunc(); // calling object without args
+    p1.actionName(var1); // calling object with args
+    p1.att // get attribute att of p1
 \end{lstlisting}
 
-\section{References}
-The \cd{this} reference replaces the generic variable in a class with a version specific to the variable that is called. It is used when the attributes share names with the constructor parameters so as to disambiguate; \cd{this.par} references the attribute version of \cd{par}, not the parameter version. That is,
+\section{Methods}
+The signature of a method consists of its return type, name, parameters, and parameter types of form
 \begin{lstlisting}
-    float x;
-    ClassName(float a) { x = a; }
+    class ClassName { Type methodName(Type args) { } }
 \end{lstlisting}
-is equivalent to
+In another class, the method can be called via
 \begin{lstlisting}
-    float x;
-    ClassName(float x) { this.x = x; }
+    ClassName name = new ClassName(args);
+    name.methodName(args);
 \end{lstlisting}
-Consequently, a mutator method changes values of the attributes to the object it is referencing via the notation \cd{var.changeAtt(par)}. As well, accessor methods use the result of a computation on its attributes, \cd{Type Att = var.getAtt()}.
+There are three types of methods;
+\begin{itemize}
+    \item A \emph{constructor} has the same name as the class. It has no return type and initializes attributes via \cd{className name = new className(args)}.
+    \item A \emph{mutator} changes attributes. It has a \cd{void} return type and cannot be used when a value is expected, given by \cd{name.change(args)}
+    \item An \emph{accessor} uses attributes for computations iwthout modifications. It has a non-\cd{void} return type and explictly has a \cd{return} statement, via \cd{name.getComp()}
+\end{itemize}
 
 \chapter{Inheritance}
 
@@ -147,11 +161,11 @@ There are numerous types of access:
 \section{Child Methods}
 The child sometimes requires a method to modify or add new feature using \cd{@Override}, in which the child keeps the parent's signature and return type. The child can access the parent's constructor features via
 \begin{lstlisting}
-    super(pars) // first line in child constructor
+    super(args) // first line in child constructor
 \end{lstlisting}
 and method features via
 \begin{lstlisting}
-    super.methodName(pars)
+    super.methodName(args)
 \end{lstlisting}
 Specifically, \cd{super()} extends the behavior of the method. An example is given by:
 \begin{lstlisting}
