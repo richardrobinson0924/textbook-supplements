@@ -16,6 +16,7 @@
 \definecolor{pgreen}{rgb}{0,0.5,0}
 \definecolor{pred}{rgb}{0.9,0,0}
 \definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{ppurple}{rgb}{0.6,0,0.35}
 
 \lstset{language=java}
 \lstset{%
@@ -23,12 +24,13 @@
   belowskip=3mm,
   basicstyle={\small\ttfamily},
   captionpos=none,
-  keywordstyle=\bfseries\color{magenta},
+  keywordstyle=\bfseries\color{ppurple},
   commentstyle=\color{pgreen},
   stringstyle=\color{red},
   breaklines=true,
   breakatwhitespace=true,
-  tabsize=4
+  tabsize=4,
+  moredelim=[il][\textcolor{pgrey}]{$$},
 }
 
 \begin{document}
@@ -45,7 +47,7 @@ There are several classes in the \lstinline{java.swing.*} toolkit, with the synt
 where \lstinline{Widget} is the name of the widget. Interacting with such cases an event object to be created, handled by creating a listener for specific events. Such listener must be registered per widget, each causing different events. Event listeners must implement the corresponding interface and methods.
 
 \bigskip
-The \lstinline{JButton, JCheckBox, JComboBox, JRadioButton} classes fire \lstinline{ActionEvent} event objects, implement the \lstinline{ActionListener} interface, and registered with the \lstinline{addActionListener} method. For all other classes, the \lstinline{MouseEvent} events are fired, the \lstinline{MouseListener} interface is implemented, and uses the \lstinline{addMouseListener} method. Typically, the \lstinline{app} calls the \cd{frame} which in turn calls the \cd{panel}.
+The \lstinline{JButton, JCheckBox, JComboBox, JRadioButton} classes fire \lstinline{ActionEvent} event objects, implement the interface \lstinline{ActionListener} , and registered with the \lstinline{addActionListener} method. For all other classes, the \lstinline{MouseEvent} events are fired, the \lstinline{MouseListener} interface is implemented, and uses the \lstinline{addMouseListener} method. Typically, the \lstinline{app} calls the \cd{frame} which in turn calls the \cd{panel}.
 
 \section{Containers}
 The main \lstinline{JFrame} class represents a GUI window with title bar, resizable border, and border buttons. Apps extend this class to customize  it using \begin{lstlisting}
@@ -77,7 +79,6 @@ Aggregation represents a \textit{has a} relationship between two classes. A clas
     ClassName name = new Classname(vars);
 \end{lstlisting}
 With this code, you can call the attributes of the class via \cd{name.var}.
-
 \section{Classes \& Objects}
 Classes are used to define templates, and objects to instantiate classes. Objects are created and methods on objects are called. A template has common attributes (nouns) and behaviors (verbs). Each instance of a class has specific attribute values. An example is
 \begin{lstlisting}
@@ -108,6 +109,41 @@ is equivalent to
     ClassName(float x) { this.x = x; }
 \end{lstlisting}
 Consequently, a mutator method changes values of the attributes to the object it is referencing via the notation \cd{var.changeAtt(par)}. As well, accessor methods use the result of a computation on its attributes, \cd{Type Att = var.getAtt()}.
+
+
+\chapter{Inheritance}
+
+\section{Terminology}
+A child class may be described as an extension of a parent class. The former inherits all the features of the latter and can implement new features for its particular purpose. The child is a subclass of the parent superclass. When \cd{child} inherits from \cd{parent}, every feature of the latter is in the former and \cd{child extends parent}. Specifically,
+\begin{lstlisting}
+    public class Child extends Parent { }
+\end{lstlisting}
+There are numerous types of access:
+\begin{itemize}
+    \item \cd{public}: all classes can access this feature
+    \item \cd{private}: only accessible to the class it is in
+    \item \cd{protected}: same as \cd{private} in addition to its derived children.
+\end{itemize}
+
+\section{Methods}
+The child sometimes requires a method to modify or add new feature using \cd{@Override}, in which the child keeps the parent's signature and return type. The child can access the parent's constructor features via
+\begin{lstlisting}
+    super(pars) // first line in child constructor
+\end{lstlisting}
+and method features via
+\begin{lstlisting}
+    super.methodName(pars)
+\end{lstlisting}
+Specifically, \cd{super()} extends the behavior of the method. An example is given by:
+\begin{lstlisting}
+    public class ClassA { public void save() { } }
+
+    public class ClassB extends ClassA {
+        private Object varB;
+        $$@Override
+        public void save() { super.save(); save(varB); }
+    }
+\end{lstlisting}
 
 \end{fullwidth}
 \end{document}
