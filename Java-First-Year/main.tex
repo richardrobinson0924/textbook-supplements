@@ -24,9 +24,9 @@
   belowskip=3mm,
   basicstyle={\small\ttfamily},
   captionpos=none,
-  keywordstyle=\bfseries\color{ppurple},
+  keywordstyle=\bfseries\color{magenta},
   commentstyle=\color{pgreen},
-  stringstyle=\color{red},
+  stringstyle=\color{pred},
   breaklines=true,
   breakatwhitespace=true,
   tabsize=4,
@@ -45,16 +45,25 @@
 There are several classes in the \lstinline{java.swing.*} toolkit, with the syntax \begin{lstlisting}
     JComponent component = new Widget(String); // adds Widget
 \end{lstlisting}
-where \lstinline{Widget} is the name of the widget. Interacting with such cases an event object to be created, handled by creating a listener for specific events. Such listener must be registered per widget, each causing different events. Event listeners must implement the corresponding interface and methods.
-
-\bigskip
+where \lstinline{Widget} is the name of the widget. Interacting with such cases an event object to be created, handled by creating a listener for specific events. Such listener must be registered per widget, each causing different events. Event listeners must implement the corresponding interface and methods. The main method for a GUI application is
+\begin{lstlisting}
+    ClassName frame = new ClassName();
+    frame.pack();
+    frame.setVisible(true);
+\end{lstlisting}
 The \lstinline{JButton, JCheckBox, JComboBox, JRadioButton} classes fire \lstinline{ActionEvent} event objects, implement the interface \lstinline{ActionListener} , and registered with the \lstinline{addActionListener} method. For all other classes, the \lstinline{MouseEvent} events are fired, the \lstinline{MouseListener} interface is implemented, and uses the \lstinline{addMouseListener} method. Typically, the \lstinline{app} calls the \cd{frame} which in turn calls the \cd{panel}.
 
 \section{Containers}
 The main \lstinline{JFrame} class represents a GUI window with title bar, resizable border, and border buttons. Apps extend this class to customize  it using \begin{lstlisting}
     public class ClassName extends JFrame implements ActionListener
 \end{lstlisting}
-The \cd{JPanel} class is used to arrange widgets, and can also contain other panels and can be used to draw custom shapes. The \cd{paintComponent} method is called to redraw elements and can be overridden to create custom appearances; it is called by \cd{repaint()}.
+The \cd{JPanel} class is used to arrange widgets, and can also contain other panels and can be used to draw custom shapes. The \cd{paintComponent} method is called to redraw elements and can be overridden to create custom appearances; it is called by \cd{repaint()}. The listeners are used as follows:
+\begin{lstlisting}
+    public void actionPerformed(ActionEvent e) {
+        Object src = e.getSource();
+        switch (source == case); // switch-case conditional
+    }
+\end{lstlisting}
 
 \section{Layout Managers}
 There are several types of layout managers, including:
@@ -64,6 +73,17 @@ There are several types of layout managers, including:
     \item \cd{GridLayout} arranged components in a grid and ignores preferred size.
     \item \cd{BoxLayout} is similar to \cd{FlowLayout} with advanced options, and is preferred size.
 \end{itemize}
+A layout manager is used via a class which appears as follows:
+\begin{lstlisting}
+    JButton btn;
+    public ClassName() { super("LayoutName");
+        btn = new JButton("label");
+        btn.addActionListener(this);
+        JPanel panel = new JPanel();
+        panel.setLayout(new LayoutName());
+        panel.add(btn, LayoutName.methodName);
+    }
+\end{lstlisting}
 
 \chapter{Definitions}
 
@@ -112,7 +132,7 @@ Consequently, a mutator method changes values of the attributes to the object it
 
 \chapter{Inheritance}
 
-\section{Terminology}
+\section{Subclasses}
 A child class may be described as an extension of a parent class. The former inherits all the features of the latter and can implement new features for its particular purpose. The child is a subclass of the parent superclass. When \cd{child} inherits from \cd{parent}, every feature of the latter is in the former and \cd{child extends parent}. Specifically,
 \begin{lstlisting}
     public class Child extends Parent { }
@@ -157,6 +177,9 @@ A program intended to handle \cd{parent} objects will also be able to handle \cd
     Parent varTwo = new Child();
     varTwo instanceof Child; // true
 \end{lstlisting}
+Polymorphism is the ability of a method to take on various forms, such as arguments of different types. It occurs when early binding targets a method in parent and late binding targets the method with the same signature in child.
+
+\chapter{Classes}
 
 \section{Casting \& Objects}
 It is neccessary to cast or bind methods to convert them to the proper Object which does have such method so as to not fail; for example,
@@ -168,11 +191,7 @@ It is neccessary to cast or bind methods to convert them to the proper Object wh
 \end{lstlisting}
 Early binding occurs at compile time and verifies the method in the class, and late binding occurs at run time only when explict inheretence is used and determines \cd{var} points to the object and calls the method in the class instead.
 
-\bigskip
-Polymorphism is the ability of a method to take on various forms, such as arguments of different types. It occurs when early binding targets a method in parent and late binding targets the method with the same signature in child.
-
-\chapter{Interfaces}
-\section{Terminology}
+\section{Abstraction}
 Interfaces define only method signatures, of which methods have no implemented body so as to allow the implementer to define class requirements to others. That is, an interface is a group of related methods iwth empty bodies, appearing as:
 \begin{lstlisting}
     interface interfaceName {
@@ -188,7 +207,7 @@ Then, the interface is implemented via
         void methodTwo(Type args) { this.args = args; }
     }
 \end{lstlisting}
-The implementation must include all the methods of the interface, else the program will fail.
+The implementation must include all the methods of the interface, else the program will fail. Consequently, abstract classes (\cd{public abstract class Name}) implement only some methods and allow implementers to implement some methods and define others. Lastly, in classes, all methods are implemented.
 
 
 \end{fullwidth}
