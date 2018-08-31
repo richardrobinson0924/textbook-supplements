@@ -36,6 +36,7 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 \setlength{\parindent}{0pt}
 \begin{fullwidth}
 
@@ -99,14 +100,20 @@ Aggregation represents a \textit{has a} relationship between two classes. A clas
     CustomType var = new CustomType(values);
     ClassName name = new Classname(vars);
 \end{lstlisting}
-With this code, you can call the attributes of the class via \cd{name.var}. The \cd{this} reference replaces the generic variable in a class with a version specific to the variable that is called. It is used when the attributes share names with the constructor parameters so as to disambiguate; \cd{this.par} references the attribute version of \cd{par}, not the parameter version. That is,
+With this code, you can call the attributes of the class via \cd{name.var}. The \cd{this} reference replaces the generic variable in a class with a version specific to the variable that is called. It is used when the attributes share names with the constructor parameters so as to disambiguate; \cd{this.par} references the attribute / field version of \cd{par}, not the parameter version. That is,
 \begin{lstlisting}
     ClassName(Type a) { x = a; }
 \end{lstlisting}
 is equivalent to
 \begin{lstlisting}
-    ClassName(Type x) { this.x = x; }
+    ClassName(Type x) { this.x = x; } // assigns value of x to field
 \end{lstlisting}
+As well, \cd{this} can be used to call another constructor in the same class so as to allow multiple number of arguments; for example,
+\begin{lstlisting}
+    public Struct() { this(1, 2); }
+    public Struct(int x, int y) { this.x = x; this.y = y }
+\end{lstlisting}
+allows \cd{Struct} to have either 0 or 2 arguments. If the former, it calls the latter version with the arguments in \cd{this} becoming the arguments of \cd{Struct}.
 
 \section{Classes}
 
@@ -142,6 +149,7 @@ There are three types of methods;
     \item A \emph{constructor} has the same name as the class. It has no return type and initializes attributes via \cd{className name = new className(args)}.
     \item A \emph{mutator} changes attributes. It has a \cd{void} return type and cannot be used when a value is expected, given by \cd{name.change(args)}
     \item An \emph{accessor} uses attributes for computations iwthout modifications. It has a non-\cd{void} return type and explictly has a \cd{return} statement, via \cd{name.getComp()}
+    \item A \emph{specific attribute} gets the attribute of the instance via \cd{name.att} of the general \cd{this.att}.
 \end{itemize}
 
 \chapter{Inheritance}
@@ -157,6 +165,7 @@ There are numerous types of access:
     \item \cd{private}: only accessible to the class it is in
     \item \cd{protected}: same as \cd{private} in addition to its derived children.
 \end{itemize}
+The \cd{super(args)} keyword is used in \cd{child} to inherit the arguments of \cd{parent}. Children classes are created so as to be able to use the methods of \cd{parent} in addition to new methods or overriding current methods.
 
 \section{Child Methods}
 The child sometimes requires a method to modify or add new feature using \cd{@Override}, in which the child keeps the parent's signature and return type. The child can access the parent's constructor features via
@@ -193,6 +202,23 @@ A program intended to handle \cd{parent} objects will also be able to handle \cd
 \end{lstlisting}
 Polymorphism is the ability of a method to take on various forms, such as arguments of different types. It occurs when early binding targets a method in parent and late binding targets the method with the same signature in child.
 
+\section{Example}
+A culmonating example of classes is given:
+\begin{lstlisting}
+    Class ClassName {
+        public Type args; // attribute
+        public ClassName(Type args) { this.args = args; } // constructor
+        public Type getAtt() { return this.args; } // accessor
+        public void changeAtt(Type x) { this.args = x; } // mutator
+
+        public static void main(String[] args) {
+            ClassName object = new ClassName(Type vars);
+            object.changeAtt(x);
+            Type att = object.getAtt();
+        }
+    }
+\end{lstlisting}
+
 \chapter{Classes}
 
 \section{Casting \& Objects}
@@ -203,7 +229,7 @@ It is neccessary to cast or bind methods to convert them to the proper Object wh
         name = ((ObjectName) var).methodName
     }
 \end{lstlisting}
-Early binding occurs at compile time and verifies the method in the class, and late binding occurs at run time only when explict inheretence is used and determines \cd{var} points to the object and calls the method in the class instead.
+Early binding occurs at compile time and verifies the method in the class, and late binding occurs at run time only when explict inheretence is used and determines \cd{var} points to the object and calls the method in the class instead. For most purposes, objects and constructors act similarly to macros so as to negate the need for repetition.
 
 \section{Abstraction}
 Interfaces define only method signatures, of which methods have no implemented body so as to allow the implementer to define class requirements to others. That is, an interface is a group of related methods iwth empty bodies, appearing as:
