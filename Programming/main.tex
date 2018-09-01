@@ -10,19 +10,8 @@
 \usepackage{graphicx}
 \graphicspath{{../images/}}
 
-% cover photo
-\newcommand\BackgroundPic{%
-\put(0,0){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vfill
-\centering
-\includegraphics[height=\paperheight,%
-keepaspectratio]{keyboard}%
-\vfill
-}}}
 
 \setlength{\parindent}{0pt}
-\colorlet{darkgray}{white!85!black}
 \title{C, Unix, \& Java}
 \author{Richard Robinson}
 
@@ -30,12 +19,8 @@ keepaspectratio]{keyboard}%
 \lstset{%
   aboveskip=3mm,
   belowskip=3mm,
-  showstringspaces=false,
   basicstyle={\small\ttfamily},
-  numbers=none,
-  numberstyle=\tiny\color{gray},
   captionpos=none,
-  title=\lstname,
   keywordstyle=\bfseries\color{magenta},
   commentstyle=\color{green!50!black},
   stringstyle=\color{red},
@@ -45,168 +30,75 @@ keepaspectratio]{keyboard}%
 }
 
 \begin{document}
-\AddToShipoutPicture*{\BackgroundPic}
-\frontmatter
 \maketitle
 \setlength{\parindent}{0pt}
-\mainmatter
+\begin{fullwidth}
 
 \chapter{Intro to C}
 
 \section{The Basics}
 
-C is a command line language. The basic syntax of any C program code is
+In C, there only exist multiline \lstinline{/* */} comments. As well, there is no garbage collection, classes, exception, nor strings. The basic C program syntax is
 \begin{lstlisting}
     #include <stdio.h>
-    int main(void) {
-        /* Program */
+    main() {
+        /* body */
+        return 0;
     }
 \end{lstlisting}
-If the program takes command line arguments, then the function instead becomes
-\begin{lstlisting}
-    int main(int argc, char *argv[])
-\end{lstlisting}
-A string is treated as an array of characters where the last element is \lstinline{\0} and is declared by \lstinline{char *}. For a constant variable, use \lstinline{const} as a prefix in the declaration. Alternatively,
-\begin{lstlisting}
-    #define NAME value
-\end{lstlisting}
-may be used. Numbers in base 8 and 16 are prefixed by \lstinline{0} and \lstinline{0x}, respectively. An enumeration is an array of constants, with syntax
-\begin{lstlisting}
-    enum type { c1 = value, c2, c3 = value ...};
-    int x = c2
-\end{lstlisting}
-where the values are optional.
+The \lstinline{#include} tag acts as a macro for whatever file is called. In C, the null character \lstinline{\0} is critical, as it is appended to all arrays of characters and therefore represents the end of a string.
 
-\section{Formatting Output}
-The \lstinline{printf()} function outputs text.
-\marginnote{For example, \lstinline{printf("\%6.1f string", 42.42)} outputs \lstinline{    42.4 string}.}
-In the output string, \lstinline{\%x.yf} formats the respective float such that there are $x$ and $y$ characters to the left and right of the decimal point, respectively.
-
-\bigskip
-To cast a variable is to change it from one type to another, via
-\begin{lstlisting}
-    int var = (int)(var2);
-\end{lstlisting}
-where \lstinline{var2} need not be an int. Additionally, use \lstinline{x.f} to convert the int $x$ to type float.
-
-\section{Conditionals \& Loops}
-The ternary condition \lstinline{x = exp1 ? a : b} is equivalent to
-\marginnote{The code \lstinline{c = (a > b) ? a : b} is equivalent to \lstinline{c = max(a,b)}.}
-\begin{lstlisting}
-    if (exp1) x = a;
-    else x = b;
-\end{lstlisting}
-The switch statement is a condensed if-else-if-else... statement, with the general form
-\begin{lstlisting}
-    switch (exp) {
-        case 1: statements; break;
-        case 2: statements; break
-        ...
-        default: statements
-    }
-\end{lstlisting}
-Note \lstinline{break} is optional. If not included, the next case may be executed. Otherwise, it branches out of a statement or loop (except for if-else).
-
-\bigskip
-The \lstinline{continue} command is used in a nested if statement to skip a certain iteration(s) of the outer loop. It is often used to skip certain elements, as follows:
-\begin{lstlisting}
-    while (exp) {
-        if (condition) continue; /* skip statements */
-        statements;              /* if !condition... */
-    }
-\end{lstlisting}
-
-\section{Functions}
-
-A function must be declared before it is called. The general format is:
-\begin{lstlisting}
-    int name(int, int);
-    /* code that calls function */
-    int name(int x, int y) {
-        /* code goes here */
-        return z;
-    }
-\end{lstlisting}
-The argument type must match the function type. A function who's type is \lstinline{void} has no return value.
-\marginnote{Note an argument of type \lstinline{char[]} may be used in an \lstinline{int} function.}
-
-\bigskip
-The \lstinline{assert(condition)} function terminates a program if the condition is false. It is exclusively used for debugging.
-
-\chapter{Software Design in C}
-
-\section{Scope}
-
-Variables prefixed with \lstinline{static} have their scope restricted to the file they are in. Header files imported via
-\begin{lstlisting}
-    #include "filename.h"
-\end{lstlisting}
-are used to store declarations and code shared over multiple source files, and effectively act as a macro. A pointer is declared using \lstinline{*} where \lstinline{&} is the address operator. The syntax is used as
-\begin{lstlisting}
-    int i;
-    int *j = &i;
-\end{lstlisting}
-Pointers are mainly used within functions; any changed made to the local variables within the function will not affect nor change the variables of the calling function, used as:
-\begin{lstlisting}
-    func(&a, &b);
-    void func(int* x, int* y) {
-        /* code */
-    }
-\end{lstlisting}
-Additionally, \lstinline{*var} is effectively \lstinline{var[]}. In this case, \lstinline{var} is \lstinline{&var[0]} when used in an expression, and \lstinline{s[i]} is \lstinline{*(s+i)}.
-
-\bigskip
-An array can contain pointers with syntax \lstinline{int *arr[N]}.
-
-\section{Arrays}
-\marginnote{The line \lstinline{char str[] = "string"} is equivalent to \lstinline{char str[] = \{'s','t',...\}}.}
-An array whom's size is larger than the number of elements has its remaining elements as 0. Size need not be specified. The number of elements for such array is
-\begin{lstlisting}
-    num_elements = sizeof(arr) / sizeof(arr[0]);
-\end{lstlisting}
-A function may return a pointer, which would have the form
-\begin{lstlisting}
-    int* func(void) {
-        return &var;
-    }
-\end{lstlisting}
-Like any array, a string may be indexed at any element. An important standard function is
-\begin{lstlisting}
-    char *strstr(const char *s, const char *t)
-\end{lstlisting}
-which searches for \verb|t| in \verb|s|. When indexing an array of strings, use \lstinline|char *str[] = {"string"}|. A for loop must be used to then iterate through each char in each string. Alternatively,
-\begin{lstlisting}
-    do {
-        c = getchar();
-        /* code */
-    } while (c != '\0' && c != '\n');
-\end{lstlisting}
-may be used.
-
-%---------------------------------------
-% UNIX
-%---------------------------------------
-\lstset{language=bash}
-
-\chapter{Intro to Unix}
-
-\section{Basic Syntax}
-The vertical bar character is used for sending the output of a command as the input to another command, with syntax
-\begin{lstlisting}
-    fromcommand | tocommand
-\end{lstlisting}
-In Unix, the main directories are as follows:
+\section{Basic I/O}
+The basic input and output commands in C are \lstinline{getchar(), putchar(), printf()}, and \lstinline{scanf()};
 \begin{itemize}
-    \item \verb|/bin|: Contains executable binaries users may run.
-    \item \verb|/dev|: \verb|/etc|: Special and administrative files.
-    \item \verb|/lib|: Central library storage for files commonly used elsewhere.
-    \item \verb|/lostfound|, \verb|/tmp|: Extra files.
+    \item The \lstinline{int getchar()} command reads one character at a time and returns \lstinline{EOF} at end of line, defined as -1.
+
+    \item The \lstinline{int putchar(c)} commands returns \lstinline{c} to the standard output or \lstinline{EOF} if an error occurs.
+
+    \item The \lstinline{printf("str")} command outputs the string with optional arguments.
+
+    \item The \lstinline{scanf("\%x", &x)} command reads the input, assigning \lstinline{\%x} to \lstinline{x}. The \lstinline{x} type is a hexadecimal integer.
 \end{itemize}
-The syntax of a Unix command is
+To parse a string by character in C, a while loop of the form
 \begin{lstlisting}
-    $ Name [-op1] [-op2] [Arg]
+    int c;
+    while ((c = getchar()) != EOF) { }
 \end{lstlisting}
-where \verb|op| are options.
+is used. Other types in addition to \lstinline{x} are \lstinline{c, d, f, lf, s}. The basic data types in C are \lstinline{char} (8 bits), \lstinline{int} (16/32 bits), \lstinline{float} (4 bytes), and \lstinline{double} (8 bytes). A string is an array of characters such ended by null, with syntax
+\begin{lstlisting}
+    char varname[] = "string"; /* or */
+    char *varname = "string" /* or */
+    char varname[] = {'chr1', 'chr2', ..., '\0'}
+\end{lstlisting}
+Because of the nature of strings, \lstinline{printf()} is equivalent to
+\begin{lstlisting}
+    int printf(char *format, args);
+\end{lstlisting}
 
+\section{Printf and Scanf}
+The format code \lstinline{"\%0n.df"} represents the following characteristics:
+\begin{itemize}
+    \item The \lstinline{n} is the total allotment of characters for the number, printing the characters from the right.
+    \item The \lstinline{0} replaces all the leading whitespace characters allotted before the number with 0.
+    \item The \lstinline{.d} is the number of decimal places to be included; the decimal point counts as a character for \lstinline{n}.
+    \item The \lstinline{f} represents the number is of type float.
+\end{itemize}
+The default number of decimal places is 6. As well, a negative \lstinline{n} value adds whitespace to the right instead of left.
 
+\bigskip
+To read an integer from the input, the syntax
+\begin{lstlisting}
+    int num; scanf("%d", &num);
+\end{lstlisting}
+is used. The function stops reading upon EOF or a failed input occurs. Additionally, it returns the number of successfully matched inputs, and returns 0 for an error.
+
+\bigskip
+Addition, file-wise scanning and printing are given via
+\begin{itemize}
+    \item \lstinline{prog < infile}: prog reads chars from infile
+    \item \lstinline{prog > infile}: prog writes chars to infile
+    \item \lstinline{prog1 | prog2}: input of prog2 is output of prog1
+\end{itemize}
+
+\end{fullwidth}
 \end{document}
