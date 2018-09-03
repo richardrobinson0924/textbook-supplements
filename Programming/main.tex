@@ -409,7 +409,29 @@ There are several command line declarations which may be (even more) complicated
     \item \lstinline{int *arr[]} /* arr is func returning ptr to int *
 \end{itemize}
 
-\chapter{Files}
+\chapter{Other Stuff}
+\section{Files}
+File in C are opened via the syntax
+\begin{lstlisting}
+    FILE *fp; /* file pointer */
+    FILE *fopen(char *name, char *mode);
+    fp = fopen(char name, char mode);
+\end{lstlisting}
+There are several types of modes; the $r$ mode returns NULL if the file does not exist, or has no read permission. The $w$ mode creates a file if it does not exist; if one does exist, it will be overwritten; it only returns NULL for no write permissions. Lastly, the $a$ mode preserves files instead of overwriting. The commands for reading and writing files include:
+\begin{lstlisting}
+    int getc(FILE *fp); /* get file */
+    int putc(int c, FILE *fp); /* access file */
+    int fscanf(FILE *fp, char *format, ...); /* scan file */
+    int fprintf(FILE *fp, char *format, ...) /* print file */
+\end{lstlisting}
+Files are closed via \lstinline{int fclose(FILE *fp)}, which frees \lstinline{putc}.
+
+\section{Macros}
+Macros in C may be defined as previously mentioned via
+\begin{lstlisting}
+    #define replacent replacor
+\end{lstlisting}
+and may be used for simple macros more easily than a respective function.
 
 
 
