@@ -26,7 +26,8 @@
   stringstyle=\color{red},
   breaklines=true,
   breakatwhitespace=true,
-  tabsize=4
+  tabsize=4,
+  morekeywords={type, &, |, ^, ~},
 }
 
 \begin{document}
@@ -37,7 +38,6 @@
 \chapter{Intro to C}
 
 \section{The Basics}
-
 In C, there only exist multiline \lstinline{/* */} comments. As well, there is no garbage collection, classes, exception, nor strings. The basic C program syntax is
 \begin{lstlisting}
     #include <stdio.h>
@@ -46,7 +46,7 @@ In C, there only exist multiline \lstinline{/* */} comments. As well, there is n
         return 0;
     }
 \end{lstlisting}
-The \lstinline{#include} tag acts as a macro for whatever file is called. In C, the null character \lstinline{\0} is critical, as it is appended to all arrays of characters and therefore represents the end of a string.
+The \lstinline{#include} tag acts as a macro for whatever file is called. In C, the null character \lstinline{\0} is critical, as it is appended to all arrays of characters and therefore represents the end of a string. A byte is 8 bits is 4 binary characters.
 
 \section{Basic I/O}
 The basic input and output commands in C are \lstinline{getchar(), putchar(), printf()}, and \lstinline{scanf()};
@@ -83,22 +83,270 @@ The format code \lstinline{"\%0n.df"} represents the following characteristics:
     \item The \lstinline{.d} is the number of decimal places to be included; the decimal point counts as a character for \lstinline{n}.
     \item The \lstinline{f} represents the number is of type float.
 \end{itemize}
-The default number of decimal places is 6. As well, a negative \lstinline{n} value adds whitespace to the right instead of left.
-
-\bigskip
-To read an integer from the input, the syntax
+The default number of decimal places is 6. As well, a negative \lstinline{n} value adds whitespace to the right instead of left. To read an integer from the input, the syntax
 \begin{lstlisting}
     int num; scanf("%d", &num);
 \end{lstlisting}
-is used. The function stops reading upon EOF or a failed input occurs. Additionally, it returns the number of successfully matched inputs, and returns 0 for an error.
-
-\bigskip
-Addition, file-wise scanning and printing are given via
+is used. The function stops reading upon EOF or a failed input occurs. Additionally, it returns the number of successfully matched inputs, and returns 0 for an error. Additionally, file-wise scanning and printing are given via
 \begin{itemize}
     \item \lstinline{prog < infile}: prog reads chars from infile
     \item \lstinline{prog > infile}: prog writes chars to infile
     \item \lstinline{prog1 | prog2}: input of prog2 is output of prog1
 \end{itemize}
+
+\section{Example}
+An example snippet to calculate the number of words in the input is shown below:
+\begin{lstlisting}
+    #define TRUE 1;
+    #define FALSE 0;
+    for ( int new_word = TRUE; (c = getchar() ) != EOF;) {
+       if (c == ' ' || c == '\n') new_word = TRUE; // works for multiple whitespaces
+       else if (new_word == TRUE) {
+           new_word = FALSE; ++num_words; // count number of whitespace groups
+       }
+    }
+\end{lstlisting}
+
+\chapter{Types}
+\section{Strings}
+Arrays have their sizes explicitly with index ranges of $[0, \, n-1]$ defined with syntax
+\begin{lstlisting}
+    type arr[n] = {el1, el2, ...} /* remaining elements are zero */
+    type arr[ ] = {el1, el2, ...} /* sets length to number of elements */
+\end{lstlisting}
+As aforementioned, a string is an array of chars with syntax
+\begin{lstlisting}
+    char str[] = "str"; /* length = n+1 = 4 */
+    x = str[n]; /* equal to '/0' */
+\end{lstlisting}
+The enumeration constants allow for constant arrays of expressions in a single definition, using the syntax
+\begin{lstlisting}
+    enum boolean { FALSE, TRUE} \* FALSE == 0, TRUE == 1 *\
+    enum months { JAN = 1, FEB, MAR} \* JAN == 1, FEB == 2, ... *\
+\end{lstlisting}
+In arithmetic between variables of different types, the smaller-bit type is converted into the other type. Additionally, char may be used in arithmetic expressions in accordance with the ASCII table. If a larger-bit type is forced to a shorter-bit type, the remaining bits are truncated; for example:
+\begin{lstlisting}
+    float x = 2.7;
+    int i = x; /* i = floor(x) = 2 */
+\end{lstlisting}
+
+\section{Qualifiers}
+The \lstinline{short} qualifier prefixed to int is 16 bits. The \lstinline{long} qualifier to int or double is 32 bits or 12/16 bytes, respectively. The \lstinline{signed, unsigned} qualifiers give a range $[-(n-1), n]$ and $[0, 2n-1]$, respectively. By default, chars are unsigned and ints are signed. Using \lstinline{<limits.h>, <float.h>}, the \lstinline{sizeof(type)} command returns the size of type.
+
+\bigskip
+For integer constants in base 8, 16, long, unsigned, the prefixes and postfixes are \lstinline{0-, 0x-, -L, -u}, respectively. Additionally, float constants allow for scientific \lstinline{e} notation. The default type is double. The \lstinline{const} qualifier acts like \lstinline{final} in Java; that is, it indicates the variable will not be changed, with syntax
+\begin{lstlisting}
+    const type var = value;
+    type funcz( const type[] );
+\end{lstlisting}
+
+\section{Casting \& Boolean}
+The cast operator casts a variable to a higher type without changing its value so as to allow precise arithmetic between low-bit types. For example,
+\begin{lstlisting}
+    int x = 9, y = 2; double i;
+    i = x / y; /* i = floor(9/2) */
+    i = x / (double)y /* i = 9/2 */
+\end{lstlisting}
+Bitwise operators operate on individual bits of a value, and include \lstinline{&, |, ^, ~} (and, or, xor, not), not to be confused with their logical counterparts. Additionally, the bit shift operators \lstinline{x<<y, x>>y} are equivalent to the decimal multiplication or division by $2^y$, respectively. For example,
+\begin{lstlisting}
+    (101010 == 42) << 3 == (101010000 == 336);
+\end{lstlisting}
+In right shifting, the new bits are filled with 0. Signed numbers are undefined for shifting. For example,
+\begin{lstlisting}
+    /* get n bits from position p of x */
+    unsigned getbits(unsigned x, int p, int n) {
+        return (x >> (p + 1 - n)) & ~(~0 << n);
+    }
+    getbits(42, 5, 3); /* is 5 = 101 */
+\end{lstlisting}
+
+\chapter{Pointers}
+\section{Introduction}
+A pointer stores the address of another variable, which itself stores a value. This means a pointer literally points to another variable. Its most common application is in scanning input, with syntax
+\begin{lstlisting}
+    scanf( "%f", &float_var);
+\end{lstlisting}
+Another example of using pointers to store variables is in using the general form \lstinline{ptr = &var} as follows:
+\begin{lstlisting}
+    char c, *p; /* initializes p as a pointer */
+    c = getchar();
+    p = &c; /* pointer p points to c */
+    printf("%c", *p); /* prints *p = c */
+\end{lstlisting}
+The \lstinline{&} symbol is the address operator, which gets the address of the variable it has. Pointers are declared via \lstinline{type *ptr}. That is, \lstinline{*ptr == var == value} iff
+\begin{lstlisting}
+    ptr = &var; *ptr = value;
+\end{lstlisting}
+
+\section{Usage}
+Pointers are useful for efficiency as they only store addresses, not value. For example,
+\begin{lstlisting}
+    void swap(int *px, int *py) {
+        int temp = *px;
+        *px = *py;
+        *py = temp;
+    }
+    void main() { swap(&a, &b); }
+\end{lstlisting}
+In an array, \lstinline{arr == arr[0]} and \lstinline{&a[i] == a + i}. The identifier of an array is equivalent to the address of its first element; that is,
+\begin{lstlisting}
+    int *p; p = arr; /* p =  &arr[0] */
+    x = *pa; /* same as x = arr[0] */
+    int y = *(p + 1) /* address of the number after p */
+    pa++; /* same as p = &a[1] */
+\end{lstlisting}
+Specifically, the array indexing syntax \lstinline{a[i]} is equivalent to \lstinline{*(a+i)}. For example, the following snippets use pointers as it need not store the values themselves:
+\begin{lstlisting}
+    int strlen(char *s) {                                   int strlen(char *s) {
+        for (int n = 0; *s != '\0'; s++) { n++; }               for (char *p = s; *p != '\0'; p++) { }
+        return n;                                               return p - s;
+    }                                                       }
+\end{lstlisting}
+
+\section{Address Arithmetic}
+Arithmetic operators for pointer addresses work as follows assuming p, q are pointers and n is an integer:
+\begin{lstlisting}
+    p +/- n; /* moves p forwards / backwards by 4*n  */
+    p + q; /* illegal if q > p */
+    q - p + n; /* illegal if q < p */
+    if (p == NULL) /* same as if (!p) */
+\end{lstlisting}
+As well, adding two pointers is illegal, as is adding a float or double to a pointer. It is also illegal to assign a pointer of one type to one of a different type without casting. With regards to strings, \lstinline{char *str} is a pointer, not an array and thus may be modified. Therefore, the following functions are equivalent:
+\begin{lstlisting}
+    void strcpy(char *s, char *t) {                         void strcpy(char *s, char *t) {
+        for (int i = 0; (s[i] = t[i]) != 0; i++ ) {}            while ((*s++ = *t++) != '\0');
+    }                                                       }
+\end{lstlisting}
+
+\section{Dynamic Memory}
+The header \lstinline{<stdlib.h>} in conjunction with the syntax
+\begin{lstlisting}
+    int *arr;
+    arr = *malloc(int n); /* typically n = n * sizeof(int) */
+    free(arr);
+\end{lstlisting}
+allocates the needed memory dynamically. Additionally, it returns a pointer to at least $n$ bytes available, and null if allocation was not successful. Note that the allocated memory is not initialized. The calloc function with syntax
+\begin{lstlisting}
+    *calloc(int n, int s);
+    *calloc(n, sizeof(int)); /* same as malloc(n*sizeof(int)) */
+\end{lstlisting}
+acts similarly, but differs in that it allocates an array of $n$ elements with individual size $s$, and initializes the memory to 0. Consequently, the realloc and free functions with syntax
+\begin{lstlisting}
+    *realloc(void *ptr, int n);
+    free(void *ptr)
+\end{lstlisting}
+can resize a perviously allocated block of memory such that \lstinline{ptr} was previously returned from another function, and releases the previously allocated memory, respectively.
+
+\chapter{Structures}
+\section{Basics}
+A C structure defines a type, similar to classes in Java.The basic structure creation syntax is given by
+\begin{lstlisting}
+    struct name { type var; }
+\end{lstlisting}
+and is called by \lstinline{struct name new_var}. In this case, \lstinline{name} is the structure tag and \lstinline{var} is a member. Members may share names across structures. The value of members are accessed via \lstinline{name.var}. For nested structures, the syntax is recursively used. Combining functions and structures may be used like the following:
+\begin{lstlisting}
+    struct point makepoint(int x, int y) /* analogous to Java constructor */
+    {
+        struct point temp; /* different point */
+        temp.x = x; temp.y  = y;
+        return temp; /* temp = (x, y) */
+    }
+\end{lstlisting}
+The function may then be called via
+\begin{lstlisting}
+    struct point makepoint(int, int);
+    struct point coord = makepoint(xcoord, ycoord);
+\end{lstlisting}
+
+\section{Struct Funcs}
+A function which has a structure as an argument is known as a struct func. The structure parameters are passed be values like other types, and a copy of the structure is sent to the function. For example, a struct func for adding two points is
+\begin{lstlisting}
+    struct point addpoint(struct point p1, struct point p1) {
+        p1.x += p2.x; p1.y += p2.y;
+        return p1;
+    }
+\end{lstlisting}
+Struct funcs can also have pointers. If a large structure is to be passed to a function, it is generally more efficient to pass a pointer than to copy the entire structure. For example,
+\begin{lstlisting}
+    struct point *pt; /* new pointer of type point */
+    struct point origin = makepoint(0,0); /* from previous snippet */
+    pt = &origin;
+    (*pt).x, (*pt).y; /* origin coordinates */
+\end{lstlisting}
+A shorthand notation for \lstinline{(*pt).var} is \lstinline{pt->var}.
+
+\section{Initialization \& Pointers}
+Structures may be initialized with either of the following syntax, for arrays and multidemsnional arrays, respectively:
+\begin{lstlisting}
+    struct custom_type struct_name = {values};
+    struct custom_type struct_name[] = { {values1}, {vals2}, ... };
+\end{lstlisting}
+In the following example, the \lstinline{++} operator is used for a struct ptr to increment it by the correct amount, the structure size, so as to get the next element of the array of structs, given by:
+\begin{lstlisting}
+    struct key keytab[NKEYS], *p; /* initializes keytab and *p */
+    for (p = keytab; p < keytab + NKEYS; p ++) {
+        int count = p -> count; char[] word = p -> word;
+    }
+\end{lstlisting}
+
+\chapter{Application of Structs}
+
+\section{Lists}
+A simple linked list is created via the syntax
+\begin{lstlisting}
+    struct list {
+        int data; struct list *next;
+    }
+\end{lstlisting}
+In a typical linked list, the pointer \lstinline{head} points to the first element, and the last element pointer is \lstinline{NULL}. A fully implemented linked list can be made via:
+\begin{lstlisting}
+    struct list {
+        int data; struct list *next;
+    }
+    *head, *p, *last, int i;
+
+    head = (struct list*) malloc (sizeof(struct list));
+    head -> data = -1; head -> next = NULL;
+    last = head;
+    for (scanf("%d", &i); condition; scanf("%d", &i)) {
+        head = (struct list*) malloc (sizeof(struct list));
+        p -> data = i; p -> next = NULL;
+        last -> next = p; last = p;
+    }
+\end{lstlisting}
+Using this example, an application of it to search for a number in the list is:
+\begin{lstlisting}
+    scanf("%d", &i);
+    for (p = head; p != NULL; p = p -> next) {
+        if (p -> data == i) { } /* matches */
+    }
+\end{lstlisting}
+
+\section{Typedefs}
+Typedefs are used for creating new data type names. For example, to create a typedef for a length, the following is used:
+\begin{lstlisting}
+    typedef type TypedefName;
+    TypedefName var;
+\end{lstlisting}
+In conjunction with structures, typedefs can be global types in C via
+\begin{lstlisting}
+    typedef struct { int x, y; }
+    typedef_name;
+    typedef_name a, b, x, ...;
+\end{lstlisting}
+
+\section{Errors}
+Common errors when using pointers with arrays and in general include:
+\begin{itemize}
+    \item Uninitialized pointers; for example, \lstinline{int *p = val}
+    \item Null pointer dereferencing; for example, \lstinline{x = (int*) malloc(sizeof(int)); *x = val}
+    \item Overriding existing pointers (memory leaks)
+\end{itemize}
+
+\chapter{Even More Pointers}
+
+
+
 
 \end{fullwidth}
 \end{document}
