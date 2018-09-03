@@ -32,6 +32,7 @@
 
 \begin{document}
 \maketitle
+\tableofcontents
 \setlength{\parindent}{0pt}
 \begin{fullwidth}
 
@@ -344,7 +345,71 @@ Common errors when using pointers with arrays and in general include:
 \end{itemize}
 
 \chapter{Even More Pointers}
+\section{Pointers with Arrays}
+An array of pointers has syntax
+\begin{lstlisting}
+    type *arr[] = {val1, val2, ...};
+\end{lstlisting}
+In this case, the array is an array of pointers to \lstinline{type}, wherein each element itself is a pointer to \lstinline{type}. Consequently, pointers to arrays have syntax of
+\begin{lstlisting}
+    type arr[i] = val;
+    char *p1, *(p2)[i];
+    p1 = a; /* ptr to a[0] */
+    p2 = &a; /* ptr to a */
+\end{lstlisting}
+Multidimensional arrays must have the second of their sizes explicitly given even when initialized with values. In this case, \lstinline{a[i]} is a pointer to the $i$th row. For example,
+\begin{lstlisting}
+    int *p;
+    int arr[][2] = { {vals1}, {valsn} }; /* sizeof(arr) = n_elements * m bits */
+    p = arr[1];
+    *p; *(p+1); /* row 2, element 1; row 2, element 3 */
+\end{lstlisting}
+Additionally, an example of a function of pointer arrays is
+\begin{lstlisting}
+        char *month(int i) {
+            static char *name[] = { "Jan", "Feb", ...};
+            return name[i]
+        }
+\end{lstlisting}
 
+\section{Pointers vs Multidimensional Arrays}
+The main difference between the MD array \lstinline{int arr[i][j]} and \lstinline{int *p[i]} is that in the former, $ij$ locations are allocated, whereas in the latter only $i$ pointers are allocated and initialization must be done explicitly; if each element of $p$ points to an array of $j$ elements, the total size is $ij$ ints + $i$ pointers.
+
+\bigskip
+The pointer version is advantageous in that the rows of the array may be of different lengths, saving space. Specifically, if $n$ is the number of chars in the longest string of the array, then for
+\begin{lstlisting}
+    char *p[] = {"str1", "str2", ...};       char arr[][n] = {"str1", "str2", ...};
+\end{lstlisting}
+the former dynamically allocates memory per string, whereas the latter sets each memory to $n$ even if the length of a string is $< n$.
+
+\section{Command Line Args}
+Thus far, the main method has been defined as \lstinline{main()}. However, the typical definition is
+\begin{lstlisting}
+    main(int argc, char *argv[]) { }
+\end{lstlisting}
+in which \lstinline{argc} is the number of args, \lstinline{argv} is a pointer to the array containing the args such that \lstinline{argv[0]} is a pointer to a string with the program's name, and \lstinline{argv[argc]} is a NULL pointer. For example, for the program
+\begin{lstlisting}
+    main(int argc, char *argv[]) {
+        printf(argc); /* number of arguments */
+        for (int i = 0; i < argc; i++) {printf(argv[i]);}
+    }
+\end{lstlisting}
+the output for the command line input \lstinline{a.out arg1 arg2}, the output is \lstinline{n args = 3; a.out, arg1, arg2}. A typical sample is the \lstinline{echo} command from \lstinline{echo.c}, in which the command \lstinline{echo str} outputs \lstinline{str} via
+\begin{lstlisting}
+    main(int argc, char *argv[]) {
+        while (--argc > 0) printf(*++argv, (argc > 1) ? " " : "");
+        return 0;
+    }
+\end{lstlisting}
+There are several command line declarations which may be (even more) complicated, including:
+\begin{itemize}
+    \item \lstinline{char **argv}; /* argv is ptr to ptr to char */
+    \item \lstinline{int (*p)[n]} /* p is ptr to array[n] of int */
+    \item \lstinline{int *p[n]} /* p is array[n] of ptr to int */
+    \item \lstinline{int *arr[]} /* arr is func returning ptr to int *
+\end{itemize}
+
+\chapter{Files}
 
 
 
