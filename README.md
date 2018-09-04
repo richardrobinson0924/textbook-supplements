@@ -12,7 +12,7 @@ Unofficial textbook supplement notes for basic Engineering courses. Click on a c
  - [Electromagnetism](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Electromagnetism/main.pdf) (*In Progress*)
  - [Assembly & Verilog](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Assembly/main.pdf)  (*In Progress*)
  - [Economics](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Economics/main.pdf) (*In Progress*)
- - [C Language(https://github.com/richardrobinson0924/textbook-supplements/raw/master/C-language/main.pdf) (*In Progress*)
+ - [C Language](https://github.com/richardrobinson0924/textbook-supplements/raw/master/C-language/main.pdf) (*In Progress*)
  - [Java I](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Java-I/main.pdf)
  - [Java II](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Java-II/main.pdf) (*In Progress*)
 
