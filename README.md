@@ -7,11 +7,14 @@
 ![covers](https://raw.githubusercontent.com/richardrobinson0924/textbook-supplements/master/Covers.png)
 
 Unofficial textbook supplement notes for basic Engineering courses. Click on a course title to download the latest draft versions, or click [here](https://github.com/richardrobinson0924/textbook-supplements/releases/tag/v0.1-chemistry) to view the latest complete versions.
- - [x] [Chemistry](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Chemistry/main2.pdf)
- - [ ] [Circuits & Signals](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Circuits/main.pdf) (*Coming Soon*)
- - [ ] [Electromagnetism](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Electromagnetism/main.pdf) (*In Progress*)
- - [ ] [Assembly & Verilog](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Assembly/main.pdf)  (*In Progress*)
- - [ ] [Economics](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Economics/main.pdf) (*In Progress*)
+ - [Chemistry](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Chemistry/main2.pdf)
+ - [Circuits & Signals](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Circuits/main.pdf) (*Coming Soon*)
+ - [Electromagnetism](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Electromagnetism/main.pdf) (*In Progress*)
+ - [Assembly & Verilog](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Assembly/main.pdf)  (*In Progress*)
+ - [Economics](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Economics/main.pdf) (*In Progress*)
+ - [C Language(https://github.com/richardrobinson0924/textbook-supplements/raw/master/C-language/main.pdf) (*In Progress*)
+ - [Java I](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Java-I/main.pdf)
+ - [Java II](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Java-II/main.pdf) (*In Progress*)
 
 Updates for current and new courses coming continuously. :)
  
@@ -23,6 +26,5 @@ Special thanks for supporting this endavour to:
 - Daniela K.
 - Donya J.
 - Jaz M.
-- Prithviraj K.
 - Saraf W. S.
 - Simran K. 
