@@ -1,0 +1,254 @@
+\documentclass[letterpaper, openany, justified]{tufte-book}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{empheq}
+\usepackage[dvipsnames]{xcolor}
+
+\setlength{\parindent}{0pt}
+\title{\\Java I Exam \\Preparation}
+\author{Richard Robinson}
+
+\newcommand{\cd}[1]{\lstinline{#1}}
+\definecolor{pblue}{rgb}{0.13,0.13,1}
+\definecolor{pgreen}{rgb}{0,0.5,0}
+\definecolor{pred}{rgb}{0.9,0,0}
+\definecolor{pgrey}{rgb}{0.46,0.45,0.48}
+\definecolor{ppurple}{rgb}{0.6,0,0.35}
+
+\lstset{language=java}
+\lstset{%
+  aboveskip=3mm,
+  belowskip=3mm,
+  basicstyle={\small\ttfamily},
+  captionpos=none,
+  keywordstyle=\bfseries\color{ppurple},
+  commentstyle=\color{pgreen},
+  stringstyle=\color{pred},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=4,
+  morekeywords={String}
+  %moredelim=[il][\textcolor{pgrey}]{$$},
+}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\setlength{\parindent}{0pt}
+\begin{fullwidth}
+
+\chapter{GUIs}
+
+\section{Widgets}
+There are several classes in the \lstinline{java.swing.*} toolkit, with the syntax \begin{lstlisting}
+    JComponent component = new Widget(String); // adds Widget
+\end{lstlisting}
+where \lstinline{Widget} is the name of the widget. Interacting with such cases an event object to be created, handled by creating a listener for specific events. Such listener must be registered per widget, each causing different events. Event listeners must implement the corresponding interface and methods. The main method for a GUI application is
+\begin{lstlisting}
+    ClassName frame = new ClassName();
+    frame.pack();
+    frame.setVisible(true);
+\end{lstlisting}
+The \lstinline{JButton, JCheckBox, JComboBox, JRadioButton} classes fire \lstinline{ActionEvent} event objects, implement the interface \lstinline{ActionListener} , and registered with the \lstinline{addActionListener} method. For all other classes, the \lstinline{MouseEvent} events are fired, the \lstinline{MouseListener} interface is implemented, and uses the \lstinline{addMouseListener} method. Typically, the \lstinline{app} calls the \cd{frame} which in turn calls the \cd{panel}.
+
+\section{Containers}
+The main \lstinline{JFrame} class represents a GUI window with title bar, resizable border, and border buttons. Apps extend this class to customize  it using \begin{lstlisting}
+    public class ClassName extends JFrame implements ActionListener
+\end{lstlisting}
+The \cd{JPanel} class is used to arrange widgets, and can also contain other panels and can be used to draw custom shapes. The \cd{paintComponent} method is called to redraw elements and can be overridden to create custom appearances; it is called by \cd{repaint()}. The listeners are used as follows:
+\begin{lstlisting}
+    public void actionPerformed(ActionEvent e) {
+        Object src = e.getSource();
+        switch (source == case); // switch-case conditional
+    }
+\end{lstlisting}
+
+\section{Layout Managers}
+There are several types of layout managers, including:
+\begin{itemize}
+    \item \cd{FlowLayout} is arranged linearly and flows to next line if needed. It is based on the preferred size.
+    \item \cd{BorderLayout} adds components using cardinal directions and ignores preferred size.
+    \item \cd{GridLayout} arranged components in a grid and ignores preferred size.
+    \item \cd{BoxLayout} is similar to \cd{FlowLayout} with advanced options, and is preferred size.
+\end{itemize}
+A layout manager is used via a class which appears as follows:
+\begin{lstlisting}
+    JButton btn;
+    public ClassName() { super("LayoutName");
+        btn = new JButton("label");
+        btn.addActionListener(this);
+        JPanel panel = new JPanel();
+        panel.setLayout(new LayoutName());
+        panel.add(btn, LayoutName.methodName);
+    }
+\end{lstlisting}
+
+\chapter{Definitions}
+
+\section{Aggregation}
+Aggregation represents a \textit{has a} relationship between two classes. A class is an aggregate if it has an attribute of a non-primitive type. This works as given by:
+\begin{lstlisting}
+    public class ClassName {
+        private CustomType var; // attributes
+        public ClassName(Type var) { this.var = var; } // constructor
+    }
+
+    // using the class in Main
+    CustomType var = new CustomType(values);
+    ClassName name = new Classname(vars);
+\end{lstlisting}
+With this code, you can call the attributes of the class via \cd{name.var}. The \cd{this} reference replaces the generic variable in a class with a version specific to the variable that is called. It is used when the attributes share names with the constructor parameters so as to disambiguate; \cd{this.par} references the attribute / field version of \cd{par}, not the parameter version. That is,
+\begin{lstlisting}
+    ClassName(Type a) { x = a; }
+\end{lstlisting}
+is equivalent to
+\begin{lstlisting}
+    ClassName(Type x) { this.x = x; } // assigns value of x to field
+\end{lstlisting}
+As well, \cd{this} can be used to call another constructor in the same class so as to allow multiple number of arguments; for example,
+\begin{lstlisting}
+    public Struct() { this(1, 2); }
+    public Struct(int x, int y) { this.x = x; this.y = y }
+\end{lstlisting}
+allows \cd{Struct} to have either 0 or 2 arguments. If the former, it calls the latter version with the arguments in \cd{this} becoming the arguments of \cd{Struct}.
+
+\section{Classes}
+
+Classes are used to define templates, and objects to instantiate classes. Objects are created and methods on objects are called. A template has common attributes (nouns) and behaviors (verbs). Each instance of a class has specific attribute values. An example is
+\begin{lstlisting}
+    public class Point {
+        float x, y; // attributes from another class
+        Point(float x, float y) { this.x = x; this.y = y } // constructor
+        Type getFunc() { return z } // action returning value
+        void actionName(Type var) { this.x = z; } // action modifying values
+    }
+\end{lstlisting}
+Then, in the main class, the object can be called via:
+\begin{lstlisting}
+    Point p1 = new Point(1, 2); // creating new instance of object
+    p1.getFunc(); // calling object without args
+    p1.actionName(var1); // calling object with args
+    p1.att // get attribute att of p1
+\end{lstlisting}
+
+\section{Methods}
+The signature of a method consists of its return type, name, parameters, and parameter types of form
+\begin{lstlisting}
+    class ClassName { Type methodName(Type args) { } }
+\end{lstlisting}
+In another class, the method can be called via
+\begin{lstlisting}
+    ClassName name = new ClassName(args);
+    name.methodName(args);
+\end{lstlisting}
+There are three types of methods;
+\begin{itemize}
+    \item A \emph{constructor} has the same name as the class. It has no return type and initializes attributes via \cd{className name = new className(args)}.
+    \item A \emph{mutator} changes attributes. It has a \cd{void} return type and cannot be used when a value is expected, given by \cd{name.change(args)}
+    \item An \emph{accessor} uses attributes for computations iwthout modifications. It has a non-\cd{void} return type and explictly has a \cd{return} statement, via \cd{name.getComp()}
+    \item A \emph{specific attribute} gets the attribute of the instance via \cd{name.att} of the general \cd{this.att}.
+\end{itemize}
+
+\chapter{Inheritance}
+
+\section{Subclasses}
+A child class may be described as an extension of a parent class. The former inherits all the features of the latter and can implement new features for its particular purpose. The child is a subclass of the parent superclass. When \cd{child} inherits from \cd{parent}, every feature of the latter is in the former and \cd{child extends parent}. Specifically,
+\begin{lstlisting}
+    public class Child extends Parent { }
+\end{lstlisting}
+There are numerous types of access:
+\begin{itemize}
+    \item \cd{public}: all classes can access this feature
+    \item \cd{private}: only accessible to the class it is in
+    \item \cd{protected}: same as \cd{private} in addition to its derived children.
+\end{itemize}
+The \cd{super(args)} keyword is used in \cd{child} to inherit the arguments of \cd{parent}. Children classes are created so as to be able to use the methods of \cd{parent} in addition to new methods or overriding current methods.
+
+\section{Child Methods}
+The child sometimes requires a method to modify or add new feature using \cd{@Override}, in which the child keeps the parent's signature and return type. The child can access the parent's constructor features via
+\begin{lstlisting}
+    super(args) // first line in child constructor
+\end{lstlisting}
+and method features via
+\begin{lstlisting}
+    super.methodName(args)
+\end{lstlisting}
+Specifically, \cd{super()} extends the behavior of the method. An example is given by:
+\begin{lstlisting}
+    public class ClassA { public void save() { } }
+
+    public class ClassB extends ClassA {
+        private Object varB;
+        @Override
+        public void save() { super.save(); save(varB); }
+    }
+\end{lstlisting}
+
+\section{Obligatory Methods}
+The \cd{Object} class defines methods applicsable to and required by all Java classes. To ensure all classes have these obligatory methods, all classes implicity extend this class. Some obligatory methods include:
+\begin{itemize}
+    \item \cd{String .toString()}: The Object implementation outputs memory address
+    \item \cd{boolean .equals()}: Compares memory addresses.
+    \item \cd{int .hashCode()}: Determines location in hash Collections.
+\end{itemize}
+A program intended to handle \cd{parent} objects will also be able to handle \cd{child} objects with no modification. Both of the following are valid:
+\begin{lstlisting}
+    Parent varOne = new Parent();
+    Parent varTwo = new Child();
+    varTwo instanceof Child; // true
+\end{lstlisting}
+Polymorphism is the ability of a method to take on various forms, such as arguments of different types. It occurs when early binding targets a method in parent and late binding targets the method with the same signature in child.
+
+\section{Example}
+A culmonating example of classes is given:
+\begin{lstlisting}
+    Class ClassName {
+        public Type args; // attribute
+        public ClassName(Type args) { this.args = args; } // constructor
+        public Type getAtt() { return this.args; } // accessor
+        public void changeAtt(Type x) { this.args = x; } // mutator
+
+        public static void main(String[] args) {
+            ClassName object = new ClassName(Type vars);
+            object.changeAtt(x);
+            Type att = object.getAtt();
+        }
+    }
+\end{lstlisting}
+
+\chapter{Classes}
+
+\section{Casting \& Objects}
+It is neccessary to cast or bind methods to convert them to the proper Object which does have such method so as to not fail; for example,
+\begin{lstlisting}
+    Parent var = new Child ()
+    if (var instanceof ObjectName) {
+        name = ((ObjectName) var).methodName
+    }
+\end{lstlisting}
+Early binding occurs at compile time and verifies the method in the class, and late binding occurs at run time only when explict inheretence is used and determines \cd{var} points to the object and calls the method in the class instead. For most purposes, objects and constructors act similarly to macros so as to negate the need for repetition.
+
+\section{Abstraction}
+Interfaces define only method signatures, of which methods have no implemented body so as to allow the implementer to define class requirements to others. That is, an interface is a group of related methods iwth empty bodies, appearing as:
+\begin{lstlisting}
+    interface interfaceName {
+        void methodOne(Type args);
+        void methodTwo(Type args);
+    }
+\end{lstlisting}
+Then, the interface is implemented via
+\begin{lstlisting}
+    public class SpecificName implements interfaceName {
+        Type args;
+        void methodOne(Type args) { this.args = args; }
+        void methodTwo(Type args) { this.args = args; }
+    }
+\end{lstlisting}
+The implementation must include all the methods of the interface, else the program will fail. Consequently, abstract classes (\cd{public abstract class Name}) implement only some methods and allow implementers to implement some methods and define others. Lastly, in classes, all methods are implemented. The \cd{final} tag prevents its class, method, or variable from being extended, overridden, or changed.
+
+
+\end{fullwidth}
+\end{document}

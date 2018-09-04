@@ -9,16 +9,6 @@
 \usepackage{graphicx}
 \graphicspath{{../images/}}
 
-% cover photo
-\newcommand\BackgroundPic{%
-\put(-225,-355){%
-\parbox[b][\paperheight]{\paperwidth}{%
-\vfill
-\centering
-\includegraphics[height=1.45\paperheight,%
-keepaspectratio]{circuitscover}%
-\vfill
-}}}
 
 % circuits
 \ctikzset{bipoles/resistor/height=0.15}
@@ -30,17 +20,11 @@ keepaspectratio]{circuitscover}%
 
 % title
 \setlength{\parindent}{0pt}
-\colorlet{darkgray}{white!15!black}
-\title[Electronic Circuits]{%
-  \setlength{\parindent}{0pt}%
-Electronic \par Circuits}
+\title{Electric Circuits}
 \author{Richard Robinson}
 \begin{document}
-\AddToShipoutPicture*{\BackgroundPic}
-\frontmatter
 \maketitle
 \setlength{\parindent}{0pt}
-\mainmatter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % MAIN DOCUMENT
