@@ -6,6 +6,7 @@
 \usepackage{listings}
 \usepackage{empheq}
 \usepackage[dvipsnames]{xcolor}
+\usepackage{multicol}
 
 \setlength{\parindent}{0pt}
 \title{Java Language, II}
@@ -17,6 +18,8 @@
 \definecolor{pred}{rgb}{0.9,0,0}
 \definecolor{pgrey}{rgb}{0.46,0.45,0.48}
 \definecolor{ppurple}{rgb}{0.6,0,0.35}
+\definecolor{pblue2}{RGB}{65,158,242}
+\definecolor{ppurple2}{RGB}{197,83,220}
 
 \lstset{language=java}
 \lstset{%
@@ -24,9 +27,9 @@
   belowskip=3mm,
   basicstyle={\small\ttfamily},
   captionpos=none,
-  keywordstyle=\bfseries\color{magenta},
+  keywordstyle=\bfseries\color{ppurple2},
   commentstyle=\itshape\color{pgreen},
-  stringstyle=\color{pred},
+  stringstyle=\color{pblue2},
   breaklines=true,
   breakatwhitespace=true,
   tabsize=4,
@@ -97,17 +100,132 @@ Utility and other classes may have internal and/or external documentation. The f
 \bigskip
 There are also special tags for API comments such as \cd{@param} which documents the method parameters, and \cd{@return} which documents what the method returns. In addition, the \cd{@pre} tag specifies the conditions and \cd{@throws} specifies possible exceptions. The API may be extracted in command line via
 \begin{lstlisting}
-    javadox -d directorybame ClassName.java
+    javadoc -d directoryname ClassName.java
 \end{lstlisting}
 Generally, avoiding overloading is best, which may be achieved by using the most general interface possible to declare parameters. Additionally, the generic type \cd{T} allows for any type to be used in a method. To restrict the generic type \cd{T} such that it must implement a specific interface, the syntax
 \begin{lstlisting}
     access static <T> type methodName
         (Object<? extends InterfaceName<? super T>> rstArg, T nonrstArgs...) { }
 \end{lstlisting}
-wherein \cd{?} is a \emph{wildcard}, meaning \cd{? super T} is matched by \cd{T} or \cd{super(T)}, and the code within the outer angle brackets can be considered a restricted generic type itself.
+wherein \cd{?} is a \emph{wildcard}, meaning \cd{? super T} is matched by \cd{T} or \cd{super(T)}, and the code within the outer angle brackets can be considered a restricted generic type itself. Finally, the \cd{@assert} tag ensures that even non-standard conditions are taken care of.
 
-\section{@Assert}
+\chapter{Non-Static Classes}
 
+\section{Class Structure}
+This chapter focuses on classes entirely with non-static features. In the case of these classes, the client must first create an instance of it; that is, an object with the syntax
+\begin{lstlisting}
+    ClassName name = new ClassName(); // creates new object using default constructor
+    ClassName newName = new ClassName(args) // new object with arguments
+    newName.methodName(args); // mutator
+\end{lstlisting}
+The UML diagram for a non-static class is as follows:
+\begin{lstlisting}
+    ClassName
+    + methodName(optionalArgs) : type
+\end{lstlisting}
+Additionally, the syntax itself for the definition of a non-static class with multiple types of constructors is given by
+\begin{lstlisting}
+    public class ClassName extends OptParent implements OptInterface {
+        access type name; // attributes
+        public ClassName() { this.field = defaultValue; } // default constructor
+        public ClassName(type fields) { this.field = field; } // other constructors
+        public ClassName(ClassName obj) { this.field = obj.getField(); } // copy constructor
+        // some methods
+    }
+\end{lstlisting}
+When possible, the attributes should be of access \cd{private} as it prevents possible mistakes, nor should they be initialized. Importantly, the \cd{this.var} keyword always references the attribute variable, not the parameter one, as is similar to the \cd{ClassName.var} syntax for static classes so as to disambiguate between variables of the same name.
+
+\section{Methods}
+There are several different types of standard method types, including
+\begin{lstlisting}
+    public type getField() { return this.field; } // accessor
+    public void setField(type field) { this.field = field; } // mutator
+    public String toString() { return "str"; } // print(ClassName)
+\end{lstlisting}
+For a default constructor without arguments that is essentially a special case of another constructor with multiple arguments, the former may be simplified such that if the latter is
+\begin{lstlisting}
+    public ClassName(type fields) { }
+\end{lstlisting}
+then the former may be simplified to
+\begin{lstlisting}
+    public ClassName() { this(defaultValues); } // option 1
+\end{lstlisting}
+which calls the multi-argument constructor wherein the arguments are the default values. As aforementioned, methods of static classes are called via
+\begin{lstlisting}
+    ClassName.methodName(args);
+\end{lstlisting}
+whereas non-static classes must be initialized and then called via
+\begin{lstlisting}
+    ClassName name = new ClassName(args);
+    name.methodName(args);
+\end{lstlisting}
+
+\section{Mutators \& Accessors}
+Let there be the following constructor:
+\begin{lstlisting}
+    public ClassName(type field) {this.field = field;}
+\end{lstlisting}
+This constructor is inefficient, as it duplicates the code of the mutators. A better version is:
+\begin{lstlisting}
+    public ClassName(type field) {this.setField(field);}
+\end{lstlisting}
+Additionally, an accessor method of the following form is also inefficient, as it is vulnerable to changes in attributes:
+\begin{lstlisting}
+    public type getProperty() {return this.field; }
+    public type getProperty() {return this.getField();} // better version
+\end{lstlisting}
+Note that \cd{String} objects are immutable, meaning they cannot be changed. This means assignment operators implicitly creates a new object in place of the old one. Immutability also makes it more efficient to use more restrictive access options wherever possible. For a \cd{Get} method such as the following, an appropriate \cd{Set} method should be written;
+\begin{lstlisting}
+    public type getComp() {return this.comp;}
+    private void setComp() {this.comp = comp;}
+\end{lstlisting}
+which then must be called in each mutator method of the class. Lastly, class invariants with the \cd{@invariant} tag are properties of attributes which should never occur, such as negative properties.
+
+\section{HashCode}
+Like \cd{toString()}, the \cd{hashCode} method is another obligatory method from the \cd{Object} class.
+
+\section{Static vs Non-Static}
+Here is an example of the same class using static and non-static properties:
+\setlength{\columnseprule}{0.4pt}
+\begin{multicols}{2}
+\begin{lstlisting}
+    class ExtendedMath {
+        public static int sum = 0;
+        private ExtendedMath(){}
+        public static double Avg(int... nums) {
+            for (int i : nums) this.sum += i;
+            return this.sum/nums.length
+        }
+    }
+
+
+    class Main {
+        public static void main(String[] args) {
+            double hyp = ExtendedMath.Avg(1,3,5);
+        }
+    }
+\end{lstlisting}
+
+\columnbreak
+\begin{lstlisting}
+    class NumSet {
+        private int[] nums;
+        NumSet(int... nums) {this.nums = nums;}
+        public double Avg() {
+            int sum = 0;
+            for (int i : this.nums) sum += i;
+            return sum/this.nums.length
+        }
+    }
+
+    class Main {
+        public static void main(String[] args) {
+            NumSet nums = new NumSet(1,3,5);
+            nums.Avg();
+        }
+    }
+\end{lstlisting}
+\end{multicols}
 
 \end{fullwidth}
 \end{document}
