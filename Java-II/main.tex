@@ -62,10 +62,12 @@ wherein \cd{?} is a \emph{wildcard}, meaning \cd{? super T} is matched by \cd{T}
 
 \section{Terminology}
 
+
+
 \chapter{Classes}
 
 \section{Static Classes}
-A Java class has attributes, constructors, and methods, and typically instantiated by using the \cd{new} keyword to invoke a constructor. A class wherein its objects are stateless or have the same attribute values is called a \emph{utility class}. These classes need not be instantiated and are prefixed with \cd{static}. For example, the \cd{Math} utility class methods can simply be used via \cd{Math.methodName}.
+A Java class has attributes, constructors, and methods, and typically instantiated by using the \cd{new} keyword to invoke a constructor. A class wherein its objects are stateless or have the same attribute values is called a \emph{utility class}. These classes need not be instantiated and are prefixed with \cd{static}.
 
 \bigskip
 Classes that have no or single-state attributes are typically utility classes, and only uses the arguments passed to it and not on any other parameters. A UML diagram of a utility class has the format:
@@ -92,7 +94,7 @@ The general form of the implementation of a utility class in Java is given by th
 wherein \cd{access} is one of \cd{public, private}. All non-final attributes should be private. The \cd{final} keyword in itself is optional, and used if the attribute is a constant. In utility classes, the entire class is within the attribute's scope. Such a class may be tested in \cd{main} by testing it for a variety of random arguments.
 
 \bigskip
-Classes are know to be \emph{pass-by-value}; this means that upon calling a class' method, its arguments are created new from memory of the argument of the caller, instead of simply its memory location. The argument values do not change regardless of the method; however, properties of objects may be mutated. To avoid confusion between identical parameter and attribute names, the syntax \cd{ClassName.name} to refer to the attribute and \cd{name} for the parameter. \emph{Overloading} of a method occurs if there are multiple methods with the same name but different parameter types. For arguments that do not meet a specific condition, a method may throw a new exception via the syntax
+To avoid confusion between identical parameter and attribute names, the syntax \cd{ClassName.name} to refer to the attribute and \cd{name} for the parameter. \emph{Overloading} of a method occurs if there are multiple methods with the same name but different parameter types. For arguments that do not meet a specific condition, a method may throw a new exception via the syntax
 \begin{lstlisting}
     access static type methodName(type args) throws IllegalArgumentException {
         if (condition) throw new IllegalArgumentException("Error Message");
