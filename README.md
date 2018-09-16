@@ -20,9 +20,4 @@ Updates for current and new courses coming continuously. :)
 
 Copyright (c) 2018 Richard Robinson. Made open-source under the AGPL 3.0 License.  Graphical figures copyright Nelson Inc. and/or Pearson Inc.
 
-Special thanks for supporting this endavour to:
-- Daniela K.
-- Donya J.
-- Jaz M.
-- Saraf W. S.
-- Simran K. 
+Special thanks to Jaz M. for guiding and assisting me.
