@@ -5,17 +5,42 @@
 \usepackage{mathpazo}
 \usepackage{listings}
 \usepackage{minted}
-%usepackage[scaled]{beramono}
 
 
 \setlength{\parindent}{0pt}
-\title{Assembly, C, \& Unix}
+\title{\Huge{\textbf{Assembly \& Verilog}}}
 \author{Richard Robinson}
 
 \begin{document}
 \maketitle
 \setlength{\parindent}{0pt}
 
+\chapter{Using RISC V}
+
+\section{Start of Program}
+
+A typical RISC V or Assembly program starts with the following lines:
+\begin{minted}{gas}
+	ORG     96		  # declares init address
+	DD      42, 100, 19, 2000   # stores values in mem
+	addi    x1, x0, 96	  # initializes init address
+\end{minted}
+The first line contains the \verb$ORG$ command, which declares the initial address. The \verb$DD$ command stores its arguments in memory to be later used by the program. Lastly, the \verb$addi$ command with the \verb$x1, x0$ arguments initializes the registers to the initial address in \verb$ORG$.
+
+\section{Using Registers}
+There are two primary methods of loading values into registers;
+\begin{minted}{gas}
+	addi    x4, x0, 42	  # method 1
+	ld      x4, 8(x1)	   # method 2
+\end{minted}
+In the first method, the value 42 is directly loaded into \verb|x4|. In the second method, the value must first be stored in memory via the \verb$DD$ command. To load the $n$th number of \verb$DD$, \verb$8n(x1)$ is used as $8n + 96$ is the address of the value.
+
+\bigskip
+Consequently, values are loaded from registers into memory via
+\begin{minted}{gas}
+	sd      x19, 88(x1)         # stores reg in mem
+\end{minted}
+which stores the value contained in \verb$x19$ into memory address \verb|88 + x1|, which in this example would be $88 + 96$.
 
 
 \end{document}
