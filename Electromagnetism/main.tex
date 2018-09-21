@@ -2,7 +2,6 @@
 \usepackage[letterpaper]{geometry}
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{scalerel}
-\usepackage{mathpazo}
 \usepackage{esint}
 \usepackage{hyperref}
 
@@ -137,5 +136,20 @@ For a capacitor with a dielectric of constant $\kappa$, Gauss' law gives \begin{
 
 \chapter{DC Circuits}
 Please see \textit{Electric Circuits} which entirely comprises this chapter itself, available with other titles at \url{http://bit.ly/eecsbooks}.
+
+\chapter{Magnetostatics}
+
+\section{Magnetic Field}
+
+For particles in a magnetic field, the magnetic force is defined as \begin{equation}
+    \b F_B = q \b v \times \b B = |q|vB \sin \phi
+\end{equation}
+However, if both an electric and magnetic field act upon a charge, the Lorentz force is \begin{equation}
+    \b F = \b F_E + \b F_B = q \b E + q \b v \times \b B
+\end{equation}
+If both fields and the velocity vectors are tri-perpendicular in the $xyz$-plane, then the electric and magnetic force are in opposite directions, meaning \begin{equation}
+    qE = qvB \iff v = E/B
+\end{equation}
+This configuration is known as a velocity selector, as only particles with such velocity $v$ can pass through unaffected.
 
 \end{document}
