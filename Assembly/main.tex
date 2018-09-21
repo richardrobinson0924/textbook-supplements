@@ -6,10 +6,11 @@
 \usepackage{listings}
 \usepackage{minted}
 
+\usemintedstyle{colorful}
 
 \setlength{\parindent}{0pt}
 \title{\Huge{\textbf{Assembly \& Verilog}}}
-\author{Richard Robinson}
+\author{Richard Robinson, B.Eng. Cand.}
 
 \begin{document}
 \maketitle
@@ -26,6 +27,9 @@ A typical RISC V or Assembly program starts with the following lines:
 	addi    x1, x0, 96	  # initializes init address
 \end{minted}
 The first line contains the \verb$ORG$ command, which declares the initial address. The \verb$DD$ command stores its arguments in memory to be later used by the program. Lastly, the \verb$addi$ command with the \verb$x1, x0$ arguments initializes the registers to the initial address in \verb$ORG$.
+
+\bigskip
+Values need not be explicitly stored in memory as will be discussed in the following section.
 
 \section{Using Registers}
 There are two primary methods of loading values into registers;
