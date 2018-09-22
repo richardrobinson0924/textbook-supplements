@@ -6,15 +6,80 @@
 \usepackage{listings}
 \usepackage{minted}
 
-\usemintedstyle{colorful}
+\usemintedstyle{manni}
 
 \setlength{\parindent}{0pt}
-\title{\Huge{\textbf{Assembly \& Verilog}}}
+\title{\Huge{\textbf{Programming in C, Java, \& More}}}
 \author{Richard Robinson, B.Eng. Cand.}
 
 \begin{document}
 \maketitle
+\tableofcontents
 \setlength{\parindent}{0pt}
+
+\chapter{Java Classes}
+
+\section{Non-Static Classes}
+
+\subsection{Format}
+
+A typical non-static class in Java has the following syntax and structure for the class file:
+\begin{minted}{java}
+    public class ClassName extends SuperClass implements Interface {
+
+        private int paramOne, paramTwo;      // attributes section
+
+        public ClassName() {}                // default constructer
+        public ClassName(int paramOne) {}    // constructor with parameters
+
+        public int getParam() {return 1;}    // accessor methods
+        public void setParam(int param) {}   // mutator methods
+    }
+\end{minted}
+
+In the attributes section, global attributes are declared; such attributes must be \verb$private$ and not initialized. A method or constructor can reference and distinguish these attributes via \verb$this.param$.
+
+\subsection{Constructors}
+
+The constructors section typically is as follows:
+\begin{minted}{java}
+    public ClassName() { this(defaultValue); } // default
+    public ClassName(int paramOne) { this.setParam(paramOne); } // with parameters
+\end{minted}
+The default constructor is the constructor with no arguments. Because of this, it is typically used to call another constructor that has parameters by passing a default value(s) as the parameter(s). Otherwise, constructors are generally used to initialize instances of the objects and to set attributes.
+
+\subsection{Methods}
+
+Methods are the most important aspect of classes, as they control what the class does. All classes should have both an accessor and mutator methods, with their formats typically being
+\begin{minted}{java}
+    public int getParam() { return this.param; } // accessor
+    public void setParam(int param) { this.param = param; } // mutator
+\end{minted}
+The first method is an accessor, and is used to access the value of one of the private attributes of the class, which otherwise would not be visible to the client. As well, mutator methods change the value of the specified attribute to that of the parameter, and hence do not return any values.
+
+\subsection{Obligatory Methods}
+The built in \verb$.equals()$, \verb$.hashCode()$, and \verb$.compareTo()$ methods must manually be overwritten when creating a class. A typical \verb$equals$ override method to test for equality is as follows:
+\begin{minted}{java}
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && this.getClass() == obj.getClass()) {
+            ClassName other = (ClassName) obj;
+            return (this.param == other.param)
+        } else return false;
+    }
+\end{minted}
+A \verb$compareTo$ method is more customizable, having a default signature of
+\begin{minted}{java}
+    @Override
+    public int compareTo(ClassName name) { return 1; }
+\end{minted}
+Lastly, the \verb$hashCode$ is simply implemented by calling the \mintinline{java}{Objects.hash(params)} method,
+
+\chapter{Bash Shell}
+
+\chapter{Intro to C}
+
+\chapter{The Processor}
 
 \chapter{Using RISC V}
 
@@ -42,9 +107,52 @@ In the first method, the value 42 is directly loaded into \verb|x4|. In the seco
 \bigskip
 Consequently, values are loaded from registers into memory via
 \begin{minted}{gas}
-	sd      x19, 88(x1)         # stores reg in mem
+	sd      x19, 88(x1)	 # stores reg in mem
 \end{minted}
 which stores the value contained in \verb$x19$ into memory address \verb|88 + x1|, which in this example would be $88 + 96$.
+
+\section{Conditionals}
+In RISC V, \textit{if} statements work unlike other languages, and operate using the following syntax:
+\begin{minted}{gas}
+      bne     x1, x2, Else	# goto Else
+      # commands if true
+      beq     x0, x0, Exit	# goto Exit
+Else: # commands if false
+Exit:
+\end{minted}
+This code snippet is equivalent to the more common format \verb$if (x1 == x2) {} else {}$. The \verb$beq$ command goes to the label \verb$Else$ if \verb$x1 == x2$. Consequently, the \verb$bne$ command does the reverse.
+
+
+\chapter{Intro to Verilog}
+
+\section{Syntax}
+
+A typical Verilog HDL program is formatted similarly to OOP languages, with a general program syntax given by:
+\begin{minted}{verilog}
+	module mod_one(args); // initiates mod_one
+	  // commands
+	  mod_two name(args); // calls instance of mod_two
+	endmodule
+
+	module mod_two(args); // initiates mod_two
+	  // commands
+	endmodule
+\end{minted}
+
+In Verilog, values may be prefixed by optional base type and memory size. Variable values in Verilog use the following syntax when using all options:
+\begin{minted}{verilog}
+	'define VAR 12'h19c // has format <size>'<base><value>
+\end{minted}
+If only the value is given, the default is decimal. As well, \verb|?| may be used as a wildcard character in variables, for example \verb|4'b10??|.
+
+\section{Logic}
+Verilog uses ternary instead of binary boolean logic. In addition to 0 (boolean false) and 1 (boolean true), there is also X (boolean unknown) and Z (boolean null) such that \begin{equation}
+	(X \equiv \{0, 1\} ) \land 0 \implies Z
+\end{equation}
+This leads to such logic having non-reflexivity as \begin{equation}
+	0 \land 1 \implies 0 \quad\text{and}\quad 1 \land 1 \implies 1
+\end{equation}
+
 
 
 \end{document}
