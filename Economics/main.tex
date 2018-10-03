@@ -1,135 +1,111 @@
-\documentclass{tufte-book}
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-\usepackage{amsmath,amsthm,amssymb}
-\usepackage{tikz}
-\usepackage{graphicx}
-\graphicspath{{../images/}}
+\documentclass[oneside, 12pt]{book}
+\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{amsmath, amssymb}
+\usepackage{minted}
+\usepackage{beramono}
+
+\usemintedstyle{xcode}
+%\setminted[matlab]{fontfamily=fdm, fontsize=\footnotesize}
+\setminted{fontsize=\footnotesize}
 
 \setlength{\parindent}{0pt}
-
-\title{Economics \& Project Management}
-\author{Richard Robinson}
+\title{\Huge{\textbf{Project Management \& Economics}}}
+\author{Richard Robinson 215353287}
 
 \begin{document}
-\frontmatter
 \maketitle
-%\tableofcontents
-
+\tableofcontents
 \setlength{\parindent}{0pt}
-
-\mainmatter
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% MAIN DOCUMENT
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \chapter{Time Value of Money}
 
+\section{Types of Interest}
+
+\emph{Nominal} or simple interest means the interest earned per interest period is exclusively a linear function of the principle amount of currency. This is opposite \emph{compound} interest, which means the interest is added to the principal amount at the start of every new interest period and is exponential.
+
+\bigskip
+The compounded interest rate per a compound period is given by \begin{equation}
+    i = \left(1 + \frac{r}{n} \right)^{nt} - 1 \iff A = P \left(1 + \frac{r}{n} \right)^{nt}
+\end{equation}
+where $r$ is the nominal interest rate per year, and $n$ is the number of compounding periods per year of $t$ years.
+
 \section{Interest Rates}
-
-\textsc{The dimension} for an interest rate $i$ is $c_1/c_2/T$ where $c$ is a currency and $T$ is the interest period. If an amount $P$ is borrowed for $N$ periods at $i$, the final amount is \begin{equation}
-  F = P(1+i)^N = P(1+i_s)^m = P + I_c
-\end{equation}
-which is known as compounding where the total interest on such loan $I_c$ is the compound interest. Consequently, the simple interest $I_s = PiN$ is such interest not compounded.
+The \emph{nominal rate} is the "actual" interest excluding the concept of compounding. This contrasts with the \emph{effective rate} which includes compounding. Depreciation is the reduction of value of an object. For a product costing \$$P$ which in $n$ years is worth \$$S$, then the depreciation rate per year is $1/n$\%.
 
 \bigskip
-\marginnote{For example, a NIR of $i$ / year compounded monthly is $i/12$ per month.}
-The \textit{nominal interest rate} (NIR) is the conventional annual interest rate. Suppose a period is divided by $m$. If $r$ is the NIR for the full period, the interest rate is
-\begin{equation}
-  i_s = r/m \iff r = i_s m
+As well, assuming a linear depreciation then the depreciable asset cost is \$$(P-S)$ such that the annual depreciation is \begin{equation}
+    (P-S)/n
 \end{equation}
-The \textit{effective interest rate} is the actual interest rate given by \begin{equation}
-  i_e = \frac{F}{P} - 1 = \left( 1 + \frac{r}{m} \right)^m - 1 \;\sim e^r - 1
-\end{equation}
-%
-\begin{marginfigure}
-  \begin{center}
-    \begin{tikzpicture}
-      \draw [->,thick] (0,0) -- (4,0);
-      \draw [fill] (0,0) circle [radius=0.05];
-      \draw [fill] (1,0) circle [radius=0.05];
-      \draw [fill] (2,0) circle [radius=0.05];
-      \draw [fill] (3,0) circle [radius=0.05];
-      \draw [->, thick] (1,0) -- (1,-0.5);
-      \draw [->, thick] (2,0) -- (2,-1);
-      \draw [->, thick] (3,0) -- (3,0.4) -- (3.1,0.4) -- (2.9,0.7) -- (3,0.7) -- (3,1);
-      \node [above] at (0,0) {0};
-      \node [above] at (1,0) {1};
-      \node [above] at (2,0) {2};
-      \node [below] at (3,0) {3};
-      \node [above] at (4,0) {4};
-    \end{tikzpicture} \phantom{mm}
-  \end{center}
-  \caption{A cash flow diagram. The broken line at $t=3$ indicates the net sum of the cash flow at that period.}
-\end{marginfigure}
-%
-A cash flow diagram is a visualization of cash flows and interest over time. Note that $N$ years from time $t$ is the end of period $N$ and beginning of $N+1$.
 
-\section{Cash Flow Analysis}
-A \emph{cash flow event} (CFE) is defined as a disbursement (paid) or receipt (received). The discrete cash flow patterns for compound interest factors (CIFs) are:
-\begin{enumerate}
-  \item \emph{Single}: A single CFE;
-  \item \emph{Annuity}: A set of CFEs over a sequence of periods;
-  \item \emph{Arithmetic Series}: A set of CFEs that change by a constant amount from one period to the next;
-  \item \emph{Geometric Series}: A set of CFEs that change by a constant proportion from one period to the next;
-\end{enumerate}
-The principle of discrete compounding assumes each CFE occurs at the end of a period such that a payment at $t$ occurs at the end of period $t-1$.
-%
-\begin{marginfigure}
-  \begin{center}
-    \begin{tikzpicture}
-      \draw [thick] (0,0) -- (1.3,0) -- (1.4,0.1) -- (1.6,-0.1) -- (1.7,0) -- (2,0);
-      \draw [->, thick] (2,0) -- (4,0);
-      \draw [fill] (0,0) circle [radius=0.05];
-      \draw [fill] (1,0) circle [radius=0.05];
-      \draw [fill] (2,0) circle [radius=0.05];
-      \draw [fill] (3,0) circle [radius=0.05];
-      \draw [->, thick] (1,0) -- (1,1);
-      \draw [->, thick] (2,0) -- (2,1);
-      \node [below] at (3,0) {N+1};
-      \node [below] at (2,0) {N};
-      \node [below] at (1,0) {1};
-      \node [below] at (0,0) {0};
-    \end{tikzpicture} \phantom{mm}
-  \end{center}
-  \caption{A cash flow diagram for an annuity over $N$ periods}
-\end{marginfigure}
-%
+\section{Data Analysis}
+Using MATLAB, an income stream array for an investment(s) with a series of returns per period may be created as follows:
+\begin{minted}{matlab}
+    Stream = [-investment1, return1, etc]; % new stream array
+    ROR = irr(Stream); % rate
+\end{minted}
+where \mintinline{matlab}{ROR} is the value(s) of the roots of the rate of return equation; the IRR is best if returns are in the early months rather than the later. For \emph{fixed} regular payments, the periodic interest rate, number of periods, and size of payment must be known. However for \emph{variable} regular payments, the cash flow and interest rate must be known. In MATLAB, these is given by
+\begin{minted}{matlab}
+    present_value = pvfix(r/m, mt, p/m); % fixed payments
+    present_value = pvvar(Stream, i, Dates); % var payments
+\end{minted}
+Additionally, the declining balance method calculates the annual depreciation via
+\begin{minted}{matlab}
+    depr = depstln(P, S, n); % year 1 depreciation
+    dbm = depgendb(P, S, n, 2); % depreciation for each year
+\end{minted}
+
+\section{Interest Calculations}
+MATLAB is also able to calculate different interest rates, as given by the following:
+\begin{minted}{matlab}
+    rate = annurate(mt, A, P, 0, 0) % find annural rate / 12
+    [P, I, bal, A] = amortize(r/m, mt, P) % find monthly payment
+\end{minted}
+where $P$ is the initial amount, $A$ is the payment per period, and $r$ is the annual rate. Given $P, A, I$ where $I$ is the monthly interest rate, the number of periods $n$ can be found via
+\begin{minted}{matlab}
+    periods = annuterm(I, A, -P) % periods to pay off loan
+    periods = annuterm(I, A, P, F) % periods until FV is reached
+\end{minted}
+
+\chapter{Project Management}
+
+\section{Roles of Members}
+There are several critical types of members involved in a project, whom's roles are described below:
+\begin{itemize}
+    \item \emph{Project Manager}: Makes decisions, and monitors and controls the team. They are also in charge of morale via conflict management and reward adjustment.
+
+    \item \emph{General Members}: Do their jobs on schedule and in accordance with the budget. They must also communicate and help resolve problems.
+
+    \item \emph{Functional Managers}: Deliver on resources promised, stay informed on the goings on, and take responsibility for the quality of work.
+
+    \item \emph{Sponsor}: An entity that has the resources to complete the project and leads the development of the project charter.
+
+    \item \emph{Senior Management}: Do not obstruct with the project, but rather reward success and give support when needed. As well, they should respect the project management process and take some responsibility.
+\end{itemize}
+
+\section{Definitions}
+The typical definition of a \emph{project} is something which delivers a result, often a product or service, in which there is a limited amount of time and money. Additionally, a project usually involves a number of people, and is a unique endeavor.
 
 \bigskip
-The compound amount factor is used for single cash flows, given by \begin{equation}
-  (F/P) = (1+i_e)^N = (1+r/m)^{mt}
-\end{equation}
-The present worth factor is the inverse, $(P/F)$. The sinking fund factor gives the size $A$ of a CFE equivalent to a future amount $F$, given by \begin{equation}
-  (A/F) = i / [F/P - 1]
-\end{equation}
-%
-\marginnote{\emph{Annuity Due}: The amount owed from a mortgage is $P = F[(F/P) - (A/P)_{N=12T}(F/A)]$ where $N$ the term and $T$ is the amortization period.}
-%
-The uniform series compound amount factor is the inverse, $(F/A)$. The \emph{capital recovery factor} gives the value $A$ of such equal periodic CFEs, given by \begin{equation}
-  (A/P) = (F/P) (A/F)
-\end{equation}
-with the inverse being the \emph{series present worth factor}, $(P/A)$. The capital recovery formula accounts for the salvage value $S$, given by \begin{equation}
-  A = P(A/P) - S(A/F) = (P-S)(A/P) + Si
-\end{equation}
-The \emph{annuity due} is the amount lent requiring $N$ monthly payments of $A$ starting today at an annual rate of $i$, such that $P = A + A(P/A)_{N-1}$. The \emph{arithmetic gradient to annuity factor} is given by \begin{equation}
-  (A/G) = i^{-1} - N/[F/P - 1] \iff A_{tot} = A' + G(A/G)
-\end{equation}
+\emph{Project Management} (PM) itself can be defined as encompassing several steps, including initiating, planning, executing, monitoring, and closing. Specifically,
+\begin{itemize}
+    \item In the \emph{initiation stage}, the nature and scope of a project are defined in the project charter, which also describes what the project will accomplish.
 
-\section{Geometric Series}
-The present worth of a geometric series is \begin{equation}
-  P = \sum \frac{A(1+g)^{j-1}}{F/P}
-\end{equation}
-Let the growth-adjust rate $i^\circ = (1+i)/(1+g)-1$. The geometric gradient series to present worth factor is thus \begin{equation}
-  (P/A)_g = (P/A)_{i^\circ} / (1+g)
-\end{equation}
-There are four possible scenarios for gradients series:
-\begin{enumerate}
-  \item $i>g>0$ or $g>i>0$; the basic scenarios.
-  \item $g=i>0$; then $i^\circ = 0$ and $P = NA/(1+g)$
-  \item $g<0$; series id decreasing and $i^\circ > 0$.
-\end{enumerate}
+    \item In the \emph{planning stages}, the project is broken down into smaller modules, the sequence of activities is defined, and the resources are identified.
+
+    \item In the \emph{execution stage}, work is carried out to deliver the product, service, or desired outcome, at which point the project manager assumes full responsibility and control.
+
+    \item In the \emph{monitoring stage}, progress reports and consistent assessments are carried out.
+
+    \item The \emph{closing stage} occurs at the end of the project, in which the manager ensures the client is satisfied with the outcome.
+\end{itemize}
+Of course, PM should only be implemented upon a project with specific deliverables.
+
+
+
+
+
+
 
 \end{document}
