@@ -1,14 +1,12 @@
 # Engineering Textbook Supplements
 
-*Notes for Java, C, Bash, & RISC-V currently delayed.*
-
-
 **Important Note:** These unofficial textbook supplements are optimized for the course syllabi of the Lassonde School of Engineering at York University. Therefore they may contain additional or lack of information depending on your school. Nevertheless they are still a helpful resource. Feel free to create issues to request additional content, or create a pull request to directly contribute.
 
 Click on a link below to download the latest versions ⬇️
  - [Circuits & Signals](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Circuits2/main.pdf) (*Coming Soon*)
  - [Electromagnetism](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Electromagnetism/main.pdf) (*In Progress*)
- - [Programming](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Assembly/main.pdf) (*In Progress*)
+ - [Java II](https://github.com/richardrobinson0924/textbook-supplements/blob/master/Coding/Java.md) (*In Progress*)
+ - [Assembly](https://github.com/richardrobinson0924/textbook-supplements/blob/master/Coding/Assembly.md) (*In Progress*)
  - [Chemistry](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Chemistry/main2.pdf)
  - [Economics](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Economics/main.pdf) (*In Progress*)
  - [Java I](https://github.com/richardrobinson0924/textbook-supplements/raw/master/Java-I/main.pdf)
