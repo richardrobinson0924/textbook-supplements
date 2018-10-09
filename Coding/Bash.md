@@ -1,6 +1,6 @@
 # Bash Scripts
 
-## The Basics & Syntax
+### Creating Scripts
 
 All `.sh` files contain `#!/bin/bash` as the first line.
 
@@ -13,7 +13,9 @@ chmod u+x filename.sh; bash filename.sh args...
 ### Variables Syntax
 The `*` keyword represents the directory of the current path.
 
-For an array `arr`, an element is called via `${arr[i]}` and the length is given by `${#arr[*]}`. For command line arguments, each argument is referenced by `$i` starting at `i = 1`.
+For an array `arr`, an element is called via `${arr[i]}` and the length is given by `${#arr[*]}`.
+
+For command line arguments, each argument is referenced by `$i` starting at `i = 1`.
 
 To split a string `str` at a delimiter `delim`, use
 ```bash
