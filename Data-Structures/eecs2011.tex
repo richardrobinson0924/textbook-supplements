@@ -1,0 +1,276 @@
+\documentclass[12pt, letterpaper]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage{mathpazo}
+\usepackage{amsmath}
+\usepackage{minted}
+\usepackage[most]{tcolorbox}
+\usepackage{multicol}
+\usepackage{mdframed}
+\usepackage{enumitem}
+
+\usetikzlibrary{positioning}
+
+
+% ------------------------------ CUSTOMIZATION ------------------------------ %
+
+\setcounter{tocdepth}{1}
+
+\usemintedstyle{friendly, frame=single, framesep=3mm, fontsize=\small, baselinestretch=1.1}
+
+\newtcbox{\mylib}{%
+    enhanced,
+    nobeforeafter,
+    tcbox raise base,
+    boxrule=0.5pt,
+    top=0.5mm,
+    bottom=-0.5mm,
+    right=1mm,
+    left=5mm,
+    arc=1pt,
+    boxsep=1pt,
+    before upper={\vphantom{dlg}},
+    colframe=green!50!black,
+    coltext=green!25!black,
+    colback=green!10!white,
+    overlay={%
+        \begin{tcbclipinterior}%
+            \fill[green!60!black] (frame.south west)
+            rectangle node[%
+                text=white,
+                font=\sffamily\bfseries\tiny,
+                rotate=90,
+            ] {time} ([xshift=4mm]frame.north west);
+        \end{tcbclipinterior}}%
+}
+
+\robustify{\mylib}
+\setlength\parindent{0pt}
+
+\setlength\columnsep{10pt}
+
+\title{\textbf{EECS 2011 Notes}}
+\author{Richard Robinson}
+
+% -------------------------------- DOCUMENT --------------------------------- %
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Fundamental Data Structures}
+
+\subsection{Insertion-Sort Algorithm \mylib{\small{$\mathcal O(n^2)$}}}
+The insertion-sort algorithm is used to sort an array of elements. Analytically, the non-recursive version of algorithm operates by:
+\begin{enumerate}
+    \item Iterate through each element $e$ in the array
+    \item For each element, compare to each element left of $e$.
+    \item If $e$ is less than such element, swap the indices of those elements
+\end{enumerate}
+because the algorithm fully iterates through 2 nested loops, the complexity is described by $\mathcal O(n^2)$. Expressed algorithmically, it is represented as:
+\begin{minted}{java}
+    insertionSort(arr, arr.size() - 1);
+    public static void insertionSort(List<T> arr, int n) {
+        if (n > 0) {
+            insertionSort(arr, n - 1);
+            int j;
+            T elem = arr.get(n);
+
+            for (j = n - 1; j >= 0 && arr.get(j) > elem; j--) {
+                arr.set(j + 1, arr.get(j));
+            }
+            arr.set(j + 1, elem)
+        }
+    }
+\end{minted}
+The recursive version shown above improves upon this by
+\begin{itemize}
+    \item turning the outer loop into a recursive call of size $n - 1$, and
+    \item separating the swapping algorithm from the innermost loop
+\end{itemize}
+
+\subsection{Singly Linked Lists \mylib{\small{$\mathcal O(n)$}}}
+A linked list is a collection of nodes that form a linear sequence. Each node stores a reference to an element of the sequence, as well as a reference to the next node and alternatively a reference to the previous node (doubly-linked list).
+
+\bigskip
+A linked list must keep a reference to the first element (the head) and the last element (the tail), which has \mintinline{java}|null| as its reference. An element may be added to the head and tail of a linked list, respectively, via:
+\begin{multicols}{2}
+\begin{minted}{java}
+public void addFirst(T e) {
+    Node newest =
+        new Node(e, this.head);
+    this.head = newest;
+    size++;
+}
+\end{minted}
+\begin{minted}{java}
+public void addLast(T e) {
+    Node newest = new Node(e, null);
+    this.tail.setNext(newest);
+    this.tail = newest;
+    size++;
+}
+\end{minted}
+\end{multicols}
+To remove an element from the head of the list, \mintinline{java}|this.head| is simply dereferenced and assigned to \mintinline{java}|this.head.getNext()|
+
+\subsection{Other Linked Lists \mylib{\small{$\mathcal O(n)$}}}
+In a \textbf{\textit{circularly linked list}} (CCL), the reference of the tail node is linked to the head node instead of \mintinline{java}|null|. This requires an additional \mintinline{java}|rotate()| method, which assigns \mintinline{java}|tail| to the next element. A CCL has the following methods:
+\begin{multicols}{2}
+\begin{minted}{java}
+public void addFirst(T e) {
+    if (this.isEmpty()) {
+        this.tail = new Node(e, null);
+        this.tail.setNext(this.tail);
+    } else {
+        Node newest =
+            new Node(e, tail.getNext);
+        tail.setNext(newest);
+    }
+    size++
+}
+.
+.
+.
+\end{minted}
+\columnbreak
+\begin{minted}{java}
+public void removeFirst(T e) {
+    if (this.isEmpty()) return null;
+    Node head = tail.getNext();
+
+    if (head == tail) this.tail = null
+    else tail.setNext(head.getNext());
+    size--;
+}
+\end{minted}
+\begin{minted}{java}
+public void addLast(T e) {
+    this.addFirst(e);
+    this.rotate();
+}
+\end{minted}
+\end{multicols}
+The primary use of circularly linked lists is in implementations of \textbf{\textit{round-robin scheduling}}, which for a list $C$, gives a time slice to \mintinline{java}|C.first()|, then executes \mintinline{java}|C.rotate()|.
+
+\newpage
+\section{Algorithmic Analysis}
+
+\subsection{Notation and Definitions}
+The set of \textbf{\textit{primitive operations}} consists of the following operations:
+\begin{itemize}
+    \item Assigning a value to a variable or reference
+    \item Performing an arithmetic operation or boolean comparison
+    \item Accessing a single element of an array
+    \item Calling or returning from a method
+\end{itemize}
+
+The main functions by which complexities are measured with reference to include:
+\begin{align*}
+    \overbrace{\;c \qquad \log n \qquad n \qquad n \log n \qquad n^2\;}^{f(n)}
+\end{align*}
+in order of increasing time complexity.
+\bigskip
+The \textbf{\textit{Big-Oh}} notation is defined as follows:
+\begin{equation}
+    f(n) \in \mathcal O(g(n)) \iff \exists (c > 0) \exists (n_0 > 1) \forall (n  \geq n_0)(f(n) \leq c \cdot g(n))
+\end{equation}
+
+\subsection{Binary Search \mylib{\small{$\mathcal O(\log n)$}}}
+Binary search is a recursive search algorithm for sorted arrays to see if it contains an element $e$. In this algorithm, a target value $v = \lfloor (\min + \max) /2 \rfloor$ is selected. If $e > v$, the procedure is continued with $\min \mapsto v + 1$ and similarly for $e < v$, and continues until $e$ is found or $\min \geq \max$.
+
+\bigskip
+Algorithmically, binary search is given by:
+\begin{minted}{java}
+    bSearch(List<T> data, data.size() / 2, 0, data.size() - 1);
+    static boolean bSearch(List<T> data, T target, T lo, T hi) {
+        if (lo > hi) return false;
+        T mid = (lo + hi) / 2;
+
+        if (target == data.get(mid)) return true;
+        return (target < data.get(mid))
+            ? bSearch(data, target, lo, mid - 1);
+            : bSearch(data, target, mid + 1, hi);
+    }
+\end{minted}
+In general, a binary-based recursive algorithm tests base cases, and otherwise returns itself with one or more of two sets of parameters, based on a boolean comparison.
+
+\newpage
+\section{Stacks, Queues, \& Deques}
+\subsection{Stacks \mylib{\small{$\mathcal O(1)$}}}
+A stack is an \textbf{\textit{abstract data type}} (ADT) whose elements operate according to the \textbf{\textit{last-in, first-out}} (LIFO) principle. A general stack API has the following methods:
+\begin{description}
+    \item[\mintinline{java}|void push(T e)|] Adds the element $e$ to the top of the stack
+    \item[\qquad\quad\;\,\mintinline{java}|T pop()|] Removes and returns the top element
+    \item[\qquad\quad\mintinline{java}|T peek()|] Returns the top element of the stack, or \mintinline{java}|null| if empty.
+\end{description}
+Most commonly, stacks are used when a history or matching of elements in a list is required. In general, the following algorithm can be used to check if a string has matched delimiters:
+\begin{minted}{java}
+    static boolean isMatched(String str, String start, String end) {
+        Stack<String> st = new Stack<>();
+        for (char c : str.toCharArray()) {
+            if (start.contains(c)) st.push(c);
+            else if (end.contains(c)) {
+                if (buf.isEmpty()) return false;
+
+                char p = buf.pop();
+                if (end.indexOf(c) != start.indexOf(p)) return false;
+            }
+        }
+
+        return buf.isEmpty();
+    }
+\end{minted}
+
+\subsection{Queues \mylib{\small{$\mathcal O(1)$}}}
+The queue ADT operates on a FIFO principle such that the oldest element is retrieved first, with the following API methods:
+\begin{description}
+    \item[\mintinline{java}|void enqueue(T e)|] Adds the element $e$ to the back of queue
+    \item[\quad\quad\;\;\;\mintinline{java}|T dequeue()|] Removes and returns the first element
+\end{description}
+Since there is no reference to the back of the queue, the formula
+\begin{equation}
+    i_b = (i_f + n) \mod \ell_{\text{arr}}
+\end{equation}
+in which $i_f$ is the index of the first element, $n$ is the number of elements, and $\ell$ is the array length.
+
+\subsection{Deques \mylib{\small{$\mathcal O(1)$}}}
+A double-ended queue is an ADT of a generalization between queues and stacks, in that an element may be added to the front of the queue and/or removed from the back. A deque has these API methods:
+\begin{description}
+    \item[\mintinline{java}|void addFirst(T e)|] Adds the element $e$ to the front of the deque (similarly, \mintinline{java}|addLast()|)
+    \item[\quad\,\;\mintinline{java}|T removeFirst()|] Removes and returns the first element (similarly, \mintinline{java}|removeLast()|)
+\end{description}
+Typically, deques are implemented via doubly-linked lists.
+
+\newpage
+
+\section{Lists \& Iterators}
+
+\subsection{Positional Lists \mylib{\small{$\mathcal O(1)$}}}
+Positional list ADTs use a \textbf{\textit{cursor}} to define a particular position within a list without indices via a \mintinline{java}|getElement()| method. A positional list may implement a traversal method via:
+\begin{minted}{java}
+    public void traverse(PositinalList<T> pl) {
+        Position<T> cursor;
+        for (cursor = pl.first(); cursor != null; cursor = pl.after(cursor))
+            // action for each element
+    }
+\end{minted}
+Note, all positional list methods except \verb|set(p,e)| and \verb|remove(p)| return the position of the element.
+
+\subsection{Iterators}
+An iterator is a pattern for the abstraction of sequences, which is generally an interface with methods \mintinline{java}|E next()| and \mintinline{java}|boolean hasNext()|.
+
+\bigskip
+As well, there exists an \mintinline{java}|Iterator iterator()| for use in data structures, which returns an iterator of the elements in the collection, which is used as a substitute for the for each loop when \mintinline{java}|remove()| is used, as for example to filer a list:
+\begin{minted}{java}
+    public void filter(List<E> list, double threshold) {
+        Iterator<E> iter = list.iterator();
+        while (iter.hasNext()) if (iter.next() > threshold) {
+            iter.remove();
+        }
+    }
+\end{minted}
+
+
+
+\end{document}
