@@ -1,0 +1,46 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[margin=0.6in]{geometry}
+%\usepackage{mathpazo}
+\usepackage{amsmath}
+\usepackage{multicol}
+
+% ------------------------------ CUSTOMIZATION ------------------------- %
+
+\setlength\parindent{0pt}
+
+\title{\textbf{EECS 2210 Notes}}
+\author{Richard Robinson}
+
+% -------------------------------- DOCUMENT ---------------------------- %
+
+\begin{document}
+
+\maketitle
+
+\begin{multicols*}{2}
+
+\section{Semiconductors}
+The hole density $p$ and electron density $n$ are related by \begin{equation}
+    np = n_i^2
+\end{equation}
+where $n_i$ is the number of electrons per unit volume.
+
+\bigskip
+In charge carriers, the velocity of electrons and holes are given by \begin{equation}
+    \mathbf v_e = - \mu_n \mathbf E \quad\text{and}\quad \mathbf v_h = \mu_p \mathbf E
+\end{equation}
+where $\mu$ is the mobility in $\text{cm}^2/(\text{V}\cdot\text{s})$ and $E = V/L$.
+
+\bigskip
+Consequently, the current in a carrier is defined as \begin{equation}
+    I = -\rho A v_d \quad\text{for}\quad \rho = nq
+\end{equation}
+such that the current density $J_n = I/A$. The total density is given by \begin{equation}
+    J_{tot} = q(\mu_n n + \mu_p p)E
+\end{equation}
+
+\end{multicols*}
+
+
+
+\end{document}

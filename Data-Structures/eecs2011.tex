@@ -270,7 +270,52 @@ As well, there exists an \mintinline{java}|Iterator iterator()| for use in data 
         }
     }
 \end{minted}
+Thus, a class may implement a custom Iterator by creating a private inner class which implements Iterator and contains its subsequent methods, along with the following method in the outer class:
+\begin{minted}{java}
+    public Iterator<E> iterator() {
+        return new customIterator();
+    }
+\end{minted}
+where \mintinline{java}|customIterator| is the name of the inner class.
 
+\bigskip
+To support a for each type loop for positions of a positional list, the following nested Iterator and Iterable classes must be created:
+\begin{minted}{java}
+    private class PosIterator implements Iterator<Position<E>> {
+        private Position<E> cursor = first(), recent = null;
+        public boolean hasNext() { return cursor != null; }
 
+        public Position<E> next() {
+            recent = cursor;
+            cursor = after(cursor);
+            return recent;
+        }
+
+        public void remove() {
+            LinkedPosList.this.remove(recent);
+            recent = null;
+        }
+    }
+
+    private class PosIterable implements Iterable<Position<E>> {
+        public Iterator<Position<E>> iterator() {
+            return new PosIterator();
+        }
+    }
+
+    public Iterable<Position<E>> positions() {
+        return new PosIterable();
+    }
+
+    public class ElemIterator implements Iterator<E> {
+        Iterator<Position<E>> posIterator = new PositionIterator();
+
+        public boolean hasNext() { return posIterator.hasNext(); }
+        public E next() { return posIterator.next().getElement(); }
+        public void remove() { posIterator.remove(); }
+    }
+
+    public Iterator<E> iterator() { return new ElemIterator(); }
+\end{minted}
 
 \end{document}
